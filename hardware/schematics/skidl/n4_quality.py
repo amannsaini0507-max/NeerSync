@@ -1,5 +1,5 @@
 """
-JalSetu Node N4: Water Quality Monitoring Node SKiDL Schematic Script
+NeerSync Node N4: Water Quality Monitoring Node SKiDL Schematic Script
 Emits type: "quality" (turbidity_ntu)
 Features optical nephelometric turbidity sensor with 10k/20k voltage divider to GPIO36 (VP)
 """

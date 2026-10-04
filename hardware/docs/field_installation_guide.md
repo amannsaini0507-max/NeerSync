@@ -1,4 +1,4 @@
-# JalSetu Field Installation Guide (ग्रामीण स्थापना एवं रखरखाव मार्गदर्शिका)
+# NeerSync Field Installation Guide (ग्रामीण स्थापना एवं रखरखाव मार्गदर्शिका)
 
 **Target Audience**: Gram Panchayat Pump Operators, Jal Surakshaks (जल सुरक्षक), and Field Technicians  
 **Language**: English & Hindi (हिंदी)  
@@ -72,7 +72,7 @@
    * Ensure probe windows are fully submerged and free of trapped air bubbles.
 3. **Field Test Kit (FTK) Entry (एफटीके मैनुअल प्रविष्टि)**:
    * Jal Surakshaks perform weekly manual chlorine testing using JJM chemical drops (OT kit).
-   * Result is submitted in the JalSetu Android PWA or via automated IVR/SMS: `FTK <FHTC_ID> CHL <value>`.
+   * Result is submitted in the NeerSync Android PWA or via automated IVR/SMS: `FTK <FHTC_ID> CHL <value>`.
 
 ---
 
@@ -109,6 +109,6 @@
    * **Solid ON for 3 seconds**: Sensors powered and reading acquired.
    * **Blinks slowly (1 pulse/sec)**: Cellular/LoRa network search and registration.
    * **Single long blink**: Telemetry packet transmitted and acknowledged successfully.
-3. Verify on the JalSetu Gram Panchayat Dashboard:
+3. Verify on the NeerSync Gram Panchayat Dashboard:
    * Confirm the node appears as **"Online"** with current timestamp.
    * Confirm battery voltage reads between **$3.70\,\text{V} \text{ and } 4.20\,\text{V}$**.

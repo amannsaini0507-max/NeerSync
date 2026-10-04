@@ -1,6 +1,6 @@
-# JalSetu Virtual Testing Guide (Wokwi Projects)
+# NeerSync Virtual Testing Guide (Wokwi Projects)
 
-This directory contains standalone virtual simulation projects for all four JalSetu IoT edge node types. These allow testing firmware logic, sensor timing, and contract JSON serialization directly in the browser using the [Wokwi ESP32 Simulator](https://wokwi.com).
+This directory contains standalone virtual simulation projects for all four NeerSync IoT edge node types. These allow testing firmware logic, sensor timing, and contract JSON serialization directly in the browser using the [Wokwi ESP32 Simulator](https://wokwi.com).
 
 ---
 
@@ -21,7 +21,7 @@ This directory contains standalone virtual simulation projects for all four JalS
 2. Copy and paste the contents of `sketch.ino` into the code editor.
 3. Switch to the `diagram.json` tab in Wokwi and paste the contents of `diagram.json`.
 4. Click the green **Play (Start Simulation)** button.
-5. Watch the Serial Monitor: The node outputs valid JalSetu contract JSON payloads every 5 seconds.
+5. Watch the Serial Monitor: The node outputs valid NeerSync contract JSON payloads every 5 seconds.
 
 ---
 

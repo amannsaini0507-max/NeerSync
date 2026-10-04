@@ -1,5 +1,5 @@
-#ifndef JALSETU_SENSORS_H
-#define JALSETU_SENSORS_H
+#ifndef NEERSYNC_SENSORS_H
+#define NEERSYNC_SENSORS_H
 
 #include <Arduino.h>
 #include "config.h"
@@ -32,4 +32,4 @@ bool readPressure(float& pressure_kpa);
 // Node N4: Water Turbidity (NTU) via optical probe
 bool readTurbidity(float& turbidity_ntu);
 
-#endif // JALSETU_SENSORS_H
+#endif // NEERSYNC_SENSORS_H

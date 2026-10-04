@@ -1,5 +1,5 @@
 /*
- * JalSetu Node N2: Elevated Storage Reservoir (ESR) Level & Flow Wokwi Virtual Test
+ * NeerSync Node N2: Elevated Storage Reservoir (ESR) Level & Flow Wokwi Virtual Test
  * Simulates ultrasonic echo distance and Hall pulse flow interrupts.
  */
 
@@ -22,7 +22,7 @@ void setup() {
   pinMode(PIN_FLOW, INPUT_PULLDOWN);
   pinMode(PIN_LED, OUTPUT);
   attachInterrupt(digitalPinToInterrupt(PIN_FLOW), onFlowPulse, RISING);
-  Serial.println(F("--- JalSetu Node N2 (ESR Level & Flow) Wokwi Simulation Started ---"));
+  Serial.println(F("--- NeerSync Node N2 (ESR Level & Flow) Wokwi Simulation Started ---"));
 }
 
 void loop() {
@@ -44,14 +44,14 @@ void loop() {
   float flow_lpm = (count > 0) ? (count * 2.5f) : 24.5f;
 
   // 1. Emit esr_level telemetry
-  Serial.print(F("{\"schema_version\":\"1.0\",\"node_id\":\"JS-UP-245123-N002\",\"lgd_gp_code\":\"245123\",\"scheme_id\":\"SCH-UP-245123\",\"ts\":\"2026-10-04T12:00:00Z\",\"seq\":"));
+  Serial.print(F("{\"schema_version\":\"1.0\",\"node_id\":\"NS-UP-245123-N002\",\"lgd_gp_code\":\"245123\",\"scheme_id\":\"SCH-UP-245123\",\"ts\":\"2026-10-04T12:00:00Z\",\"seq\":"));
   Serial.print(seq++);
   Serial.print(F(",\"type\":\"esr_level\",\"values\":{\"level_cm\":"));
   Serial.print(level_cm, 1);
   Serial.println(F("},\"battery_v\":3.98,\"rssi_dbm\":-72,\"fw\":\"1.0.0\"}"));
 
   // 2. Emit flow telemetry
-  Serial.print(F("{\"schema_version\":\"1.0\",\"node_id\":\"JS-UP-245123-N002\",\"lgd_gp_code\":\"245123\",\"scheme_id\":\"SCH-UP-245123\",\"ts\":\"2026-10-04T12:00:00Z\",\"seq\":"));
+  Serial.print(F("{\"schema_version\":\"1.0\",\"node_id\":\"NS-UP-245123-N002\",\"lgd_gp_code\":\"245123\",\"scheme_id\":\"SCH-UP-245123\",\"ts\":\"2026-10-04T12:00:00Z\",\"seq\":"));
   Serial.print(seq++);
   Serial.print(F(",\"type\":\"flow\",\"values\":{\"flow_lpm\":"));
   Serial.print(flow_lpm, 1);

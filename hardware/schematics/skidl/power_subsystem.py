@@ -1,5 +1,5 @@
 """
-JalSetu Power Subsystem SKiDL Schematic Script
+NeerSync Power Subsystem SKiDL Schematic Script
 Solar MPPT / TP4056 + DW01A BMS + 3.8V GSM Buck + 3.3V System LDO
 """
 

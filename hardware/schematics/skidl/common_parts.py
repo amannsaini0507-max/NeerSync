@@ -1,5 +1,5 @@
 """
-JalSetu Hardware - SKiDL Common Component Definitions
+NeerSync Hardware - SKiDL Common Component Definitions
 Provides standalone Part templates without requiring KiCad symbol installations.
 """
 

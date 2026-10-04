@@ -1,4 +1,4 @@
-# JalSetu Hardware Mandatory Design Checks
+# NeerSync Hardware Mandatory Design Checks
 
 **Standard**: Jal Jeevan Mission IoT Architecture  
 **Microcontroller**: ESP32-WROOM-32D (3.3V Logic, 12-bit SAR ADC)  
@@ -58,7 +58,7 @@ ESP32 GPIO pins are **NOT 5V tolerant**. Applying voltages above $V_{DD} + 0.3\t
 The ESP32 integrated SAR ADCs are divided into ADC1 and ADC2. **ADC2 cannot be used when Wi-Fi or cellular background RF is active**, because the radio peripheral arbitrates and forces ADC2 calibration locks.
 
 ### 2.1 Allowed vs Forbidden Pins
-| Pin | Functionality | Status in JalSetu | Design Usage / Rationale |
+| Pin | Functionality | Status in NeerSync | Design Usage / Rationale |
 |---|---|---|---|
 | **GPIO36 / SENSOR_VP** | ADC1_CH0 | **ALLOWED (Input Only)** | Used for Pressure Transducer (N3) or Analog Turbidity (N4) |
 | **GPIO39 / SENSOR_VN** | ADC1_CH3 | **ALLOWED (Input Only)** | Used for Battery Voltage Monitoring Divider |

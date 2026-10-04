@@ -1,13 +1,13 @@
-#ifndef JALSETU_CONFIG_H
-#define JALSETU_CONFIG_H
+#ifndef NEERSYNC_CONFIG_H
+#define NEERSYNC_CONFIG_H
 
 #include <Arduino.h>
 
 // =============================================================================
-// JalSetu Shared Contract v1.0 Standards & Constants
+// NeerSync Shared Contract v1.0 Standards & Constants
 // =============================================================================
-#define JALSETU_SCHEMA_VERSION      "1.0"
-#define JALSETU_FIRMWARE_VERSION    "1.0.0"
+#define NEERSYNC_SCHEMA_VERSION      "1.0"
+#define NEERSYNC_FIRMWARE_VERSION    "1.0.0"
 
 #ifndef LGD_GP_CODE_DEFAULT
 #define LGD_GP_CODE_DEFAULT         "245123"
@@ -18,7 +18,7 @@
 #endif
 
 #ifndef NODE_ID_DEFAULT
-#define NODE_ID_DEFAULT             "JS-UP-245123-N001"
+#define NODE_ID_DEFAULT             "NS-UP-245123-N001"
 #endif
 
 // =============================================================================
@@ -105,4 +105,4 @@
 // Maximum JSON Buffer Size (Budget: < 512 bytes target, 1024 bytes max)
 #define MAX_PAYLOAD_SIZE            512
 
-#endif // JALSETU_CONFIG_H
+#endif // NEERSYNC_CONFIG_H

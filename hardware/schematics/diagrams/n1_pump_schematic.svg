@@ -24,7 +24,7 @@
   <!-- Background -->
   <rect width="1200" height="800" fill="#f8fafc" />
   <rect x="15" y="15" width="1170" height="770" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
-  <text x="35" y="45" class="title">JalSetu Node N1 — Tube-well / Pump Monitoring Node (Schematic)</text>
+  <text x="35" y="45" class="title">NeerSync Node N1 — Tube-well / Pump Monitoring Node (Schematic)</text>
 
   <text x="35" y="65" class="subtitle">Contract: type="pump" | Metrics: current_a, voltage_v | 415V/230V Optoisolated AC Measurement</text>
   
@@ -105,7 +105,7 @@
 
   <!-- Title Block Footer -->
   <rect x="850" y="730" width="335" height="55" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" />
-  <text x="860" y="748" font-family="Segoe UI, sans-serif" font-size="11px" font-weight="bold" fill="#0f172a">JalSetu JJM FHTC Monitoring IoT Node</text>
+  <text x="860" y="748" font-family="Segoe UI, sans-serif" font-size="11px" font-weight="bold" fill="#0f172a">NeerSync JJM FHTC Monitoring IoT Node</text>
   <text x="860" y="764" font-family="Segoe UI, sans-serif" font-size="10px" fill="#475569">Rev: 1.0 | Date: 2026-10-04 | Status: ERC UNVERIFIED</text>
   <text x="860" y="778" font-family="Segoe UI, sans-serif" font-size="10px" fill="#64748b">Branch: feature/hardware | Single Source of Truth</text>
 </svg>

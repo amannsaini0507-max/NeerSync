@@ -1,5 +1,5 @@
-#ifndef JALSETU_NETWORK_MANAGER_H
-#define JALSETU_NETWORK_MANAGER_H
+#ifndef NEERSYNC_NETWORK_MANAGER_H
+#define NEERSYNC_NETWORK_MANAGER_H
 
 #include <Arduino.h>
 #include "config.h"
@@ -35,4 +35,4 @@ private:
     void powerGsmModem(bool enable);
 };
 
-#endif // JALSETU_NETWORK_MANAGER_H
+#endif // NEERSYNC_NETWORK_MANAGER_H

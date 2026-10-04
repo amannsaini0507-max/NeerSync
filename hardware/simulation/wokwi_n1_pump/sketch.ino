@@ -1,5 +1,5 @@
 /*
- * JalSetu Node N1: Tube-well / Pump Monitoring Wokwi Virtual Test Sketch
+ * NeerSync Node N1: Tube-well / Pump Monitoring Wokwi Virtual Test Sketch
  * Simulates CT current clamp sampling and emits contract-compliant JSON.
  * Note: High-voltage AC mains is NOT simulated physically in browser (UNVERIFIED).
  */
@@ -13,7 +13,7 @@ void setup() {
   Serial.begin(115200);
   pinMode(PIN_LED, OUTPUT);
   analogReadResolution(12);
-  Serial.println(F("--- JalSetu Node N1 (Pump) Wokwi Simulation Started ---"));
+  Serial.println(F("--- NeerSync Node N1 (Pump) Wokwi Simulation Started ---"));
 }
 
 void loop() {
@@ -28,7 +28,7 @@ void loop() {
   int rssi = -68;
 
   // Emit strictly valid contracts JSON
-  Serial.print(F("{\"schema_version\":\"1.0\",\"node_id\":\"JS-UP-245123-N001\",\"lgd_gp_code\":\"245123\",\"scheme_id\":\"SCH-UP-245123\",\"ts\":\"2026-10-04T12:00:00Z\",\"seq\":"));
+  Serial.print(F("{\"schema_version\":\"1.0\",\"node_id\":\"NS-UP-245123-N001\",\"lgd_gp_code\":\"245123\",\"scheme_id\":\"SCH-UP-245123\",\"ts\":\"2026-10-04T12:00:00Z\",\"seq\":"));
   Serial.print(seq++);
   Serial.print(F(",\"type\":\"pump\",\"values\":{\"current_a\":"));
   Serial.print(current_a, 1);

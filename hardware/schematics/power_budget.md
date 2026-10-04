@@ -1,4 +1,4 @@
-# JalSetu IoT Node Family Power Budget & Solar Sizing Analysis
+# NeerSync IoT Node Family Power Budget & Solar Sizing Analysis
 
 **Target Geography**: Rural India (Jal Jeevan Mission Gram Panchayats)  
 **Standard Autonomy Goal**: **3–5 days continuous operation under zero sunlight (monsoon overcast conditions)**  

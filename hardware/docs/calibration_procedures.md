@@ -1,4 +1,4 @@
-# JalSetu Sensor Calibration & Field Test Procedures
+# NeerSync Sensor Calibration & Field Test Procedures
 
 **Target Audience**: Field Engineers, Block Resource Persons, and Gram Panchayat Jal Surakshaks  
 **Standard**: Jal Jeevan Mission Quality & Operational Benchmark  
@@ -66,8 +66,8 @@ Connect the transducer and reference gauge to the test manifold. Apply pressure 
 In rural pipelines, static elevation head or zero drift can occur. With the isolation valve closed and bleed screw open ($0\,\text{kPa}$ gauge pressure), trigger the firmware tare command:
 ```bash
 # Via serial console or MQTT command channel:
-mosquitto_pub -t "jalsetu/v1/245123/JS-UP-245123-N003/cmd" \
-  -m '{"command_id":"CMD-001","action":"CALIBRATE","target_node":"JS-UP-245123-N003","target_actuator":"PRESS_01"}'
+mosquitto_pub -t "neersync/v1/245123/NS-UP-245123-N003/cmd" \
+  -m '{"command_id":"CMD-001","action":"CALIBRATE","target_node":"NS-UP-245123-N003","target_actuator":"PRESS_01"}'
 ```
 
 ---

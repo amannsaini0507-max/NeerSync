@@ -1,5 +1,5 @@
 /*
- * JalSetu Node N3: Tail-End Water Pressure Monitoring Wokwi Virtual Test
+ * NeerSync Node N3: Tail-End Water Pressure Monitoring Wokwi Virtual Test
  * Simulates 0.5-4.5V pressure transducer scaled to ADC1_CH0 (GPIO36).
  */
 
@@ -12,7 +12,7 @@ void setup() {
   Serial.begin(115200);
   pinMode(PIN_LED, OUTPUT);
   analogReadResolution(12);
-  Serial.println(F("--- JalSetu Node N3 (Tail-End Pressure) Wokwi Simulation Started ---"));
+  Serial.println(F("--- NeerSync Node N3 (Tail-End Pressure) Wokwi Simulation Started ---"));
 }
 
 void loop() {
@@ -26,7 +26,7 @@ void loop() {
   float battery_v = 3.85f;
   int rssi = -81;
 
-  Serial.print(F("{\"schema_version\":\"1.0\",\"node_id\":\"JS-UP-245123-N003\",\"lgd_gp_code\":\"245123\",\"scheme_id\":\"SCH-UP-245123\",\"ts\":\"2026-10-04T12:00:00Z\",\"seq\":"));
+  Serial.print(F("{\"schema_version\":\"1.0\",\"node_id\":\"NS-UP-245123-N003\",\"lgd_gp_code\":\"245123\",\"scheme_id\":\"SCH-UP-245123\",\"ts\":\"2026-10-04T12:00:00Z\",\"seq\":"));
   Serial.print(seq++);
   Serial.print(F(",\"type\":\"pressure\",\"values\":{\"pressure_kpa\":"));
   Serial.print(pressure_kpa, 1);

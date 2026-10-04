@@ -1,5 +1,5 @@
 /*
- * JalSetu Node N4: Water Turbidity Monitoring Wokwi Virtual Test
+ * NeerSync Node N4: Water Turbidity Monitoring Wokwi Virtual Test
  * Simulates nephelometric optical sensor with FTK app chlorine baseline.
  */
 
@@ -12,7 +12,7 @@ void setup() {
   Serial.begin(115200);
   pinMode(PIN_LED, OUTPUT);
   analogReadResolution(12);
-  Serial.println(F("--- JalSetu Node N4 (Turbidity Quality) Wokwi Simulation Started ---"));
+  Serial.println(F("--- NeerSync Node N4 (Turbidity Quality) Wokwi Simulation Started ---"));
 }
 
 void loop() {
@@ -26,7 +26,7 @@ void loop() {
   float battery_v = 4.05f;
   int rssi = -74;
 
-  Serial.print(F("{\"schema_version\":\"1.0\",\"node_id\":\"JS-UP-245123-N004\",\"lgd_gp_code\":\"245123\",\"scheme_id\":\"SCH-UP-245123\",\"ts\":\"2026-10-04T12:00:00Z\",\"seq\":"));
+  Serial.print(F("{\"schema_version\":\"1.0\",\"node_id\":\"NS-UP-245123-N004\",\"lgd_gp_code\":\"245123\",\"scheme_id\":\"SCH-UP-245123\",\"ts\":\"2026-10-04T12:00:00Z\",\"seq\":"));
   Serial.print(seq++);
   Serial.print(F(",\"type\":\"quality\",\"values\":{\"turbidity_ntu\":"));
   Serial.print(turbidity_ntu, 2);
