@@ -138,3 +138,5 @@ export const GISMap: React.FC<GISMapProps> = ({
     </div>
   );
 };
+
+export default GISMap;

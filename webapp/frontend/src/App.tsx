@@ -6,6 +6,7 @@ import CitizenQRPage from './pages/CitizenQRPage';
 import CitizenGrievancePage from './pages/CitizenGrievancePage';
 import AlertManagementPage from './pages/AlertManagementPage';
 import IMISSyncPage from './pages/IMISSyncPage';
+import DigitalTwinPage from './pages/DigitalTwinPage';
 
 import en from './i18n/en.json';
 import hi from './i18n/hi.json';
@@ -44,6 +45,8 @@ export const App: React.FC = () => {
             <Route path="/feedback" element={<CitizenGrievancePage lang={lang} translations={t} />} />
             <Route path="/alerts" element={<AlertManagementPage />} />
             <Route path="/sync" element={<IMISSyncPage />} />
+            <Route path="/twin" element={<DigitalTwinPage />} />
+            <Route path="/simulation" element={<DigitalTwinPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

@@ -11,13 +11,14 @@ from app.config import settings
 from app.database import init_db, AsyncSessionLocal
 from app.seed.master_seed import seed_demo_village
 from app.mqtt.subscriber import mqtt_subscriber
-from app.routers import telemetry, alerts, feedback, master, analytics, sync, auth
+from app.routers import telemetry, alerts, feedback, master, analytics, sync, auth, simulation
 from app.adapters.mock_external import mock_router
 
 logger = logging.getLogger("jalsetu")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 
 FRONTEND_DIST = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
+TWIN3D_DIST = Path(__file__).resolve().parent.parent.parent.parent / "simulation" / "twin3d" / "dist"
 
 
 @asynccontextmanager
@@ -90,6 +91,7 @@ app.include_router(master.router)
 app.include_router(analytics.router)
 app.include_router(sync.router)
 app.include_router(auth.router)
+app.include_router(simulation.router)
 app.include_router(mock_router)
 
 
@@ -103,6 +105,10 @@ async def health_check():
         "env": settings.app_env
     }
 
+
+# Static 3D Digital Twin Delivery (when twin3d/dist exists)
+if TWIN3D_DIST.exists():
+    app.mount("/twin3d", StaticFiles(directory=TWIN3D_DIST, html=True), name="twin3d")
 
 # Static Frontend Delivery Fallback (when dist exists)
 if FRONTEND_DIST.exists():

@@ -70,3 +70,5 @@ export const OfflineBadge: React.FC = () => {
     </div>
   );
 };
+
+export default OfflineBadge;

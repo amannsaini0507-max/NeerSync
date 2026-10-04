@@ -49,6 +49,15 @@ export interface FHTCIndexData {
   status_category: string;
 }
 
+export interface SimulationScenarioResult {
+  status: string;
+  scenario: string;
+  injected_packets: number;
+  alerts_triggered: any[];
+  fhtc_service_index: number;
+  summary: string;
+}
+
 const BASE_URL = '/api/v1';
 
 export const api = {
@@ -88,17 +97,26 @@ export const api = {
     return res.json();
   },
 
-  async updateAlertStatus(alertId: string, status: string, notes?: string, photoUrl?: string, confirmed?: boolean): Promise<Alert> {
+  async updateAlertStatus(alertId: string, statusOrData: any, notes?: string, photoUrl?: string, confirmed?: boolean): Promise<Alert> {
+    const body = typeof statusOrData === 'object'
+      ? statusOrData
+      : {
+          status: statusOrData,
+          resolution_notes: notes,
+          technician_photo_url: photoUrl,
+          citizen_confirmed: confirmed
+        };
+
     const res = await fetch(`${BASE_URL}/alerts/${alertId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        status,
-        resolution_notes: notes,
-        technician_photo_url: photoUrl,
-        citizen_confirmed: confirmed
-      })
+      body: JSON.stringify(body)
     });
+    return res.json();
+  },
+
+  async runAlertEscalations(): Promise<any> {
+    const res = await fetch(`${BASE_URL}/alerts/escalate`, { method: 'POST' });
     return res.json();
   },
 
@@ -126,5 +144,53 @@ export const api = {
       })
     });
     return res.json();
+  },
+
+  async triggerSujalGaonSync(gpCode: string = '245123'): Promise<any> {
+    const res = await fetch(`${BASE_URL}/sync/sujal-gaon`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ lgd_gp_code: gpCode })
+    });
+    return res.json();
+  },
+
+  async injectSimulationScenario(scenario: string, gpCode: string = '245123'): Promise<SimulationScenarioResult> {
+    const res = await fetch(`${BASE_URL}/simulation/scenario`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ scenario, lgd_gp_code: gpCode })
+    });
+    return res.json();
+  },
+
+  async resetSimulation(gpCode: string = '245123'): Promise<SimulationScenarioResult> {
+    const res = await fetch(`${BASE_URL}/simulation/reset?lgd_gp_code=${gpCode}`, {
+      method: 'POST'
+    });
+    return res.json();
   }
 };
+
+// Top-Level Named Convenience Exports expected by frontend pages
+export const getAlerts = (gpCode: string = '245123') => api.getAlerts(gpCode);
+export const updateAlertStatus = (alertId: string, statusOrData: any, notes?: string, photoUrl?: string, confirmed?: boolean) =>
+  api.updateAlertStatus(alertId, statusOrData, notes, photoUrl, confirmed);
+export const runAlertEscalations = () => api.runAlertEscalations();
+
+export const submitCitizenFeedback = (feedbackData: any) => api.submitFullFeedback(feedbackData);
+export const getFHTCStatus = (fhtcId: string) => api.getFHTC(fhtcId);
+
+export const getGPServiceIndex = (gpCode: string = '245123') => api.getFHTCIndex(gpCode);
+export const getGPHierarchy = (gpCode: string = '245123') => api.getGPMaster(gpCode);
+
+export const triggerIMISSync = (gpCode: string = '245123') => {
+  const today = new Date().toISOString().split('T')[0];
+  return api.triggerIMISPush(today, gpCode, 46, 250000);
+};
+export const triggerSujalGaonSync = (gpCode: string = '245123') => api.triggerSujalGaonSync(gpCode);
+export const getSyncAuditLogs = (gpCode: string = '245123') => api.getSyncAudits(gpCode);
+
+export const injectSimulationScenario = (scenario: string, gpCode: string = '245123') =>
+  api.injectSimulationScenario(scenario, gpCode);
+export const resetSimulation = (gpCode: string = '245123') => api.resetSimulation(gpCode);

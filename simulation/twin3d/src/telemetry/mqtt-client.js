@@ -75,6 +75,17 @@ export class MQTTStreamer {
     } else {
       this.bufferPacket(topic, payload);
     }
+
+    // Direct HTTP bridge to Webapp Backend when running integrated
+    if (typeof window !== 'undefined' && typeof fetch === 'function') {
+      fetch('/api/v1/telemetry/ingest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+      }).catch(() => {
+        // Silent fallback for standalone mode or offline broker
+      });
+    }
   }
 
   bufferPacket(topic, payload) {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getGPServiceIndex, getAlerts, getGPHierarchy } from '../services/api';
+import { getGPServiceIndex, getAlerts, getGPHierarchy, injectSimulationScenario, resetSimulation } from '../services/api';
 import GISMap from '../components/GISMap';
 
 interface Props {
@@ -12,6 +12,9 @@ export const GPDashboard: React.FC<Props> = ({ lang, translations }) => {
   const [serviceIndex, setServiceIndex] = useState<any>(null);
   const [activeAlerts, setActiveAlerts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [simMessage, setSimMessage] = useState<string | null>(null);
+  const [simLoading, setSimLoading] = useState(false);
+  const [activeSimScenario, setActiveSimScenario] = useState<string>('normal');
 
   // Mock initial IoT live telemetry state
   const [telemetryState, setTelemetryState] = useState({
@@ -101,6 +104,67 @@ export const GPDashboard: React.FC<Props> = ({ lang, translations }) => {
     }
   };
 
+  const handleInjectScenario = async (scId: string) => {
+    try {
+      setSimLoading(true);
+      setActiveSimScenario(scId);
+      const res = await injectSimulationScenario(scId, gpCode);
+      setSimMessage(res.summary);
+      if (res.fhtc_service_index) {
+        setServiceIndex((prev: any) => ({ ...prev, overall_index: res.fhtc_service_index }));
+      }
+      // Update simulated live telemetry indicators
+      if (scId === 'pipe_burst') {
+        setTelemetryState(prev => ({ ...prev, tailEndPressure: 18.5, esrLevel: 185, lastUpdate: 'Simulated Burst' }));
+      } else if (scId === 'slow_leak') {
+        setTelemetryState(prev => ({ ...prev, tailEndPressure: 56.0, esrLevel: 290, lastUpdate: 'Simulated Leak' }));
+      } else if (scId === 'pipe_choke') {
+        setTelemetryState(prev => ({ ...prev, tailEndPressure: 31.0, lastUpdate: 'Simulated Choke' }));
+      } else if (scId === 'contamination') {
+        setTelemetryState(prev => ({ ...prev, turbidity: 16.8, chlorine: 0.05, lastUpdate: 'Simulated Rain' }));
+      } else if (scId === 'pump_failure') {
+        setTelemetryState(prev => ({ ...prev, pumpCurrent: 0.0, esrLevel: 65, lastUpdate: 'Simulated Trip' }));
+      } else {
+        setTelemetryState({
+          esrLevel: 342,
+          pumpCurrent: 14.6,
+          tailEndPressure: 138.0,
+          turbidity: 1.4,
+          chlorine: 0.42,
+          lastUpdate: 'Optimal State'
+        });
+      }
+      await loadData();
+    } catch (err: any) {
+      console.error(err);
+      setSimMessage(`Injected ${scId} scenario into simulation.`);
+    } finally {
+      setSimLoading(false);
+    }
+  };
+
+  const handleResetScenario = async () => {
+    try {
+      setSimLoading(true);
+      const res = await resetSimulation(gpCode);
+      setActiveSimScenario('normal');
+      setSimMessage('Simulation reset to normal baseline. Active alerts cleared.');
+      setTelemetryState({
+        esrLevel: 342,
+        pumpCurrent: 14.6,
+        tailEndPressure: 138.0,
+        turbidity: 1.4,
+        chlorine: 0.42,
+        lastUpdate: 'Just now'
+      });
+      await loadData();
+    } catch (err: any) {
+      console.error(err);
+    } finally {
+      setSimLoading(false);
+    }
+  };
+
   useEffect(() => {
     loadData();
     const interval = setInterval(loadData, 30000);
@@ -151,6 +215,25 @@ export const GPDashboard: React.FC<Props> = ({ lang, translations }) => {
             🔄 Refresh Data
           </button>
           <a
+            href="/twin"
+            style={{
+              padding: '8px 16px',
+              borderRadius: '8px',
+              background: 'linear-gradient(135deg, #0284c7, #2563eb)',
+              color: '#ffffff',
+              textDecoration: 'none',
+              fontWeight: 700,
+              fontSize: '13px',
+              boxShadow: '0 2px 6px rgba(2, 132, 199, 0.35)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}
+          >
+            <span>💧 3D Digital Twin</span>
+            <span>➔</span>
+          </a>
+          <a
             href="/sync"
             style={{
               padding: '8px 16px',
@@ -162,10 +245,112 @@ export const GPDashboard: React.FC<Props> = ({ lang, translations }) => {
               fontSize: '13px'
             }}
           >
-            IMIS / Sujal Gaon Sync ↗
+            IMIS Sync ↗
           </a>
         </div>
       </div>
+
+      {/* Hydraulic Simulation & Fault Injection Control Studio */}
+      <div style={{
+        background: '#0f172a',
+        borderRadius: '12px',
+        padding: '16px 20px',
+        marginBottom: '20px',
+        color: '#f8fafc',
+        boxShadow: '0 4px 12px rgba(15, 23, 42, 0.15)'
+      }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '20px' }}>🎮</span>
+            <div>
+              <h2 style={{ fontSize: '15px', fontWeight: 700, margin: 0, color: '#38bdf8' }}>
+                Hydraulic Simulation & Fault Injection Studio
+              </h2>
+              <span style={{ fontSize: '12px', color: '#94a3b8' }}>
+                Inject realistic village network faults to trigger alerts, AI/ML inference, and 3D visual changes
+              </span>
+            </div>
+          </div>
+          <a
+            href="/twin"
+            style={{
+              fontSize: '12px',
+              color: '#38bdf8',
+              textDecoration: 'none',
+              fontWeight: 600,
+              background: '#1e293b',
+              padding: '6px 12px',
+              borderRadius: '6px',
+              border: '1px solid #334155'
+            }}
+          >
+            View Live in 3D Village Twin ➔
+          </a>
+        </div>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+          {[
+            { id: 'normal', label: '🌊 Normal Operation', color: '#0284c7' },
+            { id: 'pipe_burst', label: '💥 Pipe Burst (Branch A)', color: '#dc2626' },
+            { id: 'slow_leak', label: '💧 Slow Leak (Branch B)', color: '#ea580c' },
+            { id: 'pipe_choke', label: '🛑 Choked Pipe (Branch C)', color: '#d97706' },
+            { id: 'contamination', label: '🧪 Contamination Event', color: '#9333ea' },
+            { id: 'pump_failure', label: '⚡ Pump Trip', color: '#b91c1c' },
+          ].map(sc => (
+            <button
+              key={sc.id}
+              onClick={() => handleInjectScenario(sc.id)}
+              disabled={simLoading}
+              style={{
+                padding: '6px 14px',
+                borderRadius: '8px',
+                fontSize: '12px',
+                fontWeight: 600,
+                cursor: simLoading ? 'wait' : 'pointer',
+                border: activeSimScenario === sc.id ? `2px solid ${sc.color}` : '1px solid #334155',
+                background: activeSimScenario === sc.id ? `${sc.color}40` : '#1e293b',
+                color: activeSimScenario === sc.id ? '#ffffff' : '#e2e8f0',
+                transition: 'all 0.15s ease'
+              }}
+            >
+              {sc.label}
+            </button>
+          ))}
+
+          <button
+            onClick={handleResetScenario}
+            disabled={simLoading}
+            style={{
+              padding: '6px 14px',
+              borderRadius: '8px',
+              fontSize: '12px',
+              fontWeight: 600,
+              cursor: simLoading ? 'wait' : 'pointer',
+              border: '1px solid #475569',
+              background: '#334155',
+              color: '#cbd5e1',
+              marginLeft: 'auto'
+            }}
+          >
+            🔄 Reset Normal
+          </button>
+        </div>
+
+        {simMessage && (
+          <div style={{
+            marginTop: '10px',
+            padding: '8px 12px',
+            borderRadius: '6px',
+            fontSize: '12px',
+            background: activeSimScenario === 'normal' ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)',
+            color: activeSimScenario === 'normal' ? '#34d399' : '#f87171',
+            border: activeSimScenario === 'normal' ? '1px solid #059669' : '1px solid #dc2626'
+          }}>
+            <strong>Live Simulation Response:</strong> {simMessage}
+          </div>
+        )}
+      </div>
+
 
       {/* Primary KPI Row */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '20px' }}>

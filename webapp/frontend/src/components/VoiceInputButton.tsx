@@ -66,3 +66,5 @@ export const VoiceInputButton: React.FC<VoiceInputProps> = ({ onTranscription, l
     </button>
   );
 };
+
+export default VoiceInputButton;
