@@ -1,16 +1,16 @@
 openapi: 3.0.3
 info:
-  title: JalSetu Core REST API
+  title: NeerSync Core REST API
   description: >-
-    Authoritative REST API specification for JalSetu - AI/ML Functional Household Tap Connection (FHTC)
+    Authoritative REST API specification for NeerSync - AI/ML Functional Household Tap Connection (FHTC)
     monitoring platform under India's Jal Jeevan Mission (JJM).
   version: 1.0.0
   contact:
-    name: JalSetu Platform Engineering Team
-    email: dev@jalsetu.gov.in
+    name: NeerSync Platform Engineering Team
+    email: dev@neersync.gov.in
 
 servers:
-  - url: https://api.jalsetu.gov.in
+  - url: https://api.neersync.gov.in
     description: Production Cloud Gateway
   - url: http://localhost:8000
     description: Local Development / Test Gateway
@@ -386,7 +386,7 @@ components:
           example: '1.0'
         node_id:
           type: string
-          example: JS-UP-245123-N001
+          example: NS-UP-245123-N001
         lgd_gp_code:
           type: string
           example: '245123'
@@ -434,7 +434,7 @@ components:
       properties:
         node_id:
           type: string
-          example: JS-UP-245123-N001
+          example: NS-UP-245123-N001
         lgd_gp_code:
           type: string
           example: '245123'
@@ -541,7 +541,7 @@ components:
           example: पानी नहीं आ रहा है दो दिन से (No water supply for 2 days)
         photo_url:
           type: string
-          example: https://storage.jalsetu.gov.in/evidence/fb-0012.jpg
+          example: https://storage.neersync.gov.in/evidence/fb-0012.jpg
         lat:
           type: number
           example: 28.9845
@@ -586,7 +586,7 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
     422ValidationError:
-      description: Validation Error - Payload does not conform to JalSetu schema contract
+      description: Validation Error - Payload does not conform to NeerSync schema contract
       content:
         application/json:
           schema:

@@ -6,7 +6,7 @@
     "gp": "245123",
     "branch": "Sensor_Cluster_South"
   },
-  "reason": "Heartbeat timeout: Node JS-UP-245123-N004 missed 3 consecutive keep-alive intervals",
+  "reason": "Heartbeat timeout: Node NS-UP-245123-N004 missed 3 consecutive keep-alive intervals",
   "created_ts": "2026-10-04T09:45:00Z",
   "status": "resolved"
 }

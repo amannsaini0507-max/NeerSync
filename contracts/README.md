@@ -1,6 +1,6 @@
-# JalSetu Shared Contracts v1.0 (`/contracts`)
+# NeerSync Shared Contracts v1.0 (`/contracts`)
 
-This folder contains the **authoritative single source of truth** for all communication protocols, telemetry schemas, and API definitions across the JalSetu ecosystem.
+This folder contains the **authoritative single source of truth** for all communication protocols, telemetry schemas, and API definitions across the NeerSync ecosystem.
 
 All three engineering teams validate against these contracts:
 - **Team A (Simulation Engine)**: Generates synthetic digital-twin telemetry adhering strictly to `telemetry.schema.json`.
