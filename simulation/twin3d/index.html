@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>JalSetu: 3D Village Water Digital Twin</title>
+    <!-- Modern Typography: Bricolage Grotesque (Headings) and Figtree (Body) with system-ui fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/app.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Global Navigation Header -->
+      <header>
+        <div class="brand-section">
+          <div class="brand-logo">💧</div>
+          <div>
+            <h1 class="brand-title">JalSetu Village Twin</h1>
+            <div class="brand-subtitle">GP Badepur, Meerut (LGD: 245123) | Scheme: SCH-UP-245123</div>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <div class="sim-clock-badge">
+            <span class="clock-pulse"></span>
+            <span id="clock-display">Day 1, 05:30</span>
+            <span id="supply-tag" class="supply-tag" style="display:none;">TAPS OPEN</span>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <!-- Quality Selector -->
+          <select id="quality-selector" style="font-size:12px; padding:4px 8px; border-radius:6px; border:1px solid var(--line); background:var(--panel); color:var(--ink);">
+            <option value="high" selected>Quality: High (PBR + Shadows)</option>
+            <option value="medium">Quality: Medium</option>
+            <option value="low">Quality: Low (30fps Mobile)</option>
+          </select>
+
+          <!-- Theme Toggle -->
+          <button id="btn-theme-toggle" class="btn-sm" title="Toggle Light/Dark Theme">
+            🌓 Theme
+          </button>
+        </div>
+      </header>
+
+      <!-- Left Operational Control Panel -->
+      <aside id="panel-left"></aside>
+
+      <!-- Center 3D Interactive Viewport -->
+      <main id="viewport-container">
+        <canvas id="canvas3d"></canvas>
+
+        <div class="view-overlay-top">
+          <div class="camera-controls-badge">
+            Drag to Rotate | Scroll to Zoom | Right-click to Pan
+          </div>
+        </div>
+
+        <div class="view-overlay-right">
+          <button id="btn-reset-view" class="btn-sm" style="background:var(--panel-glass);">
+            Reset Camera 🌐
+          </button>
+        </div>
+
+        <!-- Floating 3D Badges Overlay -->
+        <div id="floating-badges-container" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></div>
+
+        <!-- Clicked Household Inspector Popup -->
+        <div id="house-inspector" class="hidden"></div>
+      </main>
+
+      <!-- Right Telemetry & Alert Panel -->
+      <aside id="panel-right"></aside>
+
+      <!-- Bottom JJM Analytics & Sparklines Bar -->
+      <footer id="analytics-bar"></footer>
+    </div>
+
+    <!-- Application Script Entry Point -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
