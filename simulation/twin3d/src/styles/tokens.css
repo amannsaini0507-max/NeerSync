@@ -1,0 +1,183 @@
+/* JalSetu 3D Digital Twin - Design Tokens & Theme Definitions */
+
+:root {
+  /* Fonts */
+  --font-heading: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  --font-body: 'Figtree', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  /* Light Theme Palette */
+  --bg: #eaf1f4;
+  --panel: #ffffff;
+  --panel-glass: rgba(255, 255, 255, 0.88);
+  --panel-active: #f1f7fa;
+  --ink: #0d1e27;
+  --ink-secondary: #2b4553;
+  --muted: #536c7a;
+  --line: #cbdae2;
+  --line-strong: #9fb5c2;
+
+  /* Accent & Status */
+  --accent: #0284c7;
+  --accent-light: #e0f2fe;
+  --accent-hover: #0369a1;
+  --accent-contrast: #ffffff;
+  --ok: #16a34a;
+  --ok-bg: #dcfce7;
+  --warn: #d97706;
+  --warn-bg: #fef3c7;
+  --bad: #dc2626;
+  --bad-bg: #fee2e2;
+  --info: #4f46e5;
+  --info-bg: #e0e7ff;
+  --unsafe: #9333ea;
+  --unsafe-bg: #f3e8ff;
+
+  /* 3D Scene Environment Colors */
+  --scene-sky: #d7e9f2;
+  --scene-ground: #bed3dc;
+  --scene-fog: #d7e9f2;
+  --pipe-ok: #0ea5e9;
+  --pipe-low: #f59e0b;
+  --pipe-none: #ef4444;
+  --pipe-dirty: #854d0e;
+
+  /* Component Dimensions & Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(13, 30, 39, 0.08);
+  --shadow-md: 0 4px 12px rgba(13, 30, 39, 0.1);
+  --shadow-lg: 0 10px 25px rgba(13, 30, 39, 0.15);
+
+  /* Focus & Motion */
+  --focus-ring: 2px solid var(--accent);
+  --focus-offset: 2px;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* Dark Theme (Media query + explicit override) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #09131a;
+    --panel: #11202b;
+    --panel-glass: rgba(17, 32, 43, 0.90);
+    --panel-active: #182d3c;
+    --ink: #eaf3f7;
+    --ink-secondary: #bcd0dc;
+    --muted: #829ca9;
+    --line: #223847;
+    --line-strong: #335063;
+
+    --accent: #38bdf8;
+    --accent-light: #082f49;
+    --accent-hover: #7dd3fc;
+    --accent-contrast: #032030;
+    --ok: #22c55e;
+    --ok-bg: #052e16;
+    --warn: #f59e0b;
+    --warn-bg: #451a03;
+    --bad: #ef4444;
+    --bad-bg: #450a0a;
+    --info: #818cf8;
+    --info-bg: #1e1b4b;
+    --unsafe: #c084fc;
+    --unsafe-bg: #3b0764;
+
+    --scene-sky: #070e13;
+    --scene-ground: #142732;
+    --scene-fog: #070e13;
+    --pipe-ok: #38bdf8;
+    --pipe-low: #fbbf24;
+    --pipe-none: #f87171;
+    --pipe-dirty: #a16207;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.55);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #09131a;
+  --panel: #11202b;
+  --panel-glass: rgba(17, 32, 43, 0.90);
+  --panel-active: #182d3c;
+  --ink: #eaf3f7;
+  --ink-secondary: #bcd0dc;
+  --muted: #829ca9;
+  --line: #223847;
+  --line-strong: #335063;
+
+  --accent: #38bdf8;
+  --accent-light: #082f49;
+  --accent-hover: #7dd3fc;
+  --accent-contrast: #032030;
+  --ok: #22c55e;
+  --ok-bg: #052e16;
+  --warn: #f59e0b;
+  --warn-bg: #451a03;
+  --bad: #ef4444;
+  --bad-bg: #450a0a;
+  --info: #818cf8;
+  --info-bg: #1e1b4b;
+  --unsafe: #c084fc;
+  --unsafe-bg: #3b0764;
+
+  --scene-sky: #070e13;
+  --scene-ground: #142732;
+  --scene-fog: #070e13;
+  --pipe-ok: #38bdf8;
+  --pipe-low: #fbbf24;
+  --pipe-none: #f87171;
+  --pipe-dirty: #a16207;
+}
+
+:root[data-theme="light"] {
+  --bg: #eaf1f4;
+  --panel: #ffffff;
+  --panel-glass: rgba(255, 255, 255, 0.88);
+  --panel-active: #f1f7fa;
+  --ink: #0d1e27;
+  --ink-secondary: #2b4553;
+  --muted: #536c7a;
+  --line: #cbdae2;
+  --line-strong: #9fb5c2;
+
+  --accent: #0284c7;
+  --accent-light: #e0f2fe;
+  --accent-hover: #0369a1;
+  --accent-contrast: #ffffff;
+  --ok: #16a34a;
+  --ok-bg: #dcfce7;
+  --warn: #d97706;
+  --warn-bg: #fef3c7;
+  --bad: #dc2626;
+  --bad-bg: #fee2e2;
+  --info: #4f46e5;
+  --info-bg: #e0e7ff;
+  --unsafe: #9333ea;
+  --unsafe-bg: #f3e8ff;
+
+  --scene-sky: #d7e9f2;
+  --scene-ground: #bed3dc;
+  --scene-fog: #d7e9f2;
+  --pipe-ok: #0ea5e9;
+  --pipe-low: #f59e0b;
+  --pipe-none: #ef4444;
+  --pipe-dirty: #854d0e;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

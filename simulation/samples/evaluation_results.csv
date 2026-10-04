@@ -1,0 +1,11 @@
+scenario_id,scenario_name,detection_delay_mins,precision,recall,f1_score,false_alarm_rate,household_accuracy_pct
+baseline,Normal Healthy Operation,0,0.0,1.0,0.0,0.25,100.0
+pump_failure,Source Pump Mechanical Trip / Contactor Failure,180,0.25,0.25,0.25,0.25,100.0
+leak,Incipient Distribution Leakage,0,0.8,1.0,0.889,0.25,100.0
+burst,Major Pipeline Burst Rupture,0,0.526,1.0,0.69,0.237,100.0
+tail_end_low_pressure,Tail-End Chronic Low Pressure,0,0.741,1.0,0.851,0.25,95.0
+esr_empty,Elevated Storage Reservoir Depletion,0,0.64,1.0,0.78,0.281,100.0
+contamination,Monsoon Ingress Water Quality Contamination,0,0.636,1.0,0.778,0.235,100.0
+sensor_drift,Tail-End Pressure Sensor Calibration Drift,480,0.143,0.042,0.065,0.25,100.0
+node_offline,IoT Node Power Loss / Hardware Offline,0,0.6,1.0,0.75,0.222,100.0
+fake_noisy_complaints,Spurious / Fake Citizen Grievances,120,0.25,0.375,0.3,0.225,100.0

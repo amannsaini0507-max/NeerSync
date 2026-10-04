@@ -1,0 +1,128 @@
+# JalSetu Virtual Village Fault Scenarios Specification
+# Each scenario defines injection time, target component, parameter changes, and expected ground truth.
+
+scenarios:
+  - id: baseline
+    name: "Normal Healthy Operation"
+    description: "Intermittent supply operating within normal design parameters across all 3 wards."
+    start_time_hours: 0
+    duration_hours: 48
+    fault_type: null
+    parameters: {}
+
+  - id: pump_failure
+    name: "Source Pump Mechanical Trip / Contactor Failure"
+    description: "Submersible pump motor trips due to thermal overload. Current drops to 0A while commanded ON. ESR fails to refill."
+    start_time_hours: 14
+    duration_hours: 12
+    fault_type: "pump_failure"
+    target_node: "JS-UP-245123-N001"
+    parameters:
+      current_a: 0.0
+      state: 0
+      voltage_v: 415.0
+      expected_alert: "no_supply"
+      expected_severity: "high"
+
+  - id: leak
+    name: "Incipient Distribution Leakage"
+    description: "Pipe joint failure in Branch 2 develops an insidious background leak of 35 LPM, causing elevated Night Minimum Flow (MNF)."
+    start_time_hours: 18
+    duration_hours: 24
+    fault_type: "leak"
+    target_branch: "Ward_2"
+    target_link: "P_W2_06"
+    parameters:
+      leak_flow_lpm: 35.0
+      expected_alert: "leakage"
+      expected_severity: "medium"
+
+  - id: burst
+    name: "Major Pipeline Burst Rupture"
+    description: "Catastrophic main pipe rupture (180 LPM) on Branch 1. Sudden pressure collapse downstream and flow surge at bulk meter."
+    start_time_hours: 28
+    duration_hours: 10
+    fault_type: "burst"
+    target_branch: "Ward_1"
+    target_link: "P_W1_04"
+    parameters:
+      burst_flow_lpm: 180.0
+      pressure_drop_kpa: 110.0
+      expected_alert: "leakage"
+      expected_severity: "high"
+
+  - id: tail_end_low_pressure
+    name: "Tail-End Chronic Low Pressure"
+    description: "Heavy friction loss and throttling valve starves the farthest 5 households in Ward 1 below the 70 kPa JJM benchmark."
+    start_time_hours: 12
+    duration_hours: 20
+    fault_type: "tail_end_low_pressure"
+    target_node: "JS-UP-245123-N004"
+    target_junction: "J_W1_20"
+    parameters:
+      target_pressure_kpa: 42.0
+      expected_alert: "low_pressure"
+      expected_severity: "medium"
+
+  - id: esr_empty
+    name: "Elevated Storage Reservoir Depletion"
+    description: "ESR water level drains completely to 0 cm due to prolonged pump outage. All 60 households lose water supply."
+    start_time_hours: 20
+    duration_hours: 16
+    fault_type: "esr_empty"
+    target_node: "JS-UP-245123-N002"
+    parameters:
+      esr_level_cm: 0.0
+      expected_alert: "no_supply"
+      expected_severity: "high"
+
+  - id: contamination
+    name: "Monsoon Ingress Water Quality Contamination"
+    description: "Post-rain surface runoff enters distribution line. Turbidity spikes to 8.5 NTU while residual free chlorine drops to 0.04 mg/L."
+    start_time_hours: 32
+    duration_hours: 14
+    fault_type: "contamination"
+    target_node: "JS-UP-245123-N005"
+    parameters:
+      turbidity_ntu: 8.5
+      chlorine_mgl: 0.04
+      ph: 6.2
+      expected_alert: "quality"
+      expected_severity: "high"
+
+  - id: sensor_drift
+    name: "Tail-End Pressure Sensor Calibration Drift"
+    description: "Faulty pressure transducer develops a monotonic positive drift of +1.8 kPa/hour, masking physical pressure drop."
+    start_time_hours: 10
+    duration_hours: 24
+    fault_type: "sensor_drift"
+    target_node: "JS-UP-245123-N004"
+    parameters:
+      drift_rate_kpa_per_hour: 1.8
+      expected_alert: "low_pressure"
+      expected_severity: "medium"
+
+  - id: node_offline
+    name: "IoT Node Power Loss / Hardware Offline"
+    description: "Tail-end node N004 experiences battery discharge and network link failure. Triggers MQTT LWT offline status."
+    start_time_hours: 30
+    duration_hours: 12
+    fault_type: "node_offline"
+    target_node: "JS-UP-245123-N004"
+    parameters:
+      battery_v: 2.1
+      rssi_dbm: -135
+      status: "offline"
+      expected_alert: "node_offline"
+      expected_severity: "low"
+
+  - id: fake_noisy_complaints
+    name: "Spurious / Fake Citizen Grievances"
+    description: "False grievances submitted for Ward 3 reporting no water, despite physical sensors proving 145 kPa pressure and 0.45 mg/L chlorine."
+    start_time_hours: 15
+    duration_hours: 8
+    fault_type: "fake_noisy_complaints"
+    target_ward: "Ward_3"
+    parameters:
+      complaint_count: 5
+      expected_alert: null  # Algorithm should filter out and reject fake complaints
