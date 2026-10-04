@@ -1,0 +1,43 @@
+name: Validate Contracts & Repo Health
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-json-schemas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install jsonschema check-jsonschema
+
+      - name: Validate all JSON Schemas in contracts
+        run: |
+          for schema in contracts/*.schema.json; do
+            echo "Checking schema: $schema"
+            check-jsonschema --check-metaschema "$schema"
+          done
+
+      - name: Verify Contracts Directory Completeness
+        run: |
+          test -f contracts/ids.md
+          test -f contracts/mqtt_topics.md
+          test -f contracts/telemetry.schema.json
+          test -f contracts/command.schema.json
+          test -f contracts/alert.schema.json
+          test -f contracts/ack.schema.json
+          test -f contracts/heartbeat.schema.json
+          test -f contracts/config.schema.json
+          echo "All essential contract specifications and schemas are present!"
