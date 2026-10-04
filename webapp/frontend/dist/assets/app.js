@@ -735,7 +735,52 @@
           </button>
         </form>
       </div>
+
+      <!-- Live Grievance Tracking & Clusters -->
+      <div class="card" style="max-width: 620px; margin: 24px auto 0 auto; padding: 0; overflow: hidden;">
+        <div style="padding: 14px 16px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
+          <h3 style="margin: 0; font-size: 15px; color: #0f172a;">📋 Track Submitted Grievances</h3>
+          <span style="font-size: 11px; color: #64748b;">GP Badepur (245123)</span>
+        </div>
+        <div id="grievance-list" style="padding: 12px 16px;">
+          <div style="text-align: center; color: #64748b; font-size: 12px; padding: 12px;">Loading recent grievances...</div>
+        </div>
+      </div>
     `;
+
+    const loadRecentGrievances = async () => {
+      const container = document.getElementById('grievance-list');
+      if (!container) return;
+      try {
+        const feedbacks = await apiCall('/api/v1/feedback?lgd_gp_code=245123');
+        if (!feedbacks || feedbacks.length === 0) {
+          container.innerHTML = '<div style="text-align: center; color: #64748b; font-size: 12px; padding: 12px;">No active grievances in this Gram Panchayat.</div>';
+          return;
+        }
+        const catIcons = {
+          dirty_water: '🟤 Dirty Water',
+          no_water: '🚫 No Supply',
+          low_pressure: '📉 Low Pressure',
+          leakage: '💦 Pipe Leak',
+          other: '⚠️ Issue'
+        };
+        container.innerHTML = feedbacks.slice(0, 5).map(f => `
+          <div style="padding: 10px 12px; border-radius: 6px; background: #f8fafc; border: 1px solid #e2e8f0; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span style="font-size: 12px; font-weight: 700; color: #0f172a;">${catIcons[f.category] || f.category}</span>
+              <span class="badge badge-info" style="font-size: 10px;">${f.status || 'queued_for_verification'}</span>
+            </div>
+            <div style="font-size: 13px; color: #334155; margin-bottom: 4px;">"${f.text || 'Grievance registered'}"</div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: #64748b;">
+              <span>Ticket: <code>${f.feedback_id}</code></span>
+              <span>Tap: <code>${f.fhtc_id}</code></span>
+            </div>
+          </div>
+        `).join('');
+      } catch (err) {
+        container.innerHTML = '<div style="color: #dc2626; font-size: 12px;">Could not load recent grievances.</div>';
+      }
+    };
 
     let selectedCat = 'dirty_water';
     const catButtons = document.querySelectorAll('#cat-group button');
@@ -775,13 +820,16 @@
         if (res.offline) {
           showNotification('Saved to offline outbox. Will auto-sync when online.', 'warning');
         } else {
-          showNotification('Grievance registered successfully! Auto-escalated to Jal Mitra.', 'success');
+          showNotification(`Grievance registered! Ticket: ${payload.feedback_id} (Cluster: ${res.cluster_id || 'Assigned'})`, 'success');
         }
         descInput.value = '';
+        loadRecentGrievances();
       } catch (err) {
         showNotification(err.message, 'error');
       }
     };
+
+    loadRecentGrievances();
   }
 
   // 5. IMIS & Sujal Gaon Sync View
