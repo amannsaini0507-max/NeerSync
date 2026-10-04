@@ -1,0 +1,345 @@
+(export 
+  (version "D")
+  (design
+    (source "power_subsystem.py")
+    (date "10/04/2026 03:20 PM")
+    (tool "SKiDL (2.3.0)")
+    (sheet
+      (number 1)
+      (name "/")
+      (tstamps "/")
+      (title_block
+        (title)
+        (company)
+        (rev)
+        (date)
+        (source "..\..\..\power_subsystem.py")
+        (comment
+          (number "1")
+          (value ""))
+        (comment
+          (number "2")
+          (value ""))
+        (comment
+          (number "3")
+          (value ""))
+        (comment
+          (number "4")
+          (value ""))
+        (comment
+          (number "5")
+          (value ""))
+        (comment
+          (number "6")
+          (value ""))
+        (comment
+          (number "7")
+          (value ""))
+        (comment
+          (number "8")
+          (value ""))
+        (comment
+          (number "9")
+          (value "")))))
+  (components
+    (comp
+      (ref "C_LDO_OUT")
+      (value "10uF")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "tFJi1ehL7E")
+        (field
+          (name "SKiDL Line") "common_parts.py:20"))
+      (libsource
+        (lib "NO_LIB")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "0dd5bfec-51bd-52fb-b02e-f2f786dbb0f9"))
+    (comp
+      (ref "D_REV")
+      (value "SS34_SCHOTTKY")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "Bfu2fAXBBw")
+        (field
+          (name "SKiDL Line") "common_parts.py:28"))
+      (libsource
+        (lib "NO_LIB")
+        (part "D"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "bc593494-1607-5fa5-b925-33549f31ffb2"))
+    (comp
+      (ref "F1")
+      (value "PTC_1.5A")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "NK3VmAi383")
+        (field
+          (name "SKiDL Line") "power_subsystem.py:28"))
+      (libsource
+        (lib "NO_LIB")
+        (part "FUSE"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "6fd37a52-8476-5e71-a303-dc1c98e9c4e1"))
+    (comp
+      (ref "TVS_SOL")
+      (value "SMAJ18A")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "KIymuH2hq6")
+        (field
+          (name "SKiDL Line") "common_parts.py:36"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TVS"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "e42d590c-c4f2-5d93-ba75-920eb292c76a"))
+    (comp
+      (ref "U_BMS")
+      (value "DW01A")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "hESD7qqgsE")
+        (field
+          (name "SKiDL Line") "power_subsystem.py:49"))
+      (libsource
+        (lib "NO_LIB")
+        (part "DW01A_BMS"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "500999d5-53d5-5d21-b924-1a53315112f2"))
+    (comp
+      (ref "U_BUCK")
+      (value "MP2307_3A")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "YAwSZvRpDh")
+        (field
+          (name "SKiDL Line") "power_subsystem.py:56"))
+      (libsource
+        (lib "NO_LIB")
+        (part "MP2307_BUCK_3V8"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "46f9303a-9261-58b2-a3e7-7c1201c7671b"))
+    (comp
+      (ref "U_CHG")
+      (value "CN3791")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "ZB5pR9sydf")
+        (field
+          (name "SKiDL Line") "power_subsystem.py:41"))
+      (libsource
+        (lib "NO_LIB")
+        (part "CN3791_MPPT_CHARGER"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "1071e8e5-33b0-569f-a959-2772706537b1"))
+    (comp
+      (ref "U_LDO")
+      (value "AP2112K-3.3")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "9aEe9I9Gwm")
+        (field
+          (name "SKiDL Line") "power_subsystem.py:64"))
+      (libsource
+        (lib "NO_LIB")
+        (part "AP2112K_3V3_LDO"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "25ed7226-e097-5a42-82ea-242b8cc4c55d")))
+  (nets
+    (net
+      (code 1)
+      (name "3V3")
+      (class "Default")
+      (node
+        (ref "C_LDO_OUT")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U_LDO")
+        (pin "5")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 2)
+      (name "GND")
+      (class "Default")
+      (node
+        (ref "C_LDO_OUT")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "TVS_SOL")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U_BMS")
+        (pin "3")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U_BUCK")
+        (pin "5")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U_CHG")
+        (pin "3")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U_LDO")
+        (pin "2")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 3)
+      (name "N$1")
+      (class "Default")
+      (node
+        (ref "D_REV")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "F1")
+        (pin "2")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 4)
+      (name "N$2")
+      (class "Default")
+      (node
+        (ref "D_REV")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "TVS_SOL")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U_CHG")
+        (pin "1")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 5)
+      (name "SOLAR_IN")
+      (class "Default")
+      (node
+        (ref "F1")
+        (pin "1")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 6)
+      (name "VBAT")
+      (class "Default")
+      (node
+        (ref "U_BMS")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U_BUCK")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U_CHG")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U_LDO")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U_LDO")
+        (pin "3")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 7)
+      (name "VBAT_GSM")
+      (class "Default")
+      (node
+        (ref "U_BUCK")
+        (pin "4")
+        (pintype "UNSPECIFIED")))))

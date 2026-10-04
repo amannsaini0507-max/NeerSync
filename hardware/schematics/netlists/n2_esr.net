@@ -1,0 +1,709 @@
+(export 
+  (version "D")
+  (design
+    (source "n2_esr.py")
+    (date "10/04/2026 03:20 PM")
+    (tool "SKiDL (2.3.0)")
+    (sheet
+      (number 1)
+      (name "/")
+      (tstamps "/")
+      (title_block
+        (title)
+        (company)
+        (rev)
+        (date)
+        (source "..\..\..\n2_esr.py")
+        (comment
+          (number "1")
+          (value ""))
+        (comment
+          (number "2")
+          (value ""))
+        (comment
+          (number "3")
+          (value ""))
+        (comment
+          (number "4")
+          (value ""))
+        (comment
+          (number "5")
+          (value ""))
+        (comment
+          (number "6")
+          (value ""))
+        (comment
+          (number "7")
+          (value ""))
+        (comment
+          (number "8")
+          (value ""))
+        (comment
+          (number "9")
+          (value "")))))
+  (components
+    (comp
+      (ref "C_BULK1")
+      (value "1000uF/10V")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "Y97u784DkB")
+        (field
+          (name "SKiDL Line") "common_parts.py:20"))
+      (libsource
+        (lib "NO_LIB")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "f63b8a9c-1e62-5986-a6d9-02589450ce6c"))
+    (comp
+      (ref "D_CLAMP1")
+      (value "BAT54S")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "TqnG1F0J4C")
+        (field
+          (name "SKiDL Line") "common_parts.py:28"))
+      (libsource
+        (lib "NO_LIB")
+        (part "D"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "67fe8af2-7d3f-50c6-bc0d-0cd1bf835a71"))
+    (comp
+      (ref "D_LED")
+      (value "GREEN_LED")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "30kK12vxRt")
+        (field
+          (name "SKiDL Line") "common_parts.py:28"))
+      (libsource
+        (lib "NO_LIB")
+        (part "D"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "4aa9d232-2007-5240-8173-b2559639aa4a"))
+    (comp
+      (ref "Q1")
+      (value "SI2301")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "ShP5WU0D69")
+        (field
+          (name "SKiDL Line") "common_parts.py:44"))
+      (libsource
+        (lib "NO_LIB")
+        (part "Q_PMOS"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "4c85cd34-e92e-5ecc-96f7-cc591dae5b3a"))
+    (comp
+      (ref "R_BAT1")
+      (value "100k")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "bGq8Luowcj")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "333b7d3e-e2f8-5834-a267-883dd7db2c0a"))
+    (comp
+      (ref "R_BAT2")
+      (value "100k")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "5j6UTmR7I3")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "82c85d58-0d04-5c84-adc5-1114ce2a1895"))
+    (comp
+      (ref "R_FLOW1")
+      (value "10k_1%")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "n9LIpz2xEI")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "244037df-5eb5-5283-b758-dcb3bcebf34e"))
+    (comp
+      (ref "R_FLOW2")
+      (value "20k_1%")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "_zsov29trx")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "9c9fd8e0-7bfe-596b-b8ff-2ff1c8fbcfd4"))
+    (comp
+      (ref "R_LED")
+      (value "1k")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "xXE_YTHwu7")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "422a8a18-715b-53f0-8a6a-6a64c476e57f"))
+    (comp
+      (ref "S1")
+      (value "A02YYUW_WATERPROOF")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "6YajYeA_4b")
+        (field
+          (name "SKiDL Line") "n2_esr.py:81"))
+      (libsource
+        (lib "NO_LIB")
+        (part "A02YYUW_ULTRASONIC"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "e3ea37a3-6d0e-5da5-a7f7-0b58f59ab5be"))
+    (comp
+      (ref "S2")
+      (value "YF-DN15_HALL")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "UOp_TXrevX")
+        (field
+          (name "SKiDL Line") "n2_esr.py:97"))
+      (libsource
+        (lib "NO_LIB")
+        (part "YF-DN15_FLOW"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "ecefaba6-d066-5a49-a3af-9043873eb18d"))
+    (comp
+      (ref "U1")
+      (value "ESP32-WROOM-32D")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "Eyt19ukepB")
+        (field
+          (name "SKiDL Line") "common_parts.py:68"))
+      (libsource
+        (lib "NO_LIB")
+        (part "ESP32-WROOM-32D"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "8edb045d-f9a9-58ab-ab00-ae144511c0a4"))
+    (comp
+      (ref "U2")
+      (value "SX1276-IN865")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "_biUJGBrq5")
+        (field
+          (name "SKiDL Line") "common_parts.py:83"))
+      (libsource
+        (lib "NO_LIB")
+        (part "SX1276_RFM95W"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "aaf509c0-6b07-534c-bda5-9eab87c06b89"))
+    (comp
+      (ref "U3")
+      (value "A7672S-LTE-CAT1")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "MfyvEx6nF0")
+        (field
+          (name "SKiDL Line") "common_parts.py:97"))
+      (libsource
+        (lib "NO_LIB")
+        (part "A7672S_GSM"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "4c5617d9-f411-5377-a4fc-68e4b5e9219b")))
+  (nets
+    (net
+      (code 1)
+      (name "3V3")
+      (class "Default")
+      (node
+        (ref "D_CLAMP1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "2")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 2)
+      (name "5V_SENS")
+      (class "Default")
+      (node
+        (ref "Q1")
+        (pin "3")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "S1")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "S2")
+        (pin "1")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 3)
+      (name "BATT_SENSE")
+      (class "Default")
+      (node
+        (ref "R_BAT1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_BAT2")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "4")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 4)
+      (name "FLOW_PULSE_5V")
+      (class "Default")
+      (node
+        (ref "R_FLOW1")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "S2")
+        (pin "3")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 5)
+      (name "FLOW_PULSE_IN")
+      (class "Default")
+      (node
+        (ref "D_CLAMP1")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_FLOW1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_FLOW2")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "6")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 6)
+      (name "GND")
+      (class "Default")
+      (node
+        (ref "C_BULK1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "D_LED")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_BAT2")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_FLOW2")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "S1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "S2")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "14")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "32")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "38")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "3")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "4")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 7)
+      (name "GSM_RXD")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "27")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "5")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 8)
+      (name "GSM_TXD")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "28")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "6")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 9)
+      (name "LED_STATUS")
+      (class "Default")
+      (node
+        (ref "R_LED")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "24")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 10)
+      (name "LORA_CS")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "29")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "10")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 11)
+      (name "LORA_DIO0")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "7")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "4")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 12)
+      (name "LORA_MISO")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "31")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "8")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 13)
+      (name "LORA_MOSI")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "37")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "9")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 14)
+      (name "LORA_RST")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "12")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "3")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 15)
+      (name "LORA_SCK")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "30")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "7")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 16)
+      (name "MODEM_PWRKEY")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "26")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "7")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 17)
+      (name "N$1")
+      (class "Default")
+      (node
+        (ref "D_LED")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_LED")
+        (pin "2")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 18)
+      (name "PWR_SENS_EN")
+      (class "Default")
+      (node
+        (ref "Q1")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "9")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 19)
+      (name "US_UART_RX")
+      (class "Default")
+      (node
+        (ref "S1")
+        (pin "3")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "15")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 20)
+      (name "US_UART_TX")
+      (class "Default")
+      (node
+        (ref "S1")
+        (pin "4")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "23")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 21)
+      (name "VBAT")
+      (class "Default")
+      (node
+        (ref "Q1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_BAT1")
+        (pin "1")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 22)
+      (name "VBAT_GSM")
+      (class "Default")
+      (node
+        (ref "C_BULK1")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "2")
+        (pintype "UNSPECIFIED")))))

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #0f172a; }
+      .subtitle { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #475569; }
+      .box { fill: #ffffff; stroke: #1e293b; stroke-width: 2; rx: 6; }
+      .box-mcu { fill: #eff6ff; stroke: #2563eb; stroke-width: 2.5; rx: 8; }
+      .box-iso { fill: #fef2f2; stroke: #dc2626; stroke-width: 2; stroke-dasharray: 6,4; rx: 6; }
+      .box-power { fill: #f0fdf4; stroke: #16a34a; stroke-width: 2; rx: 6; }
+      .box-sensor { fill: #fefce8; stroke: #ca8a04; stroke-width: 2; rx: 6; }
+      .box-comm { fill: #faf5ff; stroke: #9333ea; stroke-width: 2; rx: 6; }
+      .wire-pwr { stroke: #dc2626; stroke-width: 2.5; fill: none; }
+      .wire-gnd { stroke: #1e293b; stroke-width: 2.5; fill: none; }
+      .wire-sig { stroke: #2563eb; stroke-width: 1.8; fill: none; }
+      .wire-analog { stroke: #d97706; stroke-width: 1.8; fill: none; }
+      .wire-spi { stroke: #7c3aed; stroke-width: 1.8; fill: none; }
+      .label { font-family: 'Consolas', 'Courier New', monospace; font-size: 11px; fill: #1e293b; }
+      .label-pin { font-family: 'Consolas', 'Courier New', monospace; font-size: 10px; font-weight: bold; fill: #0284c7; }
+      .label-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #0f172a; }
+      .warning-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; font-weight: bold; fill: #dc2626; }
+      .border-grid { fill: none; stroke: #e2e8f0; stroke-width: 1; }
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8fafc" />
+  <rect x="15" y="15" width="1170" height="770" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
+  <text x="35" y="45" class="title">JalSetu Power Subsystem — Solar Harvesting & Battery Management (Schematic)</text>
+
+  <text x="35" y="65" class="subtitle">Solar MPPT Charging + Li-ion BMS + 3.8V 2A Burst Buck Regulator + 3.3V System LDO</text>
+
+  <!-- Solar Input Block -->
+  <rect x="35" y="90" width="230" height="250" class="box-power" />
+  <text x="75" y="115" class="label-title">Solar Panel Input (10W)</text>
+  <text x="45" y="140" class="label">Voc = 21.6V | Vmp = 18.0V</text>
+  <text x="45" y="160" class="label">Imp = 0.56A (Monocrystalline)</text>
+  <text x="45" y="185" class="label">Protection Stage:</text>
+  <text x="45" y="205" class="label">- F1: 1.5A PTC Resettable Fuse</text>
+  <text x="45" y="225" class="label">- D1: SS34 Schottky (Reverse Block)</text>
+  <text x="45" y="245" class="label">- TVS1: SMAJ18A (Surge Protection)</text>
+  <text x="45" y="270" class="label">To Solar Sense: 100k/20k Divider</text>
+
+  <!-- CN3791 MPPT Charger -->
+  <rect x="305" y="90" width="240" height="250" class="box" />
+  <text x="345" y="115" class="label-title">CN3791 Solar MPPT Charger</text>
+  <text x="315" y="140" class="label">Algorithm: Dynamic MPPT Tracking</text>
+  <text x="315" y="160" class="label">Charge Current: 1.0A Constant Current</text>
+  <text x="315" y="180" class="label">Float Voltage: 4.20V Constant Voltage</text>
+  <text x="315" y="205" class="label">Pins:</text>
+  <text x="315" y="225" class="label">- VIN &lt;-- Solar Post-Protection</text>
+  <text x="315" y="245" class="label">- BAT --&gt; Battery Positive (VBAT)</text>
+  <text x="315" y="265" class="label">- MPPT_SET: 18V Panel Resistor Ratio</text>
+
+  <!-- Battery & BMS -->
+  <rect x="585" y="90" width="240" height="250" class="box-power" />
+  <text x="635" y="115" class="label-title">Li-ion / LiFePO4 Battery Pack</text>
+  <text x="595" y="140" class="label">Config: 2P 18650 (5200mAh, 3.7V)</text>
+  <text x="595" y="160" class="label">Alt: 1x 32650 LiFePO4 (6000mAh, 3.2V)</text>
+  <text x="595" y="185" class="label">DW01A + FS8205A Dual-MOS BMS:</text>
+  <text x="595" y="205" class="label">- Overcharge: 4.25V Cutoff</text>
+  <text x="595" y="225" class="label">- Overdischarge: 2.50V Cutoff</text>
+  <text x="595" y="245" class="label">- Overcurrent: 3.0A Short Cutoff</text>
+  <text x="595" y="265" class="label">- Reverse Polarity: AO3401 P-MOS</text>
+
+  <!-- Regulators Section Bottom -->
+  <rect x="35" y="380" width="510" height="280" class="box" />
+  <text x="140" y="405" class="label-title">Dedicated GSM Buck Converter (MP2307 / TPS5430)</text>
+  <text x="50" y="435" class="label">Input: VBAT (3.2V - 4.2V) | Output: 3.80V DC (+/- 0.05V)</text>
+  <text x="50" y="455" class="label">Continuous Rating: 3.0A | Peak Rating: 4.0A</text>
+  <text x="50" y="475" class="label">Efficiency: 92% @ 1.5A load</text>
+  <text x="50" y="505" class="label">Bulk Energy Reservoir (< 10mm from GSM module):</text>
+  <text x="50" y="525" class="label">- 1x 1000uF / 10V Low-ESR Solid Electrolytic Capacitor (ESR &lt; 45 mOhm)</text>
+  <text x="50" y="545" class="label">- 1x 100uF Tantalum Capacitor (high-frequency ripple suppressor)</text>
+  <text x="50" y="565" class="label">- 2x 100nF X7R Ceramic Capacitors (RF decoupling at 850/1800 MHz)</text>
+  <text x="50" y="595" class="label">Enable Control: Controlled by ESP32 GPIO26 via logic-level gate</text>
+
+  <rect x="585" y="380" width="575" height="280" class="box" />
+  <text x="740" y="405" class="label-title">System 3.3V LDO (AP2112K / ME6211)</text>
+  <text x="605" y="435" class="label">Input: VBAT (3.2V - 4.2V) | Output: 3.30V Regulated Rail</text>
+  <text x="605" y="455" class="label">Current Capability: 600 mA continuous</text>
+  <text x="605" y="475" class="label">Ultra-Low Dropout: 250 mV @ 600mA</text>
+  <text x="605" y="495" class="label">Ultra-Low Quiescent Current: 40 uA (essential for deep sleep efficiency)</text>
+  <text x="605" y="525" class="label">Supplies:</text>
+  <text x="605" y="545" class="label">- ESP32-WROOM-32D (15uA sleep, 150mA active RF peak)</text>
+  <text x="605" y="565" class="label">- SX1276 LoRa SPI Transceiver (28mA Rx, 120mA Tx)</text>
+  <text x="605" y="585" class="label">- Precision Analog Dividers &amp; Reference Rails</text>
+  <text x="605" y="615" class="label">Output Decoupling: 1x 10uF Ceramic + 1x 100nF Ceramic</text>
+
+  <!-- Title Block Footer -->
+  <rect x="850" y="730" width="335" height="55" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" />
+  <text x="860" y="748" font-family="Segoe UI, sans-serif" font-size="11px" font-weight="bold" fill="#0f172a">JalSetu JJM FHTC Monitoring IoT Node</text>
+  <text x="860" y="764" font-family="Segoe UI, sans-serif" font-size="10px" fill="#475569">Rev: 1.0 | Date: 2026-10-04 | Status: ERC UNVERIFIED</text>
+  <text x="860" y="778" font-family="Segoe UI, sans-serif" font-size="10px" fill="#64748b">Branch: feature/hardware | Single Source of Truth</text>
+</svg>
