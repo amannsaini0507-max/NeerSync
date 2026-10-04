@@ -1,0 +1,25 @@
+# Python compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local databases & logs
+*.db
+*.sqlite
+*.sqlite3
+*.log
+app/data/imis_fallback/*.csv
+
+# Node dependencies
+node_modules/
+
+# Environment local overrides
+.env.local
+
+# Un-ignore frontend production build dist so FastAPI can serve it out-of-the-box
+!frontend/dist/
+!frontend/dist/**

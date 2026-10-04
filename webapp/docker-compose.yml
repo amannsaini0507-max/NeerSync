@@ -1,0 +1,79 @@
+services:
+  # TimescaleDB + PostGIS Time-Series Database
+  postgres:
+    image: timescale/timescaledb-ha:pg16
+    container_name: jalsetu-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: jalsetu
+      POSTGRES_PASSWORD: jalsetu_secure_password_2026
+      POSTGRES_DB: jalsetu_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jalsetu -d jalsetu_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Eclipse Mosquitto MQTT Message Broker
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: jalsetu-mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mosquittodata:/mosquitto/data
+    healthcheck:
+      test: ["CMD-SHELL", "mosquitto_sub -t '$$SYS/#' -C 1 -i healthcheck -W 3 || exit 0"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # JalSetu FastAPI Core Ingestion & Analytics Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: jalsetu-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://jalsetu:jalsetu_secure_password_2026@postgres:5432/jalsetu_db
+      - MQTT_BROKER_HOST=mosquitto
+      - MQTT_BROKER_PORT=1883
+      - MQTT_ENABLED=true
+      - ML_SERVICE_URL=http://localhost:8000/api/v1/mock/predict
+      - IMIS_API_URL=http://localhost:8000/api/v1/mock/imis
+      - SUJAL_GAON_API_URL=http://localhost:8000/api/v1/mock/sujal-gaon
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mosquitto:
+        condition: service_started
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # React + Vite PWA Operator & Citizen Dashboard
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: jalsetu-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
+  mosquittodata:
