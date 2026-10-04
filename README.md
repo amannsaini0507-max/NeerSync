@@ -1,4 +1,4 @@
-# JalSetu (जल सेतु) 💧
+# NeerSync (नीर सिंक) 💧
 
 > **Smart Water Monitoring, Distribution & Management System**  
 > An integrated IoT and analytics platform for real-time water infrastructure monitoring, automated distribution control, leakage detection, and water quality assurance.
@@ -8,7 +8,7 @@
 ## 🏗️ Repository Architecture & Directory Structure
 
 ```
-jalsetu/
+neersync/
 ├── .github/
 │   └── workflows/          # CI/CD pipelines and automated schema/code validation
 ├── contracts/              # Single source of truth: JSON Schemas, MQTT topics, and ID specs
