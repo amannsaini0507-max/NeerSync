@@ -1,0 +1,12 @@
+{
+  "alert_id": "ALT-20261004-004",
+  "type": "quality",
+  "severity": "high",
+  "scope": {
+    "gp": "245123",
+    "branch": "OHT_Discharge"
+  },
+  "reason": "Residual chlorine depleted to 0.05 mg/L; turbidity spiked to 6.2 NTU",
+  "created_ts": "2026-10-04T09:15:00Z",
+  "status": "active"
+}

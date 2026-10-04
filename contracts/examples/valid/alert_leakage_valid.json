@@ -1,0 +1,12 @@
+{
+  "alert_id": "ALT-20261004-003",
+  "type": "leakage",
+  "severity": "high",
+  "scope": {
+    "gp": "245123",
+    "branch": "Distribution_Zone_2"
+  },
+  "reason": "Mass balance discrepancy: 450 LPM pumped but only 310 LPM delivered",
+  "created_ts": "2026-10-04T09:00:00Z",
+  "status": "acknowledged"
+}

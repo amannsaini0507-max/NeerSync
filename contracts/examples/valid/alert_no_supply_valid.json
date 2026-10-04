@@ -1,0 +1,12 @@
+{
+  "alert_id": "ALT-20261004-001",
+  "type": "no_supply",
+  "severity": "high",
+  "scope": {
+    "gp": "245123",
+    "branch": "Main_Feeder_Ward1"
+  },
+  "reason": "Zero flow detected at feeder for 6 consecutive supply hours",
+  "created_ts": "2026-10-04T08:00:00Z",
+  "status": "active"
+}

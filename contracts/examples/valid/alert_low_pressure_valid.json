@@ -1,0 +1,13 @@
+{
+  "alert_id": "ALT-20261004-002",
+  "type": "low_pressure",
+  "severity": "medium",
+  "scope": {
+    "gp": 245123,
+    "branch": "TailEnd_Branch_B",
+    "fhtc_id": "FHTC-UP-245123-0042"
+  },
+  "reason": "Tail-end terminal pressure dropped below 70 kPa benchmark",
+  "created_ts": "2026-10-04T08:30:00Z",
+  "status": "active"
+}

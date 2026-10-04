@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jalsetu.gov.in/contracts/v1/feedback.schema.json",
+  "title": "JalSetuCitizenFeedbackV1",
+  "description": "Authoritative contract for citizen grievance and service feedback.",
+  "type": "object",
+  "required": [
+    "feedback_id",
+    "fhtc_id",
+    "channel",
+    "category",
+    "lang",
+    "ts"
+  ],
+  "properties": {
+    "feedback_id": {
+      "type": "string",
+      "pattern": "^FB-[A-Za-z0-9_-]+$",
+      "description": "Unique grievance ticket ID (e.g. FB-20261004-0012 or UUID)."
+    },
+    "fhtc_id": {
+      "type": "string",
+      "pattern": "^FHTC-[A-Z]{2}-[0-9]+-[0-9]{4,}$",
+      "description": "Functional Household Tap Connection identifier."
+    },
+    "channel": {
+      "type": "string",
+      "enum": ["app", "qr", "whatsapp", "ivr"],
+      "description": "Reporting channel."
+    },
+    "category": {
+      "type": "string",
+      "enum": ["no_water", "low_pressure", "dirty_water", "leakage", "other"],
+      "description": "Citizen issue categorization."
+    },
+    "text": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional citizen grievance description or IVR transcribed text."
+    },
+    "photo_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional URL to an uploaded photo of water issue or leak."
+    },
+    "lat": {
+      "type": "number",
+      "minimum": -90.0,
+      "maximum": 90.0,
+      "description": "Optional GPS latitude."
+    },
+    "lon": {
+      "type": "number",
+      "minimum": -180.0,
+      "maximum": 180.0,
+      "description": "Optional GPS longitude."
+    },
+    "lang": {
+      "type": "string",
+      "pattern": "^[a-z]{2}(-[A-Z]{2})?$",
+      "description": "Language code (e.g., 'hi', 'en', 'mr', 'ta', 'te')."
+    },
+    "ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp of submission."
+    }
+  },
+  "additionalProperties": false
+}

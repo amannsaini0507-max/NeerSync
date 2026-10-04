@@ -1,0 +1,12 @@
+{
+  "node_id": "JS-UP-245123-N002",
+  "lgd_gp_code": 245123,
+  "scheme_id": "SCH-UP-245123",
+  "status": "offline",
+  "uptime_s": 0,
+  "battery_v": 3.5,
+  "rssi_dbm": -92,
+  "fw": "1.0.0",
+  "last_seen_ts": "2026-10-04T12:00:00Z",
+  "reason": "CONNECTION_LOST_LWT"
+}
