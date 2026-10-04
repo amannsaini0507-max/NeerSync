@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jalsetu.gov.in/schemas/v1/config.schema.json",
+  "title": "JalSetuConfigPayload",
+  "description": "Validation schema for remote node configuration and reporting parameters.",
+  "type": "object",
+  "required": ["version", "updated_at", "node_id"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Monotonically increasing configuration revision number."
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "node_id": {
+      "type": "string",
+      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$"
+    },
+    "telemetry_interval_sec": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3600,
+      "default": 30
+    },
+    "heartbeat_interval_sec": {
+      "type": "integer",
+      "minimum": 5,
+      "maximum": 3600,
+      "default": 60
+    },
+    "thresholds": {
+      "type": "object",
+      "properties": {
+        "min_water_level_m": { "type": "number" },
+        "max_water_level_m": { "type": "number" },
+        "min_line_pressure_bar": { "type": "number" },
+        "max_turbidity_ntu": { "type": "number" },
+        "max_tds_ppm": { "type": "number" },
+        "min_ph": { "type": "number" },
+        "max_ph": { "type": "number" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

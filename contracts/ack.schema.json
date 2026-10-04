@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jalsetu.gov.in/schemas/v1/ack.schema.json",
+  "title": "JalSetuAckPayload",
+  "description": "Validation schema for device-to-cloud command acknowledgment.",
+  "type": "object",
+  "required": ["command_id", "node_id", "target_actuator", "status", "executed_at"],
+  "properties": {
+    "command_id": {
+      "type": "string",
+      "description": "Matching UUID of the received command."
+    },
+    "node_id": {
+      "type": "string",
+      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$",
+      "description": "Canonical node identifier."
+    },
+    "target_actuator": {
+      "type": "string",
+      "description": "Actuator tag identifier."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["SUCCESS", "FAILED", "REJECTED_SAFETY_LOCK", "TIMEOUT", "IN_PROGRESS"],
+      "description": "Execution status."
+    },
+    "executed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of execution completion."
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable diagnostic or error message."
+    }
+  },
+  "additionalProperties": false
+}

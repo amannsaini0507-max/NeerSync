@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jalsetu.gov.in/schemas/v1/heartbeat.schema.json",
+  "title": "JalSetuHeartbeatPayload",
+  "description": "Validation schema for node heartbeat, LWT disconnect, and connection status.",
+  "type": "object",
+  "required": ["timestamp", "zone_id", "node_id", "status"],
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Current device timestamp."
+    },
+    "zone_id": {
+      "type": "string",
+      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+$",
+      "description": "Canonical zone identifier."
+    },
+    "node_id": {
+      "type": "string",
+      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$",
+      "description": "Canonical node identifier."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ONLINE", "OFFLINE", "DEGRADED", "MAINTENANCE"],
+      "description": "Node availability state."
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for status change (especially for LWT disconnects)."
+    },
+    "firmware_version": {
+      "type": "string",
+      "description": "SemVer firmware release tag running on node."
+    },
+    "uptime_seconds": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Seconds since last system restart."
+    },
+    "free_heap_bytes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Available RAM on MCU/edge device."
+    },
+    "ip_address": {
+      "type": "string",
+      "description": "Current local or cellular IP."
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jalsetu.gov.in/schemas/v1/telemetry.schema.json",
+  "title": "JalSetuTelemetryPayload",
+  "description": "Validation schema for periodic sensor telemetry data sent by JalSetu edge nodes.",
+  "type": "object",
+  "required": ["message_id", "timestamp", "zone_id", "node_id", "metrics"],
+  "properties": {
+    "message_id": {
+      "type": "string",
+      "description": "Unique identifier for this telemetry packet (UUID or sequence ID)."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp of the measurement."
+    },
+    "zone_id": {
+      "type": "string",
+      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+$",
+      "description": "Canonical zone identifier (e.g., JS-DL-Z01)."
+    },
+    "node_id": {
+      "type": "string",
+      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$",
+      "description": "Canonical node identifier (e.g., JS-DL-Z01-OHT-01)."
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Key-value dictionary of sensor measurements.",
+      "properties": {
+        "water_level_m": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 50,
+          "description": "Water level measured in meters."
+        },
+        "water_level_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Water level percentage of tank capacity."
+        },
+        "inlet_flow_lpm": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Instantaneous inlet flow rate in liters per minute."
+        },
+        "outlet_flow_lpm": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Instantaneous outlet flow rate in liters per minute."
+        },
+        "total_volume_m3": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Cumulative water volume processed in cubic meters."
+        },
+        "line_pressure_bar": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 25,
+          "description": "Pipe network water pressure in bar."
+        },
+        "ph": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 14,
+          "description": "Water pH scale reading."
+        },
+        "turbidity_ntu": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "description": "Water turbidity in Nephelometric Turbidity Units."
+        },
+        "tds_ppm": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5000,
+          "description": "Total Dissolved Solids in parts per million (mg/L)."
+        },
+        "water_temp_c": {
+          "type": "number",
+          "minimum": -10,
+          "maximum": 80,
+          "description": "Water temperature in degrees Celsius."
+        },
+        "dissolved_oxygen_mg_l": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20,
+          "description": "Dissolved oxygen in mg/L."
+        },
+        "residual_chlorine_mg_l": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "Free residual chlorine in mg/L."
+        },
+        "motor_current_a": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 200,
+          "description": "Motor phase current in amperes."
+        },
+        "motor_power_kw": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Active motor power consumption in kW."
+        }
+      },
+      "additionalProperties": true
+    },
+    "diagnostics": {
+      "type": "object",
+      "description": "Node hardware diagnostics and health metrics.",
+      "properties": {
+        "battery_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "rssi_dbm": {
+          "type": "integer",
+          "minimum": -130,
+          "maximum": 0
+        },
+        "uptime_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cpu_temp_c": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

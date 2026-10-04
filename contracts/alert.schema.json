@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jalsetu.gov.in/schemas/v1/alert.schema.json",
+  "title": "JalSetuAlertPayload",
+  "description": "Validation schema for real-time edge alarms and safety events.",
+  "type": "object",
+  "required": ["alert_id", "timestamp", "zone_id", "node_id", "alert_code", "severity", "description"],
+  "properties": {
+    "alert_id": {
+      "type": "string",
+      "description": "Unique UUID for the alert occurrence."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the abnormal condition was detected."
+    },
+    "zone_id": {
+      "type": "string",
+      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+$",
+      "description": "Canonical zone identifier."
+    },
+    "node_id": {
+      "type": "string",
+      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$",
+      "description": "Canonical node identifier."
+    },
+    "alert_code": {
+      "type": "string",
+      "enum": [
+        "ERR_DRY_RUN",
+        "ERR_OVERFLOW",
+        "ERR_LEAK_BURST",
+        "ERR_CONTAMINATION_PH",
+        "ERR_CONTAMINATION_TURB",
+        "ERR_HIGH_TDS",
+        "ERR_LOW_PRESSURE",
+        "ERR_POWER_PHASE_LOSS",
+        "ERR_SENSOR_FAULT",
+        "ERR_VALVE_TIMEOUT",
+        "ERR_TAMPER_DETECTED"
+      ],
+      "description": "Standardized alert category code."
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["INFO", "WARNING", "CRITICAL", "EMERGENCY"],
+      "description": "Severity level."
+    },
+    "metric_name": {
+      "type": "string",
+      "description": "Sensor metric that triggered the alarm (if applicable)."
+    },
+    "measured_value": {
+      "type": "number",
+      "description": "Measured value that triggered the threshold."
+    },
+    "threshold_value": {
+      "type": "number",
+      "description": "Threshold configured on device or cloud."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed explanation of the event."
+    }
+  },
+  "additionalProperties": false
+}

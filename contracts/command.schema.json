@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jalsetu.gov.in/schemas/v1/command.schema.json",
+  "title": "JalSetuCommandPayload",
+  "description": "Validation schema for cloud-to-device actuation commands.",
+  "type": "object",
+  "required": ["command_id", "timestamp", "target_node", "target_actuator", "action"],
+  "properties": {
+    "command_id": {
+      "type": "string",
+      "description": "Unique UUID for the command tracking lifecycle."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when command was dispatched."
+    },
+    "target_node": {
+      "type": "string",
+      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$",
+      "description": "Canonical target node identifier."
+    },
+    "target_actuator": {
+      "type": "string",
+      "description": "Actuator tag (e.g., PMP_01, VLV_INLET, VLV_OUTLET)."
+    },
+    "action": {
+      "type": "string",
+      "enum": ["START", "STOP", "OPEN", "CLOSE", "SET_POSITION", "CALIBRATE", "REBOOT"],
+      "description": "Requested control action."
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Optional parameters for the requested action.",
+      "properties": {
+        "position_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Target valve position (0% = fully closed, 100% = fully open)."
+        },
+        "auto_cutoff_level_m": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Safety level cutoff for pump."
+        },
+        "max_runtime_minutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1440,
+          "description": "Safety watchdog max runtime before auto shutoff."
+        }
+      },
+      "additionalProperties": true
+    },
+    "issued_by": {
+      "type": "string",
+      "description": "Username or automated service ID that initiated the command."
+    }
+  },
+  "additionalProperties": false
+}
