@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Central Configuration & Standards
+ * NeerSync 3D Village Digital Twin - Central Configuration & Standards
  * Aligned 100% with /contracts specifications (ids.md, telemetry.schema.json)
  */
 
@@ -22,35 +22,35 @@ export const VILLAGE_CONFIG = {
 
 export const SENSOR_NODES = {
   PUMP: {
-    node_id: 'JS-UP-245123-N001',
+    node_id: 'NS-UP-245123-N001',
     type: 'pump',
     role: 'Source Tube-Well & Submersible Pump',
     location: 'Pump House, Western Ingress',
     coords: [-14, 0, -9],
   },
   ESR: {
-    node_id: 'JS-UP-245123-N002',
+    node_id: 'NS-UP-245123-N002',
     type: 'esr_level',
     role: 'Elevated Storage Reservoir (50,000 L, 15m Stage)',
     location: 'High Ridge Knoll (+8m ground)',
     coords: [0, 8, -9],
   },
   FLOW: {
-    node_id: 'JS-UP-245123-N003',
+    node_id: 'NS-UP-245123-N003',
     type: 'flow',
     role: 'Bulk Electromagnetic Transmission Meter',
     location: 'Main Distribution Header J0',
     coords: [0, 4.5, 0],
   },
   TAIL_PRESSURE: {
-    node_id: 'JS-UP-245123-N004',
+    node_id: 'NS-UP-245123-N004',
     type: 'pressure',
     role: 'Tail-End Pressure Monitor (Branch B / Ridge)',
     location: 'House B5 Terminal Standpost',
     coords: [21, 6.2, 0],
   },
   QUALITY: {
-    node_id: 'JS-UP-245123-N005',
+    node_id: 'NS-UP-245123-N005',
     type: 'quality',
     role: 'In-line Multi-parameter Water Quality Probe',
     location: 'ESR Gravity Outlet Staging',
@@ -103,6 +103,6 @@ export const SUPPLY_WINDOWS = [
 
 export const DEFAULT_MQTT_CONFIG = {
   broker_url: 'wss://broker.emqx.io:8084/mqtt',
-  topic_prefix: 'jalsetu/v1',
-  client_id_prefix: 'jalsetu-twin3d',
+  topic_prefix: 'neersync/v1',
+  client_id_prefix: 'neersync-twin3d',
 };

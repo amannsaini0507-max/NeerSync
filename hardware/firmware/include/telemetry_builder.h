@@ -1,5 +1,5 @@
-#ifndef JALSETU_TELEMETRY_BUILDER_H
-#define JALSETU_TELEMETRY_BUILDER_H
+#ifndef NEERSYNC_TELEMETRY_BUILDER_H
+#define NEERSYNC_TELEMETRY_BUILDER_H
 
 #include <Arduino.h>
 #include <ArduinoJson.h>
@@ -37,4 +37,4 @@ private:
     uint32_t m_seq;
 };
 
-#endif // JALSETU_TELEMETRY_BUILDER_H
+#endif // NEERSYNC_TELEMETRY_BUILDER_H

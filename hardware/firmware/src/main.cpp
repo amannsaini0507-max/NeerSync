@@ -48,7 +48,7 @@ void setup() {
     rtc_boot_count++;
 
     Serial.println(F("=================================================="));
-    Serial.println(F(" JalSetu IoT Edge Node Firmware v1.0.0"));
+    Serial.println(F(" NeerSync IoT Edge Node Firmware v1.0.0"));
     Serial.print(F(" Node ID: ")); Serial.println(NODE_ID_DEFAULT);
     Serial.print(F(" Boot Cycle: ")); Serial.println(rtc_boot_count);
     Serial.println(F("=================================================="));

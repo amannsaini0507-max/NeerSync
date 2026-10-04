@@ -1,5 +1,5 @@
 """
-JalSetu Analytics Package
+NeerSync Analytics Package
 """
 
 from simulation.analytics.rules import evaluate_rules

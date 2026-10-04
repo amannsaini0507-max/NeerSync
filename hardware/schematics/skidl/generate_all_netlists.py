@@ -1,5 +1,5 @@
 """
-JalSetu Hardware - Run all SKiDL netlist generators
+NeerSync Hardware - Run all SKiDL netlist generators
 Outputs KiCad netlist files into hardware/schematics/netlists/
 """
 
@@ -21,7 +21,7 @@ SCRIPTS = [
 
 def main():
     print("=" * 60)
-    print(" Generating JalSetu Hardware Netlists via SKiDL")
+    print(" Generating NeerSync Hardware Netlists via SKiDL")
     print("=" * 60)
     
     success_count = 0

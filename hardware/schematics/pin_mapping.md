@@ -1,4 +1,4 @@
-# JalSetu IoT Node Family Pin Mapping Table
+# NeerSync IoT Node Family Pin Mapping Table
 
 **MCU**: ESP32-WROOM-32D (38-pin NodeMCU-32S / ESP32 DevKit v1)  
 **Standard**: Jal Jeevan Mission Shared Contract v1.0  

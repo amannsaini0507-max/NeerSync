@@ -1,5 +1,5 @@
 """
-Playwright End-to-End Test Suite for JalSetu Platform
+Playwright End-to-End Test Suite for NeerSync Platform
 Covers:
 1. Citizen 1-tap QR feedback (/f/{fhtc_id})
 2. Alert creation -> technician repair proof upload -> citizen confirmation closure
@@ -16,7 +16,7 @@ try:
 except ImportError:
     HAS_PLAYWRIGHT = False
 
-BASE_URL = os.environ.get("JALSETU_BASE_URL", "http://localhost:8000")
+BASE_URL = os.environ.get("NEERSYNC_BASE_URL", "http://localhost:8000")
 
 
 @pytest.mark.skipif(not HAS_PLAYWRIGHT, reason="playwright library not installed in current environment")

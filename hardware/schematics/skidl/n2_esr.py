@@ -1,5 +1,5 @@
 """
-JalSetu Node N2: Elevated Storage Reservoir (ESR) Node SKiDL Schematic Script
+NeerSync Node N2: Elevated Storage Reservoir (ESR) Node SKiDL Schematic Script
 Emits type: "esr_level" (level_cm) and type: "flow" (flow_lpm)
 Features A02YYUW waterproof ultrasonic level sensor & YF-DN15 flow pulse sensor with voltage divider
 """

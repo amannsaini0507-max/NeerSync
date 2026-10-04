@@ -43,7 +43,7 @@ export const AlertManagementPage: React.FC = () => {
   const handleOpenRepair = (alert: any) => {
     setSelectedAlert(alert);
     setActionType('repair');
-    setRepairPhoto('https://storage.jalsetu.gov.in/repairs/valve_replaced_782.jpg');
+    setRepairPhoto('https://storage.neersync.gov.in/repairs/valve_replaced_782.jpg');
     setRepairNotes('Replaced air valve and tightened flange at branch junction.');
   };
 

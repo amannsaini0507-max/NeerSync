@@ -1,6 +1,6 @@
-# JalSetu 3D Digital Twin - Architectural & Calibration Changes (`CHANGES.md`)
+# NeerSync 3D Digital Twin - Architectural & Calibration Changes (`CHANGES.md`)
 
-This document records all modifications and calibrations made when transitioning from the single-file prototype (`jalsetu_village_twin.html`) to the modular, realistic 3D twin in `/simulation/twin3d`.
+This document records all modifications and calibrations made when transitioning from the single-file prototype (`neersync_village_twin.html`) to the modular, realistic 3D twin in `/simulation/twin3d`.
 
 ---
 
@@ -24,10 +24,10 @@ This document records all modifications and calibrations made when transitioning
 
 ### 3. Contracts Alignment
 * **Node Identifiers**: Updated from internal indices (`A1`, `B3`) to canonical JJM format:
-  - Source Pump: `JS-UP-245123-N001`
-  - Elevated Tank: `JS-UP-245123-N002`
-  - Bulk Transmission Flow: `JS-UP-245123-N003`
-  - Tail-End Pressure: `JS-UP-245123-N004`
-  - Water Quality Node: `JS-UP-245123-N005`
+  - Source Pump: `NS-UP-245123-N001`
+  - Elevated Tank: `NS-UP-245123-N002`
+  - Bulk Transmission Flow: `NS-UP-245123-N003`
+  - Tail-End Pressure: `NS-UP-245123-N004`
+  - Water Quality Node: `NS-UP-245123-N005`
 * **Household Taps**: Mapped 1:1 to canonical FHTC IDs (`FHTC-UP-245123-0001` through `0015`).
 * **Fixed Units**: Standardized to `pressure_kpa`, `flow_lpm`, `level_cm`, `turbidity_ntu`, `chlorine_mgl`, `current_a`, `voltage_v`, `battery_v`, `rssi_dbm`. All emitted telemetry strictly validated against `/contracts/telemetry.schema.json`.

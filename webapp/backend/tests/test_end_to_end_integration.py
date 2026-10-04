@@ -25,7 +25,7 @@ async def test_end_to_end_telemetry_to_alert_to_imis_sync(client: AsyncClient, d
     else:
         sample_payload = {
             "schema_version": "1.0",
-            "node_id": "JS-UP-245123-N004",
+            "node_id": "NS-UP-245123-N004",
             "lgd_gp_code": "245123",
             "scheme_id": "SCH-UP-245123",
             "ts": datetime.now(timezone.utc).isoformat(),
@@ -71,7 +71,7 @@ async def test_end_to_end_telemetry_to_alert_to_imis_sync(client: AsyncClient, d
         f"/api/v1/alerts/{alert_id}",
         json={
             "status": "pending_citizen_confirmation",
-            "technician_photo_url": "https://storage.jalsetu.gov.in/repairs/valve_repair_e2e.jpg",
+            "technician_photo_url": "https://storage.neersync.gov.in/repairs/valve_repair_e2e.jpg",
             "resolution_notes": "Replaced faulty diaphragm valve at tail-end junction"
         }
     )

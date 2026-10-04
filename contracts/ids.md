@@ -1,4 +1,4 @@
-# JalSetu System Identifiers & Mapping Specification (`ids.md`)
+# NeerSync System Identifiers & Mapping Specification (`ids.md`)
 
 **Version**: `1.0`  
 **Governing Standard**: Jal Jeevan Mission (JJM) / Ministry of Jal Shakti National Database Architecture
@@ -7,11 +7,11 @@
 
 ## 1. Canonical Identifier Taxonomy
 
-All assets, physical IoT nodes, administrative units, and telemetry data in JalSetu utilize strict standardized identifiers. Every identifier format is enforced by regular expressions across firmware, APIs, and database constraints.
+All assets, physical IoT nodes, administrative units, and telemetry data in NeerSync utilize strict standardized identifiers. Every identifier format is enforced by regular expressions across firmware, APIs, and database constraints.
 
 | Entity | ID Format Name | Canonical Format String | Regular Expression Pattern | Concrete Example |
 |---|---|---|---|---|
-| **IoT Node** | `node_id` | `JS-<STATE2>-<LGD>-N<3 digits>` | `^JS-[A-Z]{2}-[0-9]+-N[0-9]{3}$` | `JS-UP-245123-N001` |
+| **IoT Node** | `node_id` | `NS-<STATE2>-<LGD>-N<3 digits>` | `^NS-[A-Z]{2}-[0-9]+-N[0-9]{3}$` | `NS-UP-245123-N001` |
 | **Gram Panchayat** | `lgd_gp_code` | 6-digit numeric LGD code | `^[0-9]{6}$` | `245123` |
 | **Water Scheme** | `scheme_id` | `SCH-<STATE2>-<IDENTIFIER>` | `^SCH-[A-Z]{2}-[0-9A-Z_]+$` | `SCH-UP-245123` |
 | **Habitation** | `habitation_id` | `HAB-<LGD>-<3 digits>` | `^HAB-[0-9]+-[0-9]{3}$` | `HAB-245123-001` |
@@ -23,7 +23,7 @@ All assets, physical IoT nodes, administrative units, and telemetry data in JalS
 
 ## 2. Fixed Engineering Units
 
-In accordance with the JalSetu Shared Contract, all engineering metrics use fixed, non-negotiable unit names and data types. No conversions or alternative units are permitted within raw contracts.
+In accordance with the NeerSync Shared Contract, all engineering metrics use fixed, non-negotiable unit names and data types. No conversions or alternative units are permitted within raw contracts.
 
 | Metric Key | Physical Quantity | Fixed Unit | Allowed Range | Precision |
 |---|---|---|---|---|

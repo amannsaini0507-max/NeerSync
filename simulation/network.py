@@ -1,5 +1,5 @@
 """
-JalSetu Virtual Village Hydraulic Network Model (WNTR)
+NeerSync Virtual Village Hydraulic Network Model (WNTR)
 Simulates a rural Gram Panchayat water supply scheme:
 - 1 Source + Submersible Pump
 - 1 Elevated Storage Reservoir (ESR)
@@ -22,11 +22,11 @@ GP_METADATA = {
     "scheme_id": "SCH-UP-245123",
     "scheme_name": "Badepur Multi-Ward Piped Water Scheme",
     "nodes": {
-        "pump_node": "JS-UP-245123-N001",
-        "esr_node": "JS-UP-245123-N002",
-        "bulk_flow_node": "JS-UP-245123-N003",
-        "tail_end_node": "JS-UP-245123-N004",
-        "quality_node": "JS-UP-245123-N005",
+        "pump_node": "NS-UP-245123-N001",
+        "esr_node": "NS-UP-245123-N002",
+        "bulk_flow_node": "NS-UP-245123-N003",
+        "tail_end_node": "NS-UP-245123-N004",
+        "quality_node": "NS-UP-245123-N005",
     },
     "wards": ["Ward 1 (North)", "Ward 2 (Central)", "Ward 3 (South)"],
 }

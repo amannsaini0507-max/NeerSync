@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 class MQTTIngestionSubscriber:
     """
-    Subscribes to jalsetu/v1/# topics, validates payloads against contract schemas,
+    Subscribes to neersync/v1/# topics, validates payloads against contract schemas,
     and stores metrics into time-series database.
     """
 
@@ -28,7 +28,7 @@ class MQTTIngestionSubscriber:
 
         try:
             self.client = mqtt.Client(
-                client_id="jalsetu-backend-ingest-worker",
+                client_id="neersync-backend-ingest-worker",
                 clean_session=False,
                 protocol=mqtt.MQTTv311
             )
@@ -70,9 +70,9 @@ class MQTTIngestionSubscriber:
         payload_bytes = msg.payload
         logger.debug("Received MQTT message on %s (%d bytes)", topic, len(payload_bytes))
 
-        # Topic format: jalsetu/v1/{lgd_gp_code}/{node_id}/{channel}
+        # Topic format: neersync/v1/{lgd_gp_code}/{node_id}/{channel}
         parts = topic.split("/")
-        if len(parts) < 5 or parts[0] != "jalsetu" or parts[1] != "v1":
+        if len(parts) < 5 or parts[0] != "neersync" or parts[1] != "v1":
             logger.warning("Ignored non-canonical MQTT topic: %s", topic)
             return
 

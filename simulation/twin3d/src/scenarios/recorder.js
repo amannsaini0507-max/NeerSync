@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Timeline Scenario Recorder & Replay
+ * NeerSync 3D Village Digital Twin - Timeline Scenario Recorder & Replay
  * Records time-series frames and replays historical events.
  */
 

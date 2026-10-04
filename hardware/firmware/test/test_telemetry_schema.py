@@ -1,5 +1,5 @@
 """
-JalSetu Hardware - Firmware Telemetry Contract Compliance Test Suite
+NeerSync Hardware - Firmware Telemetry Contract Compliance Test Suite
 Validates all firmware example payloads and generated schemas against
 the authoritative contracts/telemetry.schema.json using Draft 2020-12 validator.
 """

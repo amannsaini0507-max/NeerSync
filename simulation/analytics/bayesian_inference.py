@@ -1,5 +1,5 @@
 """
-JalSetu Bayesian / Graphical Household Functionality Inference Model
+NeerSync Bayesian / Graphical Household Functionality Inference Model
 Infers household-level tap connection (FHTC) functionality across the village hierarchy:
 ESR -> Distribution Branch -> Tail-End Sensor -> Household Tap Connection.
 """

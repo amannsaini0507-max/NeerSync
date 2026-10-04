@@ -16,14 +16,14 @@ class Settings(BaseSettings):
         extra="ignore"
     )
 
-    app_name: str = "JalSetu Core Platform"
+    app_name: str = "NeerSync Core Platform"
     app_version: str = "1.0.0"
     app_env: str = Field(default="development", description="development | production | test")
     debug: bool = True
 
     # Database: Supports SQLite (aiosqlite) for lightweight local tests, and PostgreSQL (asyncpg) for Docker/Prod
     database_url: str = Field(
-        default="sqlite+aiosqlite:///./jalsetu.db",
+        default="sqlite+aiosqlite:///./neersync.db",
         description="Async SQLAlchemy database URL"
     )
 
@@ -35,7 +35,7 @@ class Settings(BaseSettings):
     mqtt_broker_port: int = 1883
     mqtt_username: str = ""
     mqtt_password: str = ""
-    mqtt_topic_subscribe: str = "jalsetu/v1/#"
+    mqtt_topic_subscribe: str = "neersync/v1/#"
     mqtt_enabled: bool = True
 
     # External ML Service (Member A /predict service)
@@ -51,7 +51,7 @@ class Settings(BaseSettings):
     imis_fallback_dir: Path = APP_DIR / "data" / "imis_fallback"
 
     # Security & RBAC
-    jwt_secret_key: str = "jalsetu-super-secret-key-national-fhtc-2026-secure"
+    jwt_secret_key: str = "neersync-super-secret-key-national-fhtc-2026-secure"
     jwt_algorithm: str = "HS256"
     jwt_access_token_expire_minutes: int = 60 * 24
 

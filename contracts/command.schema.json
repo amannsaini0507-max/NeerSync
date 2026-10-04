@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jalsetu.gov.in/schemas/v1/command.schema.json",
-  "title": "JalSetuCommandPayload",
+  "$id": "https://neersync.gov.in/schemas/v1/command.schema.json",
+  "title": "NeerSyncCommandPayload",
   "description": "Validation schema for cloud-to-device actuation commands.",
   "type": "object",
   "required": ["command_id", "timestamp", "target_node", "target_actuator", "action"],
@@ -17,7 +17,7 @@
     },
     "target_node": {
       "type": "string",
-      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$",
+      "pattern": "^NS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$",
       "description": "Canonical target node identifier."
     },
     "target_actuator": {

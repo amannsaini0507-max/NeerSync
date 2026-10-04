@@ -1,5 +1,5 @@
 """
-JalSetu Streamlit Interactive Demonstration Dashboard
+NeerSync Streamlit Interactive Demonstration Dashboard
 Designed for non-technical officials, Gram Panchayat leaders, and hackathon judges.
 
 Features:
@@ -8,7 +8,7 @@ Features:
 - Interactive 'Inject Fault' scenario buttons
 - Live alerts feed displaying human-readable reasons
 - Explainable AI/ML & Bayesian household status breakdown
-- Side-by-side Before/After comparison: Monthly Inspection vs JalSetu
+- Side-by-side Before/After comparison: Monthly Inspection vs NeerSync
 
 Run with:
     streamlit run simulation/demo.py
@@ -37,7 +37,7 @@ from simulation.analytics import (
 )
 
 st.set_page_config(
-    page_title="JalSetu | Virtual Village Simulation",
+    page_title="NeerSync | Virtual Village Simulation",
     page_icon="💧",
     layout="wide"
 )
@@ -113,7 +113,7 @@ col_logo, col_title = st.columns([1, 6])
 with col_logo:
     st.image("https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg", width=65)
 with col_title:
-    st.title("JalSetu (जल सेतु) — Virtual Village AI/ML Twin")
+    st.title("NeerSync (नीर सिंक) — Virtual Village AI/ML Twin")
     st.caption("Gram Panchayat Badepur, Meerut (LGD: 245123 | Scheme: SCH-UP-245123) | Jal Jeevan Mission FHTC Monitoring")
 
 st.divider()
@@ -352,7 +352,7 @@ with col_details:
 st.divider()
 
 # --- BEFORE VS AFTER COMPARISON PANEL ---
-st.subheader("📊 Policy Impact: Status Quo (Monthly Inspection) vs. JalSetu Platform")
+st.subheader("📊 Policy Impact: Status Quo (Monthly Inspection) vs. NeerSync Platform")
 
 comp_col1, comp_col2 = st.columns(2)
 
@@ -367,7 +367,7 @@ with comp_col1:
 
 with comp_col2:
     st.markdown("""
-    ### ✅ JalSetu AI/ML Platform (Continuous JJM Monitoring)
+    ### ✅ NeerSync AI/ML Platform (Continuous JJM Monitoring)
     - **Outage Detection Latency**: **Sub-Hour (0 to 60 Minutes)**. Automated SMS and work-order dispatch directly to pump operator.
     - **Real-Time Leakage Pinpointing**: Night Minimum Flow (MNF) and mass balance flag micro-leaks within **24 hours**.
     - **Continuous Potable Water Assurance**: Inline turbidity & residual chlorine sensing triggers automated safety warnings.

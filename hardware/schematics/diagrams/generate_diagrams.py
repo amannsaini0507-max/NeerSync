@@ -1,5 +1,5 @@
 """
-JalSetu Hardware - SVG Schematic Diagram Generator
+NeerSync Hardware - SVG Schematic Diagram Generator
 Generates clean, color-coded, professional vector SVG schematics for N1, N2, N3, N4 and Power subsystem.
 """
 
@@ -38,18 +38,18 @@ def generate_svg_header(title, width=1200, height=800):
   <text x="35" y="45" class="title">{title}</text>
 '''
 
-def generate_svg_footer(rev="1.0", author="JalSetu Hardware Team", date="2026-10-04"):
+def generate_svg_footer(rev="1.0", author="NeerSync Hardware Team", date="2026-10-04"):
     return f'''
   <!-- Title Block Footer -->
   <rect x="850" y="730" width="335" height="55" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" />
-  <text x="860" y="748" font-family="Segoe UI, sans-serif" font-size="11px" font-weight="bold" fill="#0f172a">JalSetu JJM FHTC Monitoring IoT Node</text>
+  <text x="860" y="748" font-family="Segoe UI, sans-serif" font-size="11px" font-weight="bold" fill="#0f172a">NeerSync JJM FHTC Monitoring IoT Node</text>
   <text x="860" y="764" font-family="Segoe UI, sans-serif" font-size="10px" fill="#475569">Rev: {rev} | Date: {date} | Status: ERC UNVERIFIED</text>
   <text x="860" y="778" font-family="Segoe UI, sans-serif" font-size="10px" fill="#64748b">Branch: feature/hardware | Single Source of Truth</text>
 </svg>
 '''
 
 def create_n1_svg():
-    svg = generate_svg_header("JalSetu Node N1 — Tube-well / Pump Monitoring Node (Schematic)")
+    svg = generate_svg_header("NeerSync Node N1 — Tube-well / Pump Monitoring Node (Schematic)")
     svg += '''
   <text x="35" y="65" class="subtitle">Contract: type="pump" | Metrics: current_a, voltage_v | 415V/230V Optoisolated AC Measurement</text>
   
@@ -132,7 +132,7 @@ def create_n1_svg():
     return svg
 
 def create_n2_svg():
-    svg = generate_svg_header("JalSetu Node N2 — Elevated Storage Reservoir (ESR) Node (Schematic)")
+    svg = generate_svg_header("NeerSync Node N2 — Elevated Storage Reservoir (ESR) Node (Schematic)")
     svg += '''
   <text x="35" y="65" class="subtitle">Contract: type="esr_level" (level_cm) &amp; type="flow" (flow_lpm) | Ultrasonic + Hall Flow Meter</text>
 
@@ -176,7 +176,7 @@ def create_n2_svg():
   <rect x="850" y="90" width="310" height="230" class="box-comm" />
   <text x="910" y="115" class="label-title">A7672S 4G LTE Cat-1 Modem</text>
   <text x="865" y="140" class="label">Primary Backhaul when LoRa Gateway out of range</text>
-  <text x="865" y="160" class="label">Publishes to jalsetu/v1/{gp}/{node}/telemetry</text>
+  <text x="865" y="160" class="label">Publishes to neersync/v1/{gp}/{node}/telemetry</text>
   <text x="865" y="180" class="label">Retained LWT to .../status</text>
   <text x="865" y="200" class="label">QoS 1 with offline queue drain on connect</text>
 
@@ -197,7 +197,7 @@ def create_n2_svg():
     return svg
 
 def create_n3_svg():
-    svg = generate_svg_header("JalSetu Node N3 — Tail-End Pressure Monitoring Node (Schematic)")
+    svg = generate_svg_header("NeerSync Node N3 — Tail-End Pressure Monitoring Node (Schematic)")
     svg += '''
   <text x="35" y="65" class="subtitle">Contract: type="pressure" (pressure_kpa) | 0.5-4.5V Transducer + Precision Divider</text>
 
@@ -259,7 +259,7 @@ def create_n3_svg():
     return svg
 
 def create_n4_svg():
-    svg = generate_svg_header("JalSetu Node N4 — Water Quality Monitoring Node (Schematic)")
+    svg = generate_svg_header("NeerSync Node N4 — Water Quality Monitoring Node (Schematic)")
     svg += '''
   <text x="35" y="65" class="subtitle">Contract: type="quality" (turbidity_ntu) | Optical Nephelometric Turbidity Sensor</text>
 
@@ -297,7 +297,7 @@ def create_n4_svg():
   <!-- Right Comms & Power Blocks -->
   <rect x="850" y="90" width="310" height="230" class="box-comm" />
   <text x="910" y="115" class="label-title">A7672S 4G LTE Cat-1 Modem</text>
-  <text x="865" y="140" class="label">Publishes to jalsetu/v1/{gp}/{node}/telemetry</text>
+  <text x="865" y="140" class="label">Publishes to neersync/v1/{gp}/{node}/telemetry</text>
   <text x="865" y="160" class="label">Payload: values.turbidity_ntu: 1.25</text>
   <text x="865" y="180" class="label">Threshold Alarm: &gt; 5.0 NTU triggers alert</text>
 
@@ -316,7 +316,7 @@ def create_n4_svg():
     return svg
 
 def create_power_svg():
-    svg = generate_svg_header("JalSetu Power Subsystem — Solar Harvesting & Battery Management (Schematic)")
+    svg = generate_svg_header("NeerSync Power Subsystem — Solar Harvesting & Battery Management (Schematic)")
     svg += '''
   <text x="35" y="65" class="subtitle">Solar MPPT Charging + Li-ion BMS + 3.8V 2A Burst Buck Regulator + 3.3V System LDO</text>
 

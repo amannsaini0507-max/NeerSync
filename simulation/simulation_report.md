@@ -1,6 +1,6 @@
-# JalSetu Virtual Village Simulation & AI/ML Performance Report
+# NeerSync Virtual Village Simulation & AI/ML Performance Report
 
-**Project**: JalSetu (जल सेतु) — AI/ML Monitoring for Jal Jeevan Mission (JJM)  
+**Project**: NeerSync (नीर सिंक) — AI/ML Monitoring for Jal Jeevan Mission (JJM)  
 **Target Unit**: Gram Panchayat Badepur, Meerut District, Uttar Pradesh  
 **LGD Code**: `245123` | **Scheme ID**: `SCH-UP-245123`  
 **Date**: October 2026 | **Author**: Simulation & AI/ML Platform Engineering Team  
@@ -10,7 +10,7 @@
 > [!IMPORTANT]
 > ### 🛡️ Attribution & Experimental Rigor Disclosure
 > **All experimental evaluations, sensor time-series, and citizen grievance records in this report are derived from synthetic hydraulic simulations.**  
-> Physical flow and pressure dynamics were simulated using EPANET 2.2 and WNTR (`wntr==1.5.0`), with stochastic Gaussian sensor noise, packet jitter, and rural 2G network packet loss injected. No claims of field deployment data are made; this simulation serves to validate and prove the mathematical, architectural, and operational feasibility of the JalSetu platform before field pilot deployment.
+> Physical flow and pressure dynamics were simulated using EPANET 2.2 and WNTR (`wntr==1.5.0`), with stochastic Gaussian sensor noise, packet jitter, and rural 2G network packet loss injected. No claims of field deployment data are made; this simulation serves to validate and prove the mathematical, architectural, and operational feasibility of the NeerSync platform before field pilot deployment.
 
 ---
 
@@ -21,7 +21,7 @@ Under India's **Jal Jeevan Mission (JJM)**, the government has provided tap conn
 - **Tail-End Deprivation**: Due to pipeline friction and illegal direct pumping, households situated at the end of distribution mains frequently experience chronic low pressure (<70 kPa benchmark), yet the village is officially recorded as "100% Functional".
 - **Potable Water Contamination**: Monsoon surface runoff ingress can lead to acute diarrheal outbreaks before water samples can be transported to district laboratories.
 
-**JalSetu** solves this with a lightweight IoT edge architecture coupled with explainable AI/ML that detects outages within minutes, pinpoints pipeline leaks, and infers **household-level service delivery functionality** in real time.
+**NeerSync** solves this with a lightweight IoT edge architecture coupled with explainable AI/ML that detects outages within minutes, pinpoints pipeline leaks, and infers **household-level service delivery functionality** in real time.
 
 ---
 
@@ -31,13 +31,13 @@ The synthetic village of **Badepur** was modeled with strict fidelity to typical
 
 | Asset / Node | Role | Specifications | Sensor Tag |
 |---|---|---|---|
-| **Source Tube-Well** | Deep groundwater aquifer source | Submersible pump, 45m head, 500 LPM capacity | `JS-UP-245123-N001` (Pump State, Current, Voltage) |
-| **Elevated Storage Reservoir (ESR)** | Gravity balancing tank | 15m staging elevation, 50,000 L capacity, 4m height | `JS-UP-245123-N002` (Ultrasonic Level Sensor) |
-| **Transmission Main** | Bulk distribution header | 200mm diameter header pipe | `JS-UP-245123-N003` (Electromagnetic Bulk Flow Meter) |
-| **Branch 1 (Ward 1 - North)** | Residential distribution branch | 20 Household Tap Connections (FHTCs 0001–0020) | `JS-UP-245123-N004` (Tail-End Pressure Sensor at FHTC 0020) |
+| **Source Tube-Well** | Deep groundwater aquifer source | Submersible pump, 45m head, 500 LPM capacity | `NS-UP-245123-N001` (Pump State, Current, Voltage) |
+| **Elevated Storage Reservoir (ESR)** | Gravity balancing tank | 15m staging elevation, 50,000 L capacity, 4m height | `NS-UP-245123-N002` (Ultrasonic Level Sensor) |
+| **Transmission Main** | Bulk distribution header | 200mm diameter header pipe | `NS-UP-245123-N003` (Electromagnetic Bulk Flow Meter) |
+| **Branch 1 (Ward 1 - North)** | Residential distribution branch | 20 Household Tap Connections (FHTCs 0001–0020) | `NS-UP-245123-N004` (Tail-End Pressure Sensor at FHTC 0020) |
 | **Branch 2 (Ward 2 - Central)** | Residential distribution branch | 20 Household Tap Connections (FHTCs 0021–0040) | Simulated pipeline joint nodes |
 | **Branch 3 (Ward 3 - South)** | Residential distribution branch | 20 Household Tap Connections (FHTCs 0041–0060) | Sloped tail-end cluster |
-| **Water Quality Station** | Continuous chemical safety node | In-line probe at ESR discharge | `JS-UP-245123-N005` (Turbidity, Free Chlorine, pH, TDS) |
+| **Water Quality Station** | Continuous chemical safety node | In-line probe at ESR discharge | `NS-UP-245123-N005` (Turbidity, Free Chlorine, pH, TDS) |
 
 ![Village Network Topology](./reports/figures/village_network_topology.png)
 
@@ -61,7 +61,7 @@ A suite of 9 realistic fault scenarios was specified in `simulation/scenarios.ya
 
 ## 4. Explainable AI/ML Architecture
 
-Rather than black-box models, JalSetu uses a tiered, explainable intelligence stack:
+Rather than black-box models, NeerSync uses a tiered, explainable intelligence stack:
 
 ```
 [IoT Telemetry + Citizen Grievance Stream]
@@ -122,9 +122,9 @@ The evaluation engine (`simulation/evaluate.py`) was executed over 48 hours with
 
 ---
 
-## 6. The Pitch Narrative: Status Quo vs. JalSetu
+## 6. The Pitch Narrative: Status Quo vs. NeerSync
 
-| Dimension | Traditional Monthly Manual Inspection | JalSetu Continuous AI/ML Platform |
+| Dimension | Traditional Monthly Manual Inspection | NeerSync Continuous AI/ML Platform |
 |---|---|---|
 | **Outage Discovery** | **15 to 30 Days** (waits for citizen complaints) | **Sub-hour (< 60 minutes)** automated SMS & work order |
 | **Leakage Visibility** | **Zero visibility**; 35% non-revenue water loss | **Pinpoints branch within 24h** via Night Minimum Flow |

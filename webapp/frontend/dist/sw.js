@@ -1,63 +1,32 @@
-// JalSetu Service Worker - Offline First Architecture
-const CACHE_NAME = 'jalsetu-v1';
-const STATIC_ASSETS = [
+const CACHE_NAME = 'neersync-v1.0';
+const URLS_TO_CACHE = [
   '/',
-  '/index.html',
-  '/manifest.json',
-  'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css'
+  '/assets/style.css',
+  '/assets/app.js',
+  '/manifest.json'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(STATIC_ASSETS);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(URLS_TO_CACHE))
   );
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) => {
-      return Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
-      );
-    })
+    caches.keys().then((keys) => Promise.all(
+      keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
+    ))
   );
   self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {
-  const url = new URL(event.request.url);
+  // Only cache GET requests; let API POSTs pass through to outbox
+  if (event.request.method !== 'GET') return;
 
-  // API calls: Network first, cache fallback if offline
-  if (url.pathname.startsWith('/api/')) {
-    event.respondWith(
-      fetch(event.request).catch(() => {
-        return new Response(
-          JSON.stringify({ offline: true, message: 'Offline mode active. Submission queued locally.' }),
-          { headers: { 'Content-Type': 'application/json' } }
-        );
-      })
-    );
-    return;
-  }
-
-  // Static assets: Cache first, network fallback
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(event.request).then((networkResponse) => {
-        if (networkResponse && networkResponse.status === 200) {
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
-        }
-        return networkResponse;
-      });
-    })
+    fetch(event.request).catch(() => caches.match(event.request))
   );
 });

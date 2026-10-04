@@ -19,11 +19,11 @@ const translationsMap: Record<string, Record<string, string>> = {
 };
 
 export const App: React.FC = () => {
-  const [lang, setLang] = useState<string>(() => localStorage.getItem('jalsetu_lang') || 'en');
+  const [lang, setLang] = useState<string>(() => localStorage.getItem('neersync_lang') || 'en');
 
   const handleLangChange = (newLang: string) => {
     setLang(newLang);
-    localStorage.setItem('jalsetu_lang', newLang);
+    localStorage.setItem('neersync_lang', newLang);
   };
 
   const t = translationsMap[lang] || en;

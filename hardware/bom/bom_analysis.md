@@ -1,4 +1,4 @@
-# JalSetu Bill of Materials (BOM) Cost & Supply Chain Analysis
+# NeerSync Bill of Materials (BOM) Cost & Supply Chain Analysis
 
 **Target Budget**: **₹25,000 – ₹45,000 INR per Gram Panchayat (GP)**  
 **Standard Village Package**: 1x N1 (Pump), 1x N2 (ESR), 2x N3 (Tail-end Pressure), 1x LoRa Gateway Hub  

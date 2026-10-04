@@ -46,7 +46,7 @@ async def test_alert_router_crud(client: AsyncClient, db_session):
         "/api/v1/alerts/ALT-TEST-ROUTER-001",
         json={
             "status": "pending_citizen_confirmation",
-            "technician_photo_url": "https://storage.jalsetu.gov.in/repairs/culvert.jpg",
+            "technician_photo_url": "https://storage.neersync.gov.in/repairs/culvert.jpg",
             "resolution_notes": "Replaced pipe section"
         }
     )
@@ -98,11 +98,11 @@ async def test_master_router_details_and_404s(client: AsyncClient, db_session):
     assert sch_404.status_code == 404
 
     # Node Master
-    node_res = await client.get("/api/v1/master/nodes/JS-UP-245123-N001")
+    node_res = await client.get("/api/v1/master/nodes/NS-UP-245123-N001")
     assert node_res.status_code == 200
     assert node_res.json()["type"] == "pump"
 
-    node_404 = await client.get("/api/v1/master/nodes/JS-UP-999999-N999")
+    node_404 = await client.get("/api/v1/master/nodes/NS-UP-999999-N999")
     assert node_404.status_code == 404
 
     # FHTC Master
@@ -307,7 +307,7 @@ async def test_mqtt_subscriber_direct_dispatch(db_session):
     # Valid telemetry message
     valid_payload = json.dumps({
         "schema_version": "1.0",
-        "node_id": "JS-UP-245123-N001",
+        "node_id": "NS-UP-245123-N001",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "ts": datetime.now(timezone.utc).isoformat(),
@@ -319,12 +319,12 @@ async def test_mqtt_subscriber_direct_dispatch(db_session):
         "fw": "1.0.0"
     }).encode("utf-8")
 
-    sub._on_message(None, None, FakeMsg("jalsetu/v1/245123/JS-UP-245123-N001/telemetry", valid_payload))
+    sub._on_message(None, None, FakeMsg("neersync/v1/245123/NS-UP-245123-N001/telemetry", valid_payload))
 
     # Valid status message
     valid_status = json.dumps({
         "schema_version": "1.0",
-        "node_id": "JS-UP-245123-N001",
+        "node_id": "NS-UP-245123-N001",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "ts": datetime.now(timezone.utc).isoformat(),
@@ -335,13 +335,13 @@ async def test_mqtt_subscriber_direct_dispatch(db_session):
         "fw": "1.0.0"
     }).encode("utf-8")
 
-    sub._on_message(None, None, FakeMsg("jalsetu/v1/245123/JS-UP-245123-N001/status", valid_status))
+    sub._on_message(None, None, FakeMsg("neersync/v1/245123/NS-UP-245123-N001/status", valid_status))
 
     # Non-canonical topic ignored
     sub._on_message(None, None, FakeMsg("other/invalid/topic", b"{}"))
 
     # Corrupt JSON
-    sub._on_message(None, None, FakeMsg("jalsetu/v1/245123/JS-UP-245123-N001/telemetry", b"NOT_JSON"))
+    sub._on_message(None, None, FakeMsg("neersync/v1/245123/NS-UP-245123-N001/telemetry", b"NOT_JSON"))
 
     # Callbacks with mock client
     mock_client = MagicMock()
@@ -356,7 +356,7 @@ async def test_deep_index_calculator_and_alert_engine(db_session):
     now = datetime.now(timezone.utc)
     t_flow = TelemetryRecord(
         schema_version="1.0",
-        node_id="JS-UP-245123-N002",
+        node_id="NS-UP-245123-N002",
         lgd_gp_code="245123",
         scheme_id="SCH-UP-245123",
         ts=now - timedelta(hours=2),
@@ -369,7 +369,7 @@ async def test_deep_index_calculator_and_alert_engine(db_session):
     )
     t_press = TelemetryRecord(
         schema_version="1.0",
-        node_id="JS-UP-245123-N004",
+        node_id="NS-UP-245123-N004",
         lgd_gp_code="245123",
         scheme_id="SCH-UP-245123",
         ts=now - timedelta(hours=1),
@@ -382,7 +382,7 @@ async def test_deep_index_calculator_and_alert_engine(db_session):
     )
     t_qual = TelemetryRecord(
         schema_version="1.0",
-        node_id="JS-UP-245123-N005",
+        node_id="NS-UP-245123-N005",
         lgd_gp_code="245123",
         scheme_id="SCH-UP-245123",
         ts=now - timedelta(minutes=30),
@@ -404,7 +404,7 @@ async def test_deep_index_calculator_and_alert_engine(db_session):
     # Check alert evaluation in alert_engine
     normal_telemetry = {
         "schema_version": "1.0",
-        "node_id": "JS-UP-245123-N004",
+        "node_id": "NS-UP-245123-N004",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "ts": now.isoformat(),
@@ -424,7 +424,7 @@ async def test_node_status_ingest_and_offline_alerts(client: AsyncClient, db_ses
     now = datetime.now(timezone.utc)
     # 1. Ingest offline status matching contracts/status.schema.json -> creates node_offline alert
     offline_payload = {
-        "node_id": "JS-UP-245123-N003",
+        "node_id": "NS-UP-245123-N003",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "status": "offline",
@@ -449,7 +449,7 @@ async def test_node_status_ingest_and_offline_alerts(client: AsyncClient, db_ses
 
     # 2. Ingest online status -> auto-closes node_offline alert
     online_payload = {
-        "node_id": "JS-UP-245123-N003",
+        "node_id": "NS-UP-245123-N003",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "status": "online",

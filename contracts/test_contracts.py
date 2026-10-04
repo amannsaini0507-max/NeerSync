@@ -1,5 +1,5 @@
 """
-Pytest Test Suite for JalSetu Shared Contracts v1.0
+Pytest Test Suite for NeerSync Shared Contracts v1.0
 Tests JSON schemas against all valid and invalid examples,
 validates regex patterns from ids.md, and verifies openapi.yaml.
 """

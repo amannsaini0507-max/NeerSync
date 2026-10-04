@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - House Inspector Details Overlay
+ * NeerSync 3D Village Digital Twin - House Inspector Details Overlay
  * Displays comprehensive JJM household service delivery statistics when a user clicks a house.
  */
 

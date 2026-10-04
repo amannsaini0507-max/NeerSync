@@ -1,5 +1,5 @@
-// JalSetu Service Worker - Offline First Architecture
-const CACHE_NAME = 'jalsetu-v1';
+// NeerSync Service Worker - Offline First Architecture
+const CACHE_NAME = 'neersync-v1';
 const STATIC_ASSETS = [
   '/',
   '/index.html',

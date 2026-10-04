@@ -11,7 +11,7 @@ async def test_low_pressure_triggers_alert(client: AsyncClient, db_session):
     """Verifies that pressure < 70 kPa generates a low_pressure alert."""
     payload = {
         "schema_version": "1.0",
-        "node_id": "JS-UP-245123-N004",
+        "node_id": "NS-UP-245123-N004",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "ts": datetime.now(timezone.utc).isoformat(),
@@ -45,7 +45,7 @@ async def test_quality_breach_triggers_alert(client: AsyncClient, db_session):
     """Verifies that turbidity > 5 NTU triggers quality alert."""
     payload = {
         "schema_version": "1.0",
-        "node_id": "JS-UP-245123-N005",
+        "node_id": "NS-UP-245123-N005",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "ts": datetime.now(timezone.utc).isoformat(),
@@ -82,7 +82,7 @@ async def test_alert_deduplication(client: AsyncClient, db_session):
     for seq_num in range(1201, 1204):
         payload = {
             "schema_version": "1.0",
-            "node_id": "JS-UP-245123-N004",
+            "node_id": "NS-UP-245123-N004",
             "lgd_gp_code": "245123",
             "scheme_id": "SCH-UP-245123",
             "ts": datetime.now(timezone.utc).isoformat(),
@@ -114,7 +114,7 @@ async def test_auto_closure_on_recovery(client: AsyncClient, db_session):
     # 1. Trigger low pressure
     p_low = {
         "schema_version": "1.0",
-        "node_id": "JS-UP-245123-N004",
+        "node_id": "NS-UP-245123-N004",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "ts": datetime.now(timezone.utc).isoformat(),
@@ -130,7 +130,7 @@ async def test_auto_closure_on_recovery(client: AsyncClient, db_session):
     # 2. Send normal pressure >= 75 kPa
     p_norm = {
         "schema_version": "1.0",
-        "node_id": "JS-UP-245123-N004",
+        "node_id": "NS-UP-245123-N004",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "ts": datetime.now(timezone.utc).isoformat(),
@@ -189,7 +189,7 @@ async def test_escalation_lifecycle_and_repair_loop(client: AsyncClient, db_sess
         f"/api/v1/alerts/{alert.alert_id}",
         json={
             "status": "pending_citizen_confirmation",
-            "technician_photo_url": "https://storage.jalsetu.gov.in/evidence/valve_repaired.jpg",
+            "technician_photo_url": "https://storage.neersync.gov.in/evidence/valve_repaired.jpg",
             "resolution_notes": "Replaced clogged gate valve on Main Branch"
         }
     )

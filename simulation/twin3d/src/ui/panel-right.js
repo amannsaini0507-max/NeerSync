@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Right Operational Panel
+ * NeerSync 3D Village Digital Twin - Right Operational Panel
  * Displays live sensor telemetry cards, explainable alert incidents with "Focus" buttons,
  * citizen grievance log, and MQTT streaming export.
  */

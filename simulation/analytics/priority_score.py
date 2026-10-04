@@ -1,5 +1,5 @@
 """
-JalSetu Maintenance Priority Scoring Model
+NeerSync Maintenance Priority Scoring Model
 Computes priority score = failure_risk x households_affected x vulnerability x days_unresolved.
 """
 

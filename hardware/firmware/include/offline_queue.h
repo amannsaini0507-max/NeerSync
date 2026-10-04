@@ -1,12 +1,12 @@
-#ifndef JALSETU_OFFLINE_QUEUE_H
-#define JALSETU_OFFLINE_QUEUE_H
+#ifndef NEERSYNC_OFFLINE_QUEUE_H
+#define NEERSYNC_OFFLINE_QUEUE_H
 
 #include <Arduino.h>
 #include <FS.h>
 #include <LittleFS.h>
 
 #define MAX_OFFLINE_MESSAGES 128
-#define QUEUE_FILE_PATH      "/jalsetu_queue.txt"
+#define QUEUE_FILE_PATH      "/neersync_queue.txt"
 
 class OfflineQueue {
 public:
@@ -29,4 +29,4 @@ private:
     bool m_initialized;
 };
 
-#endif // JALSETU_OFFLINE_QUEUE_H
+#endif // NEERSYNC_OFFLINE_QUEUE_H

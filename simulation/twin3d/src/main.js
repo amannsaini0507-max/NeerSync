@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Master Application Orchestrator
+ * NeerSync 3D Village Digital Twin - Master Application Orchestrator
  * Integrates Three.js PBR rendering, Hazen-Williams/epanet-js hydraulics,
  * IoT sensor telemetry, JJM alert engine, and interactive UI panels.
  */
@@ -27,7 +27,7 @@ import { PanelAnalytics } from './ui/panel-analytics.js';
 import { HouseInspector } from './ui/details-modal.js';
 import { SENSOR_NODES } from './config.js';
 
-class JalSetuVillageTwinApp {
+class NeerSyncVillageTwinApp {
   constructor() {
     this.canvas = document.getElementById('canvas3d');
     this.container = document.getElementById('viewport-container');
@@ -347,5 +347,5 @@ class JalSetuVillageTwinApp {
 
 // Instantiate on DOM load
 window.addEventListener('DOMContentLoaded', () => {
-  window.jalSetuApp = new JalSetuVillageTwinApp();
+  window.neerSyncApp = new NeerSyncVillageTwinApp();
 });

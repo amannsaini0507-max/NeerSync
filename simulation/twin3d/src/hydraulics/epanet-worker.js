@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - epanet-js Web Worker
+ * NeerSync 3D Village Digital Twin - epanet-js Web Worker
  * Offloads hydraulic calculations to a separate thread using epanet-js WebAssembly.
  * Gracefully signals fallback if WebAssembly is unsupported in the current context.
  */

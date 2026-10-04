@@ -1,6 +1,6 @@
-# JalSetu Circuit Schematics & Hardware Architecture
+# NeerSync Circuit Schematics & Hardware Architecture
 
-This folder contains the complete circuit schematics, pin mapping, power analysis, and netlists for the JalSetu IoT edge node family under Jal Jeevan Mission (JJM) FHTC monitoring.
+This folder contains the complete circuit schematics, pin mapping, power analysis, and netlists for the NeerSync IoT edge node family under Jal Jeevan Mission (JJM) FHTC monitoring.
 
 ---
 

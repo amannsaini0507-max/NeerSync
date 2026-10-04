@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-JalSetu Contracts Validator
+NeerSync Contracts Validator
 Validates Draft 2020-12 JSON Schemas, valid/invalid sample payloads,
 regex patterns from ids.md, and openapi.yaml.
 
@@ -30,7 +30,7 @@ SCHEMAS = {
 
 # Regex patterns specified in ids.md
 REGEX_PATTERNS = {
-    "node_id": re.compile(r"^JS-[A-Z]{2}-[0-9]+-N[0-9]{3}$"),
+    "node_id": re.compile(r"^NS-[A-Z]{2}-[0-9]+-N[0-9]{3}$"),
     "lgd_gp_code": re.compile(r"^[0-9]{6}$"),
     "scheme_id": re.compile(r"^SCH-[A-Z]{2}-[0-9A-Z_]+$"),
     "habitation_id": re.compile(r"^HAB-[0-9]+-[0-9]{3}$"),
@@ -41,8 +41,8 @@ REGEX_PATTERNS = {
 
 REGEX_TEST_CASES = {
     "node_id": {
-        "valid": ["JS-UP-245123-N001", "JS-MH-109283-N099", "JS-DL-999-N005"],
-        "invalid": ["NODE_01", "JS-U-245123-N001", "JS-UP-245123-N1", "js-up-245123-n001", "JS-UP-245123"]
+        "valid": ["NS-UP-245123-N001", "NS-MH-109283-N099", "NS-DL-999-N005"],
+        "invalid": ["NODE_01", "NS-U-245123-N001", "NS-UP-245123-N1", "ns-up-245123-n001", "NS-UP-245123"]
     },
     "lgd_gp_code": {
         "valid": ["245123", "109283", "999999"],
@@ -211,7 +211,7 @@ def validate_openapi_spec():
 
 def main():
     print("==================================================")
-    print("      JalSetu Shared Contracts v1.0 Validator     ")
+    print("      NeerSync Shared Contracts v1.0 Validator     ")
     print("==================================================")
     try:
         validators = validate_schemas()

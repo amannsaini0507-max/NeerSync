@@ -1,24 +1,24 @@
 /**
- * JalSetu 3D Village Digital Twin - Playwright E2E Smoke Test
+ * NeerSync 3D Village Digital Twin - Playwright E2E Smoke Test
  * Tests page load, WebGL canvas, controls, fault toggling, and captures screenshots.
  */
 
 import { test, expect } from '@playwright/test';
 import path from 'path';
 
-test.describe('JalSetu 3D Village Twin E2E Smoke Test', () => {
+test.describe('NeerSync 3D Village Twin E2E Smoke Test', () => {
   test('renders 3D twin, toggles faults, verifies alerts, and captures screenshots', async ({ page }) => {
     // 1. Load application
     await page.goto('/');
 
     // Verify Title & Canvas
-    await expect(page).toHaveTitle(/JalSetu: 3D Village Water Digital Twin/);
+    await expect(page).toHaveTitle(/NeerSync: 3D Village Water Digital Twin/);
     const canvas = page.locator('#canvas3d');
     await expect(canvas).toBeVisible();
 
     // Verify Brand title
     const brandTitle = page.locator('.brand-title');
-    await expect(brandTitle).toHaveText('JalSetu Village Twin');
+    await expect(brandTitle).toHaveText('NeerSync Village Twin');
 
     // Wait for initial render to stabilize
     await page.waitForTimeout(2000);

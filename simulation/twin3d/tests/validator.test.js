@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Schema Validator Unit Tests
+ * NeerSync 3D Village Digital Twin - Schema Validator Unit Tests
  * Validates 100% compliance with /contracts schemas.
  */
 

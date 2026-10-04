@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Hydraulics Unit Tests
+ * NeerSync 3D Village Digital Twin - Hydraulics Unit Tests
  */
 
 import { describe, it, expect, beforeEach } from 'vitest';

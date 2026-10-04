@@ -45,7 +45,7 @@ async def test_telemetry_idempotency_on_node_and_seq(client: AsyncClient):
     """Verifies that sending identical (node_id, seq) is treated as idempotent."""
     payload = {
         "schema_version": "1.0",
-        "node_id": "JS-UP-245123-N004",
+        "node_id": "NS-UP-245123-N004",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "ts": "2026-10-04T12:00:00Z",
@@ -71,7 +71,7 @@ async def test_oversized_payload_rejected(client: AsyncClient):
     """Verifies that telemetry exceeding contract maximum 1024 bytes is rejected."""
     payload = {
         "schema_version": "1.0",
-        "node_id": "JS-UP-245123-N004",
+        "node_id": "NS-UP-245123-N004",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "ts": "2026-10-04T12:00:00Z",
@@ -93,7 +93,7 @@ async def test_oversized_payload_rejected(client: AsyncClient):
 async def test_status_ingest_valid_and_invalid(client: AsyncClient):
     """Verifies status/heartbeat ingestion and rejection of malformed status."""
     valid_status = {
-        "node_id": "JS-UP-245123-N001",
+        "node_id": "NS-UP-245123-N001",
         "lgd_gp_code": "245123",
         "scheme_id": "SCH-UP-245123",
         "status": "online",

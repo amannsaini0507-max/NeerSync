@@ -1,5 +1,5 @@
 """
-JalSetu Synthetic Data Generator
+NeerSync Synthetic Data Generator
 Generates realistic, noise-perturbed, contract-compliant sensor telemetry
 and citizen grievance feedback from hydraulic simulation runs.
 

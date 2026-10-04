@@ -4,9 +4,9 @@
 NetworkManager::NetworkManager(const char* node_id, const char* lgd_gp_code)
     : m_node_id(node_id), m_lgd_gp_code(lgd_gp_code), m_last_rssi(-75) {
     // Topic formats strictly adhere to contracts/mqtt_topics.md:
-    // jalsetu/v1/{lgd_gp_code}/{node_id}/{channel}
-    m_telemetry_topic = "jalsetu/v1/" + String(m_lgd_gp_code) + "/" + String(m_node_id) + "/telemetry";
-    m_status_topic = "jalsetu/v1/" + String(m_lgd_gp_code) + "/" + String(m_node_id) + "/status";
+    // neersync/v1/{lgd_gp_code}/{node_id}/{channel}
+    m_telemetry_topic = "neersync/v1/" + String(m_lgd_gp_code) + "/" + String(m_node_id) + "/telemetry";
+    m_status_topic = "neersync/v1/" + String(m_lgd_gp_code) + "/" + String(m_node_id) + "/status";
 }
 
 void NetworkManager::begin() {

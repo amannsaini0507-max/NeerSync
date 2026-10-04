@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Explainable Alert Rules & Escalation Engine
+ * NeerSync 3D Village Digital Twin - Explainable Alert Rules & Escalation Engine
  * Conforms 100% to /contracts/alert.schema.json.
  * Features 5-minute auto-closure, human-readable reason strings, and time-based administrative escalation.
  */

@@ -5,7 +5,7 @@ TelemetryBuilder::TelemetryBuilder(const char* node_id, const char* lgd_gp_code,
 
 String TelemetryBuilder::buildPumpTelemetry(float current_a, float voltage_v, float battery_v, int rssi_dbm, const char* iso_ts) {
     JsonDocument doc;
-    doc["schema_version"] = JALSETU_SCHEMA_VERSION;
+    doc["schema_version"] = NEERSYNC_SCHEMA_VERSION;
     doc["node_id"] = m_node_id;
     doc["lgd_gp_code"] = m_lgd_gp_code;
     doc["scheme_id"] = m_scheme_id;
@@ -19,7 +19,7 @@ String TelemetryBuilder::buildPumpTelemetry(float current_a, float voltage_v, fl
 
     doc["battery_v"] = roundf(battery_v * 100.0f) / 100.0f;
     doc["rssi_dbm"] = rssi_dbm;
-    doc["fw"] = JALSETU_FIRMWARE_VERSION;
+    doc["fw"] = NEERSYNC_FIRMWARE_VERSION;
 
     String output;
     serializeJson(doc, output);
@@ -28,7 +28,7 @@ String TelemetryBuilder::buildPumpTelemetry(float current_a, float voltage_v, fl
 
 String TelemetryBuilder::buildEsrLevelTelemetry(float level_cm, float battery_v, int rssi_dbm, const char* iso_ts) {
     JsonDocument doc;
-    doc["schema_version"] = JALSETU_SCHEMA_VERSION;
+    doc["schema_version"] = NEERSYNC_SCHEMA_VERSION;
     doc["node_id"] = m_node_id;
     doc["lgd_gp_code"] = m_lgd_gp_code;
     doc["scheme_id"] = m_scheme_id;
@@ -41,7 +41,7 @@ String TelemetryBuilder::buildEsrLevelTelemetry(float level_cm, float battery_v,
 
     doc["battery_v"] = roundf(battery_v * 100.0f) / 100.0f;
     doc["rssi_dbm"] = rssi_dbm;
-    doc["fw"] = JALSETU_FIRMWARE_VERSION;
+    doc["fw"] = NEERSYNC_FIRMWARE_VERSION;
 
     String output;
     serializeJson(doc, output);
@@ -50,7 +50,7 @@ String TelemetryBuilder::buildEsrLevelTelemetry(float level_cm, float battery_v,
 
 String TelemetryBuilder::buildFlowTelemetry(float flow_lpm, float battery_v, int rssi_dbm, const char* iso_ts) {
     JsonDocument doc;
-    doc["schema_version"] = JALSETU_SCHEMA_VERSION;
+    doc["schema_version"] = NEERSYNC_SCHEMA_VERSION;
     doc["node_id"] = m_node_id;
     doc["lgd_gp_code"] = m_lgd_gp_code;
     doc["scheme_id"] = m_scheme_id;
@@ -63,7 +63,7 @@ String TelemetryBuilder::buildFlowTelemetry(float flow_lpm, float battery_v, int
 
     doc["battery_v"] = roundf(battery_v * 100.0f) / 100.0f;
     doc["rssi_dbm"] = rssi_dbm;
-    doc["fw"] = JALSETU_FIRMWARE_VERSION;
+    doc["fw"] = NEERSYNC_FIRMWARE_VERSION;
 
     String output;
     serializeJson(doc, output);
@@ -72,7 +72,7 @@ String TelemetryBuilder::buildFlowTelemetry(float flow_lpm, float battery_v, int
 
 String TelemetryBuilder::buildPressureTelemetry(float pressure_kpa, float battery_v, int rssi_dbm, const char* iso_ts) {
     JsonDocument doc;
-    doc["schema_version"] = JALSETU_SCHEMA_VERSION;
+    doc["schema_version"] = NEERSYNC_SCHEMA_VERSION;
     doc["node_id"] = m_node_id;
     doc["lgd_gp_code"] = m_lgd_gp_code;
     doc["scheme_id"] = m_scheme_id;
@@ -85,7 +85,7 @@ String TelemetryBuilder::buildPressureTelemetry(float pressure_kpa, float batter
 
     doc["battery_v"] = roundf(battery_v * 100.0f) / 100.0f;
     doc["rssi_dbm"] = rssi_dbm;
-    doc["fw"] = JALSETU_FIRMWARE_VERSION;
+    doc["fw"] = NEERSYNC_FIRMWARE_VERSION;
 
     String output;
     serializeJson(doc, output);
@@ -94,7 +94,7 @@ String TelemetryBuilder::buildPressureTelemetry(float pressure_kpa, float batter
 
 String TelemetryBuilder::buildTurbidityTelemetry(float turbidity_ntu, float chlorine_mgl, float battery_v, int rssi_dbm, const char* iso_ts) {
     JsonDocument doc;
-    doc["schema_version"] = JALSETU_SCHEMA_VERSION;
+    doc["schema_version"] = NEERSYNC_SCHEMA_VERSION;
     doc["node_id"] = m_node_id;
     doc["lgd_gp_code"] = m_lgd_gp_code;
     doc["scheme_id"] = m_scheme_id;
@@ -108,7 +108,7 @@ String TelemetryBuilder::buildTurbidityTelemetry(float turbidity_ntu, float chlo
 
     doc["battery_v"] = roundf(battery_v * 100.0f) / 100.0f;
     doc["rssi_dbm"] = rssi_dbm;
-    doc["fw"] = JALSETU_FIRMWARE_VERSION;
+    doc["fw"] = NEERSYNC_FIRMWARE_VERSION;
 
     String output;
     serializeJson(doc, output);
@@ -124,7 +124,7 @@ String TelemetryBuilder::buildStatusPayload(const char* status, unsigned long up
     doc["uptime_s"] = uptime_s;
     doc["battery_v"] = roundf(battery_v * 100.0f) / 100.0f;
     doc["rssi_dbm"] = rssi_dbm;
-    doc["fw"] = JALSETU_FIRMWARE_VERSION;
+    doc["fw"] = NEERSYNC_FIRMWARE_VERSION;
     doc["last_seen_ts"] = iso_ts;
 
     if (reason && strlen(reason) > 0) {

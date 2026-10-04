@@ -1,5 +1,5 @@
 """
-JalSetu Scenario Evaluation Engine
+NeerSync Scenario Evaluation Engine
 Evaluates detection delay, precision, recall, false-alarm rate, and household-level
 accuracy across all 9 fault scenarios with fixed random seeds and generates pitch figures.
 """
@@ -177,7 +177,7 @@ def plot_evaluation_figures(df_eval: pd.DataFrame):
 
     plt.xlabel("Fault Scenario", fontweight="bold")
     plt.ylabel("Score (0.0 - 1.0)", fontweight="bold")
-    plt.title("JalSetu Multi-Scenario Detection Performance (Fixed Seed=42)", fontsize=14, fontweight="bold")
+    plt.title("NeerSync Multi-Scenario Detection Performance (Fixed Seed=42)", fontsize=14, fontweight="bold")
     plt.xticks(x, df_eval["scenario_id"], rotation=45, ha="right")
     plt.ylim(0, 1.15)
     plt.grid(axis="y", linestyle="--", alpha=0.5)
@@ -197,7 +197,7 @@ def plot_evaluation_figures(df_eval: pd.DataFrame):
         color="#e74c3c"
     )
     plt.xlabel("Detection Latency (Minutes)", fontweight="bold")
-    plt.title("JalSetu Early Fault Detection Latency by Scenario", fontsize=14, fontweight="bold")
+    plt.title("NeerSync Early Fault Detection Latency by Scenario", fontsize=14, fontweight="bold")
     plt.grid(axis="x", linestyle="--", alpha=0.5)
     for bar in bars:
         w = bar.get_width()
@@ -238,7 +238,7 @@ def plot_network_topology(wn, fhtc_map):
     tail_info = fhtc_map["FHTC-UP-245123-0020"]
     plt.scatter([tail_info["coordinates"][0]], [tail_info["coordinates"][1]], color="#c0392b", s=180, marker="*", label="Tail-End Sensor (N004)", zorder=4)
 
-    plt.title("JalSetu Virtual Village Network Topology (GP Badepur - 60 FHTCs)", fontsize=13, fontweight="bold")
+    plt.title("NeerSync Virtual Village Network Topology (GP Badepur - 60 FHTCs)", fontsize=13, fontweight="bold")
     plt.xlabel("X Coordinates (meters)")
     plt.ylabel("Y Coordinates (meters)")
     plt.grid(True, linestyle=":", alpha=0.6)

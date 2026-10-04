@@ -14,7 +14,7 @@ from app.mqtt.subscriber import mqtt_subscriber
 from app.routers import telemetry, alerts, feedback, master, analytics, sync, auth, simulation
 from app.adapters.mock_external import mock_router
 
-logger = logging.getLogger("jalsetu")
+logger = logging.getLogger("neersync")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 
 FRONTEND_DIST = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
@@ -24,7 +24,7 @@ TWIN3D_DIST = Path(__file__).resolve().parent.parent.parent.parent / "simulation
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Lifecycle manager: initializes tables, seeds demo data, and launches MQTT client."""
-    logger.info("Initializing JalSetu Database...")
+    logger.info("Initializing NeerSync Database...")
     await init_db()
 
     # Seed demo village
@@ -48,7 +48,7 @@ async def lifespan(app: FastAPI):
     # Shutdown
     escalation_task.cancel()
     mqtt_subscriber.stop()
-    logger.info("JalSetu Backend shutdown complete.")
+    logger.info("NeerSync Backend shutdown complete.")
 
 
 async def _periodic_escalation_runner():
@@ -68,7 +68,7 @@ async def _periodic_escalation_runner():
 
 
 app = FastAPI(
-    title="JalSetu Core REST API",
+    title="NeerSync Core REST API",
     description="AI/ML Functional Household Tap Connection (FHTC) monitoring platform under Jal Jeevan Mission.",
     version="1.0.0",
     lifespan=lifespan
@@ -100,7 +100,7 @@ async def health_check():
     """Health check probe for Docker / Kubernetes liveness."""
     return {
         "status": "healthy",
-        "service": "jalsetu-core-backend",
+        "service": "neersync-core-backend",
         "version": settings.app_version,
         "env": settings.app_env
     }

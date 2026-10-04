@@ -1,4 +1,4 @@
-# JalSetu Virtual Village Simulation & AI/ML Platform (`/simulation`)
+# NeerSync Virtual Village Simulation & AI/ML Platform (`/simulation`)
 
 This directory houses the reproducible simulation engine, WNTR hydraulic model, fault injection framework, schema-compliant data generator, explainable AI/ML models, Streamlit demonstration, and FastAPI inference server.
 

@@ -1,4 +1,4 @@
-# JalSetu Virtual Village Fault Scenarios Specification
+# NeerSync Virtual Village Fault Scenarios Specification
 # Each scenario defines injection time, target component, parameter changes, and expected ground truth.
 
 scenarios:
@@ -16,7 +16,7 @@ scenarios:
     start_time_hours: 14
     duration_hours: 12
     fault_type: "pump_failure"
-    target_node: "JS-UP-245123-N001"
+    target_node: "NS-UP-245123-N001"
     parameters:
       current_a: 0.0
       state: 0
@@ -57,7 +57,7 @@ scenarios:
     start_time_hours: 12
     duration_hours: 20
     fault_type: "tail_end_low_pressure"
-    target_node: "JS-UP-245123-N004"
+    target_node: "NS-UP-245123-N004"
     target_junction: "J_W1_20"
     parameters:
       target_pressure_kpa: 42.0
@@ -70,7 +70,7 @@ scenarios:
     start_time_hours: 20
     duration_hours: 16
     fault_type: "esr_empty"
-    target_node: "JS-UP-245123-N002"
+    target_node: "NS-UP-245123-N002"
     parameters:
       esr_level_cm: 0.0
       expected_alert: "no_supply"
@@ -82,7 +82,7 @@ scenarios:
     start_time_hours: 32
     duration_hours: 14
     fault_type: "contamination"
-    target_node: "JS-UP-245123-N005"
+    target_node: "NS-UP-245123-N005"
     parameters:
       turbidity_ntu: 8.5
       chlorine_mgl: 0.04
@@ -96,7 +96,7 @@ scenarios:
     start_time_hours: 10
     duration_hours: 24
     fault_type: "sensor_drift"
-    target_node: "JS-UP-245123-N004"
+    target_node: "NS-UP-245123-N004"
     parameters:
       drift_rate_kpa_per_hour: 1.8
       expected_alert: "low_pressure"
@@ -108,7 +108,7 @@ scenarios:
     start_time_hours: 30
     duration_hours: 12
     fault_type: "node_offline"
-    target_node: "JS-UP-245123-N004"
+    target_node: "NS-UP-245123-N004"
     parameters:
       battery_v: 2.1
       rssi_dbm: -135

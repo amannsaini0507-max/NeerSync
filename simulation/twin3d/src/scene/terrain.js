@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Procedural Terrain & Environment
+ * NeerSync 3D Village Digital Twin - Procedural Terrain & Environment
  * Generates sloped topography (0m to 8m), village paths, fields, pond,
  * public handpump, trees, and vulnerable site markers (Anganwadi, Primary School).
  */

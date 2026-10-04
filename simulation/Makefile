@@ -1,4 +1,4 @@
-# Makefile for JalSetu Simulation & AI/ML Engine
+# Makefile for NeerSync Simulation & AI/ML Engine
 
 .PHONY: setup test demo serve evaluate clean
 

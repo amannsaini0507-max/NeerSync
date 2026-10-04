@@ -1,7 +1,7 @@
 {
-  "name": "jalsetu-village-twin3d",
+  "name": "neersync-village-twin3d",
   "version": "1.0.0",
-  "description": "JalSetu 3D Village Digital Twin with Three.js and epanet-js / Hazen-Williams hydraulics",
+  "description": "NeerSync 3D Village Digital Twin with Three.js and epanet-js / Hazen-Williams hydraulics",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -29,6 +29,6 @@
     "jal-jeevan-mission",
     "iot"
   ],
-  "author": "JalSetu Simulation Team",
+  "author": "NeerSync Simulation Team",
   "license": "MIT"
 }

@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Schema Validator
+ * NeerSync 3D Village Digital Twin - Schema Validator
  * Validates emitted IoT telemetry, alerts, and citizen feedback against /contracts schemas.
  */
 
@@ -42,7 +42,7 @@ export class ContractsValidator {
       ],
       properties: {
         schema_version: { type: "string", const: "1.0" },
-        node_id: { type: "string", pattern: "^JS-[A-Z]{2}-[0-9]+-N[0-9]{3}$" },
+        node_id: { type: "string", pattern: "^NS-[A-Z]{2}-[0-9]+-N[0-9]{3}$" },
         lgd_gp_code: {
           oneOf: [
             { type: "string", pattern: "^[0-9]{4,8}$" },

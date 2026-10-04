@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jalsetu.gov.in/contracts/v1/feedback.schema.json",
-  "title": "JalSetuCitizenFeedbackV1",
+  "$id": "https://neersync.gov.in/contracts/v1/feedback.schema.json",
+  "title": "NeerSyncCitizenFeedbackV1",
   "description": "Authoritative contract for citizen grievance and service feedback.",
   "type": "object",
   "required": [

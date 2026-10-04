@@ -16,7 +16,7 @@ def test_generator_100_percent_schema_compliance():
     for record in tel:
         gen.telemetry_validator.validate(record)
         assert record["schema_version"] == "1.0"
-        assert record["node_id"].startswith("JS-UP-245123-")
+        assert record["node_id"].startswith("NS-UP-245123-")
         assert record["battery_v"] >= 2.0
         assert record["rssi_dbm"] <= 0
 

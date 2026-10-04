@@ -1,5 +1,5 @@
 """
-JalSetu MQTT Live Telemetry Publisher
+NeerSync MQTT Live Telemetry Publisher
 Streams synthetic village telemetry to an MQTT broker following contracts/mqtt_topics.md.
 """
 
@@ -29,7 +29,7 @@ def stream_telemetry_to_mqtt(
     gen = DataGenerator(seed=42)
     telemetry_records, _ = gen.generate_scenario_dataset(scenario_id, duration_hours=12)
 
-    client = mqtt.Client(client_id="jalsetu_simulator_streamer")
+    client = mqtt.Client(client_id="neersync_simulator_streamer")
     try:
         client.connect(broker_host, broker_port, 60)
         client.loop_start()
@@ -40,7 +40,7 @@ def stream_telemetry_to_mqtt(
 
     published = 0
     for record in telemetry_records[:max_packets]:
-        topic = f"jalsetu/v1/{record['lgd_gp_code']}/{record['node_id']}/telemetry"
+        topic = f"neersync/v1/{record['lgd_gp_code']}/{record['node_id']}/telemetry"
         payload_str = json.dumps(record)
 
         if client:

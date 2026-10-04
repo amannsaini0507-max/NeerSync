@@ -1,5 +1,5 @@
 """
-JalSetu Cross-Platform Simulation CLI Runner
+NeerSync Cross-Platform Simulation CLI Runner
 Provides equivalent functionality to Makefile on Windows, Linux, and macOS.
 
 Usage:

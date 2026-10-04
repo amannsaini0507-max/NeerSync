@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Data Exporter
+ * NeerSync 3D Village Digital Twin - Data Exporter
  * Generates downloadable JSON payloads for telemetry, alerts, and feedback.
  */
 
@@ -35,5 +35,5 @@ export function exportContractsBundle({ telemetryHistory = [], alertsHistory = [
     feedback: feedbackLog,
   };
 
-  triggerJsonDownload(`jalsetu_contracts_bundle_${Date.now()}.json`, bundle);
+  triggerJsonDownload(`neersync_contracts_bundle_${Date.now()}.json`, bundle);
 }

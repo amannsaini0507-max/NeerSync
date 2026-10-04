@@ -1,1 +1,1 @@
-"""JalSetu Contracts Package"""
+"""NeerSync Contracts Package"""

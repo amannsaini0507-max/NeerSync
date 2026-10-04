@@ -1,5 +1,5 @@
 """
-JalSetu Node N3: Tail-End Pressure Monitoring Node SKiDL Schematic Script
+NeerSync Node N3: Tail-End Pressure Monitoring Node SKiDL Schematic Script
 Emits type: "pressure" (pressure_kpa)
 Features 0.5-4.5V ratiometric pressure transducer with 20k/33k precision divider to ADC1_CH0 (GPIO36)
 """

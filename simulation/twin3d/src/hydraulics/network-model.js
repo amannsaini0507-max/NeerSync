@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Hydraulic Network Model Topology
+ * NeerSync 3D Village Digital Twin - Hydraulic Network Model Topology
  * Generates topological graph with 3 branches, 15 nodes, elevations, and FHTCs.
  */
 

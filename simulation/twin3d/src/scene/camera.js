@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Camera Controller
+ * NeerSync 3D Village Digital Twin - Camera Controller
  * Implements OrbitControls, smooth focus fly-to transitions, and dynamic camera shake.
  */
 

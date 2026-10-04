@@ -1,6 +1,6 @@
-// JalSetu Offline Queue & Storage Service
+// NeerSync Offline Queue & Storage Service
 
-const OFFLINE_QUEUE_KEY = 'jalsetu_offline_queue';
+const OFFLINE_QUEUE_KEY = 'neersync_offline_queue';
 
 export interface QueuedSubmission {
   id: string;

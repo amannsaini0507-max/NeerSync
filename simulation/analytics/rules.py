@@ -1,5 +1,5 @@
 """
-JalSetu Deterministic Rule-Based Anomaly & Safety Baseline
+NeerSync Deterministic Rule-Based Anomaly & Safety Baseline
 Detects acute threshold breaches and generates schema-compliant alert payloads.
 """
 
@@ -105,7 +105,7 @@ def evaluate_rules(metrics: dict, current_dt_str: str, lgd_gp_code: str = "24512
                 "gp": str(lgd_gp_code),
                 "branch": "Ward_1_Tail_End"
             },
-            "reason": f"IoT Node JS-UP-245123-N004 offline: Battery voltage dropped to {status_n4.get('battery_v', 0.0):.2f}V. Telemetry stream severed.",
+            "reason": f"IoT Node NS-UP-245123-N004 offline: Battery voltage dropped to {status_n4.get('battery_v', 0.0):.2f}V. Telemetry stream severed.",
             "created_ts": current_dt_str,
             "status": "active"
         })

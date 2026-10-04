@@ -1,6 +1,6 @@
 /**
- * JalSetu 3D Village Digital Twin - MQTT over WebSocket Publisher
- * Streams live telemetry to jalsetu/v1/{lgd_gp_code}/{node_id}/telemetry
+ * NeerSync 3D Village Digital Twin - MQTT over WebSocket Publisher
+ * Streams live telemetry to neersync/v1/{lgd_gp_code}/{node_id}/telemetry
  * Gracefully falls back to an offline simulated buffer if broker is disconnected.
  */
 
@@ -58,7 +58,7 @@ export class MQTTStreamer {
 
   /**
    * Publishes a validated telemetry packet to canonical MQTT topic hierarchy:
-   * jalsetu/v1/{lgd_gp_code}/{node_id}/telemetry
+   * neersync/v1/{lgd_gp_code}/{node_id}/telemetry
    * @param {Object} packet Validated telemetry packet
    */
   publishTelemetry(packet) {

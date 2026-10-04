@@ -24,10 +24,10 @@ async def test_get_master_entities(client: AsyncClient):
     assert sch_res.json()["scheme_id"] == "SCH-UP-245123"
 
     # Node Master
-    node_res = await client.get("/api/v1/master/nodes/JS-UP-245123-N001")
+    node_res = await client.get("/api/v1/master/nodes/NS-UP-245123-N001")
     assert node_res.status_code == 200
     node = node_res.json()
-    assert node["node_id"] == "JS-UP-245123-N001"
+    assert node["node_id"] == "NS-UP-245123-N001"
     assert node["type"] == "pump"
 
     # FHTC Master

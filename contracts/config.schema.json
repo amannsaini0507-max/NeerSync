@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jalsetu.gov.in/schemas/v1/config.schema.json",
-  "title": "JalSetuConfigPayload",
+  "$id": "https://neersync.gov.in/schemas/v1/config.schema.json",
+  "title": "NeerSyncConfigPayload",
   "description": "Validation schema for remote node configuration and reporting parameters.",
   "type": "object",
   "required": ["version", "updated_at", "node_id"],
@@ -17,7 +17,7 @@
     },
     "node_id": {
       "type": "string",
-      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$"
+      "pattern": "^NS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$"
     },
     "telemetry_interval_sec": {
       "type": "integer",

@@ -1,4 +1,4 @@
-# JalSetu Hardware & Firmware Subsystem (`/hardware`)
+# NeerSync Hardware & Firmware Subsystem (`/hardware`)
 
 **Role**: Hardware & Firmware Engineering  
 **Branch**: `feature/hardware`  
@@ -9,7 +9,7 @@
 
 ## 🌟 Executive Summary
 
-This directory contains the production-ready hardware schematics, firmware codebase, calibration procedures, simulation models, and Bill of Materials (BOM) for the **JalSetu IoT Edge Node Family**.
+This directory contains the production-ready hardware schematics, firmware codebase, calibration procedures, simulation models, and Bill of Materials (BOM) for the **NeerSync IoT Edge Node Family**.
 
 Designed specifically for rural Indian Gram Panchayats (GPs), the system provides low-cost, tamper-resistant, solar-powered continuous monitoring with dual LoRaWAN (IN865) and 4G LTE Cat-1 backhaul connectivity.
 

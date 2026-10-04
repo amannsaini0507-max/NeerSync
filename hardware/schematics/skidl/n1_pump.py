@@ -1,5 +1,5 @@
 """
-JalSetu Node N1: Tube-well / Pump Monitoring Node SKiDL Schematic Script
+NeerSync Node N1: Tube-well / Pump Monitoring Node SKiDL Schematic Script
 Emits type: "pump" (current_a, voltage_v)
 Features optoisolated PZEM-004T v3.0 / SCT-013 CT clamp + ZMPT101B
 """

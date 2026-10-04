@@ -71,7 +71,7 @@ async def seed_demo_village(db: AsyncSession):
     # 5. IoT Nodes
     nodes = [
         Node(
-            node_id="JS-UP-245123-N001",
+            node_id="NS-UP-245123-N001",
             lgd_gp_code="245123",
             scheme_id="SCH-UP-245123",
             type="pump",
@@ -84,7 +84,7 @@ async def seed_demo_village(db: AsyncSession):
             lon=77.7050
         ),
         Node(
-            node_id="JS-UP-245123-N002",
+            node_id="NS-UP-245123-N002",
             lgd_gp_code="245123",
             scheme_id="SCH-UP-245123",
             type="esr_level",
@@ -97,7 +97,7 @@ async def seed_demo_village(db: AsyncSession):
             lon=77.7060
         ),
         Node(
-            node_id="JS-UP-245123-N003",
+            node_id="NS-UP-245123-N003",
             lgd_gp_code="245123",
             scheme_id="SCH-UP-245123",
             type="flow",
@@ -110,7 +110,7 @@ async def seed_demo_village(db: AsyncSession):
             lon=77.7065
         ),
         Node(
-            node_id="JS-UP-245123-N004",
+            node_id="NS-UP-245123-N004",
             lgd_gp_code="245123",
             scheme_id="SCH-UP-245123",
             type="pressure",
@@ -123,7 +123,7 @@ async def seed_demo_village(db: AsyncSession):
             lon=77.7080
         ),
         Node(
-            node_id="JS-UP-245123-N005",
+            node_id="NS-UP-245123-N005",
             lgd_gp_code="245123",
             scheme_id="SCH-UP-245123",
             type="quality",
@@ -186,7 +186,7 @@ async def seed_demo_village(db: AsyncSession):
     telemetry_samples = [
         TelemetryRecord(
             schema_version="1.0",
-            node_id="JS-UP-245123-N001",
+            node_id="NS-UP-245123-N001",
             lgd_gp_code="245123",
             scheme_id="SCH-UP-245123",
             ts=now - timedelta(minutes=15),
@@ -199,7 +199,7 @@ async def seed_demo_village(db: AsyncSession):
         ),
         TelemetryRecord(
             schema_version="1.0",
-            node_id="JS-UP-245123-N002",
+            node_id="NS-UP-245123-N002",
             lgd_gp_code="245123",
             scheme_id="SCH-UP-245123",
             ts=now - timedelta(minutes=10),
@@ -212,7 +212,7 @@ async def seed_demo_village(db: AsyncSession):
         ),
         TelemetryRecord(
             schema_version="1.0",
-            node_id="JS-UP-245123-N003",
+            node_id="NS-UP-245123-N003",
             lgd_gp_code="245123",
             scheme_id="SCH-UP-245123",
             ts=now - timedelta(minutes=8),
@@ -225,7 +225,7 @@ async def seed_demo_village(db: AsyncSession):
         ),
         TelemetryRecord(
             schema_version="1.0",
-            node_id="JS-UP-245123-N004",
+            node_id="NS-UP-245123-N004",
             lgd_gp_code="245123",
             scheme_id="SCH-UP-245123",
             ts=now - timedelta(minutes=5),
@@ -238,7 +238,7 @@ async def seed_demo_village(db: AsyncSession):
         ),
         TelemetryRecord(
             schema_version="1.0",
-            node_id="JS-UP-245123-N005",
+            node_id="NS-UP-245123-N005",
             lgd_gp_code="245123",
             scheme_id="SCH-UP-245123",
             ts=now - timedelta(minutes=2),

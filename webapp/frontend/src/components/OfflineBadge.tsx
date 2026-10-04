@@ -18,7 +18,7 @@ export const OfflineBadge: React.FC = () => {
       setIsOnline(true);
       const synced = await offlineStore.syncPending(api);
       if (synced > 0) {
-        alert(`Network restored! ${synced} offline report(s) synchronized to JalSetu.`);
+        alert(`Network restored! ${synced} offline report(s) synchronized to NeerSync.`);
       }
       updateStatus();
     });

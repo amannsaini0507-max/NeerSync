@@ -2,18 +2,18 @@ services:
   # TimescaleDB + PostGIS Time-Series Database
   postgres:
     image: timescale/timescaledb-ha:pg16
-    container_name: jalsetu-postgres
+    container_name: neersync-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: jalsetu
-      POSTGRES_PASSWORD: jalsetu_secure_password_2026
-      POSTGRES_DB: jalsetu_db
+      POSTGRES_USER: neersync
+      POSTGRES_PASSWORD: neersync_secure_password_2026
+      POSTGRES_DB: neersync_db
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U jalsetu -d jalsetu_db"]
+      test: ["CMD-SHELL", "pg_isready -U neersync -d neersync_db"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -21,7 +21,7 @@ services:
   # Eclipse Mosquitto MQTT Message Broker
   mosquitto:
     image: eclipse-mosquitto:2
-    container_name: jalsetu-mosquitto
+    container_name: neersync-mosquitto
     restart: unless-stopped
     ports:
       - "1883:1883"
@@ -34,17 +34,17 @@ services:
       timeout: 5s
       retries: 3
 
-  # JalSetu FastAPI Core Ingestion & Analytics Backend
+  # NeerSync FastAPI Core Ingestion & Analytics Backend
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: jalsetu-backend
+    container_name: neersync-backend
     restart: unless-stopped
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql+asyncpg://jalsetu:jalsetu_secure_password_2026@postgres:5432/jalsetu_db
+      - DATABASE_URL=postgresql+asyncpg://neersync:neersync_secure_password_2026@postgres:5432/neersync_db
       - MQTT_BROKER_HOST=mosquitto
       - MQTT_BROKER_PORT=1883
       - MQTT_ENABLED=true
@@ -67,7 +67,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: jalsetu-frontend
+    container_name: neersync-frontend
     restart: unless-stopped
     ports:
       - "3000:80"

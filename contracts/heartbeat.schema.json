@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jalsetu.gov.in/schemas/v1/heartbeat.schema.json",
-  "title": "JalSetuHeartbeatPayload",
+  "$id": "https://neersync.gov.in/schemas/v1/heartbeat.schema.json",
+  "title": "NeerSyncHeartbeatPayload",
   "description": "Validation schema for node heartbeat, LWT disconnect, and connection status.",
   "type": "object",
   "required": ["timestamp", "zone_id", "node_id", "status"],
@@ -13,12 +13,12 @@
     },
     "zone_id": {
       "type": "string",
-      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+$",
+      "pattern": "^NS-[A-Z]{2}-[A-Z0-9]+$",
       "description": "Canonical zone identifier."
     },
     "node_id": {
       "type": "string",
-      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$",
+      "pattern": "^NS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$",
       "description": "Canonical node identifier."
     },
     "status": {

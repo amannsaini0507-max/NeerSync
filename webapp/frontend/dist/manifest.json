@@ -1,23 +1,21 @@
 {
-  "short_name": "JalSetu",
-  "name": "JalSetu - Smart FHTC Water Management",
+  "short_name": "NeerSync",
+  "name": "NeerSync JJM FHTC Water Security Platform",
   "icons": [
     {
-      "src": "/icons/icon-192.png",
+      "src": "/assets/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/assets/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": "/",
-  "background_color": "#ffffff",
+  "background_color": "#0284c7",
   "theme_color": "#0284c7",
   "display": "standalone",
-  "orientation": "portrait",
-  "lang": "hi-IN",
-  "description": "Smart rural water management and citizen grievance portal for Jal Jeevan Mission"
+  "orientation": "portrait-primary"
 }
