@@ -1,32 +1,63 @@
-const CACHE_NAME = 'neersync-v1.0';
-const URLS_TO_CACHE = [
+// NeerSync Service Worker - Offline First Architecture
+const CACHE_NAME = 'neersync-v1';
+const STATIC_ASSETS = [
   '/',
-  '/assets/style.css',
-  '/assets/app.js',
-  '/manifest.json'
+  '/index.html',
+  '/manifest.json',
+  'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(URLS_TO_CACHE))
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(STATIC_ASSETS);
+    })
   );
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) => Promise.all(
-      keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
-    ))
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+      );
+    })
   );
   self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {
-  // Only cache GET requests; let API POSTs pass through to outbox
-  if (event.request.method !== 'GET') return;
+  const url = new URL(event.request.url);
 
+  // API calls: Network first, cache fallback if offline
+  if (url.pathname.startsWith('/api/')) {
+    event.respondWith(
+      fetch(event.request).catch(() => {
+        return new Response(
+          JSON.stringify({ offline: true, message: 'Offline mode active. Submission queued locally.' }),
+          { headers: { 'Content-Type': 'application/json' } }
+        );
+      })
+    );
+    return;
+  }
+
+  // Static assets: Cache first, network fallback
   event.respondWith(
-    fetch(event.request).catch(() => caches.match(event.request))
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      return fetch(event.request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+        }
+        return networkResponse;
+      });
+    })
   );
 });

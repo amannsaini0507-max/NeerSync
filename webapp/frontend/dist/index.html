@@ -1,55 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeerSync - Smart FHTC Water Security & Monitoring</title>
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#0284c7">
-  <!-- OpenStreetMap Leaflet CDN for high-performance rural GIS rendering -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-  <div id="app">
-    <!-- Navigation Bar -->
-    <header class="navbar">
-      <div class="brand">
-        <span class="brand-icon">💧</span>
-        <div>
-          <div class="brand-title">NeerSync (जलसेतु)</div>
-          <div class="brand-subtitle">Jal Jeevan Mission • Har Ghar Jal</div>
-        </div>
-      </div>
-
-      <nav class="nav-links">
-        <button class="nav-item active" data-page="dashboard" id="nav-dashboard">📊 GP Dashboard</button>
-        <button class="nav-item" data-page="alerts" id="nav-alerts">🚨 Alerts & Escalation</button>
-        <button class="nav-item" data-page="qr" id="nav-qr">📱 1-Tap QR Tap</button>
-        <button class="nav-item" data-page="feedback" id="nav-feedback">📝 Citizen Grievance</button>
-        <button class="nav-item" data-page="sync" id="nav-sync">🔄 IMIS Sync</button>
-      </nav>
-
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <span id="offline-badge" class="offline-pill online">● Online</span>
-        <select id="lang-picker" class="lang-select">
-          <option value="en">English</option>
-          <option value="hi">हिन्दी (Hindi)</option>
-          <option value="mr">मराठी (Marathi)</option>
-        </select>
-      </div>
-    </header>
-
-    <!-- Main Container -->
-    <main class="container" id="main-content">
-      <!-- Dynamic View Injected by app.js -->
-      <div style="text-align: center; padding: 40px; color: #64748b;">
-        Loading NeerSync Har Ghar Jal Platform...
-      </div>
-    </main>
-  </div>
-
-  <script src="/assets/app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeerSync - Smart FHTC Water Management Platform</title>
+    <meta name="description" content="AI/ML monitoring platform for Functional Household Tap Connections (FHTC) under Jal Jeevan Mission" />
+    <meta name="theme-color" content="#0284c7" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <!-- MapLibre GL CSS -->
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+    <style>
+      :root {
+        --primary: #0284c7;
+        --primary-dark: #0369a1;
+        --bg-light: #f8fafc;
+        --text-dark: #0f172a;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+      body {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        min-height: 100vh;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-PSYl_Epn.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
