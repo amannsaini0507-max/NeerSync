@@ -1,0 +1,55 @@
+{
+  "prediction_timestamp": "2026-10-04T09:23:03Z",
+  "lgd_gp_code": "245123",
+  "scheme_id": "SCH-UP-245123",
+  "functional_households_count": 60,
+  "total_households_count": 60,
+  "functionality_percentage": 100.0,
+  "predicted_supply_duration_hours": 2.3,
+  "is_anomaly": false,
+  "anomaly_score": 0.5,
+  "alerts": [],
+  "maintenance_priority": null,
+  "fhtc_sample_status": {
+    "FHTC-UP-245123-0001": {
+      "prob_functional": 0.99,
+      "status": "FUNCTIONAL",
+      "ward": "Ward_1",
+      "index_in_branch": 1,
+      "has_complaint": false,
+      "reason": "Normal pressure and continuous service delivery."
+    },
+    "FHTC-UP-245123-0010": {
+      "prob_functional": 0.99,
+      "status": "FUNCTIONAL",
+      "ward": "Ward_1",
+      "index_in_branch": 10,
+      "has_complaint": false,
+      "reason": "Normal pressure and continuous service delivery."
+    },
+    "FHTC-UP-245123-0020": {
+      "prob_functional": 0.99,
+      "status": "FUNCTIONAL",
+      "ward": "Ward_1",
+      "index_in_branch": 20,
+      "has_complaint": false,
+      "reason": "Normal pressure and continuous service delivery."
+    },
+    "FHTC-UP-245123-0040": {
+      "prob_functional": 0.99,
+      "status": "FUNCTIONAL",
+      "ward": "Ward_2",
+      "index_in_branch": 20,
+      "has_complaint": false,
+      "reason": "Normal pressure and continuous service delivery."
+    },
+    "FHTC-UP-245123-0060": {
+      "prob_functional": 0.99,
+      "status": "FUNCTIONAL",
+      "ward": "Ward_3",
+      "index_in_branch": 20,
+      "has_complaint": false,
+      "reason": "Normal pressure and continuous service delivery."
+    }
+  }
+}

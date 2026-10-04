@@ -1,0 +1,39 @@
+[
+  {
+    "alert_id": "ALT-20261004-PRS-01",
+    "type": "low_pressure",
+    "severity": "high",
+    "scope": {
+      "gp": "245123",
+      "branch": "Ward_1_Tail_End",
+      "fhtc_id": "FHTC-UP-245123-0020"
+    },
+    "reason": "Tail-end pressure deficit: Measured 42.0 kPa, failing the mandatory Jal Jeevan Mission 70.0 kPa terminal benchmark.",
+    "created_ts": "2026-10-04T14:00:00Z",
+    "status": "active"
+  },
+  {
+    "alert_id": "ALT-20261004-QUAL-01",
+    "type": "quality",
+    "severity": "high",
+    "scope": {
+      "gp": "245123",
+      "branch": "ESR_Discharge_Header"
+    },
+    "reason": "Water quality contamination detected: Turbidity spiked to 8.50 NTU (>5.0 NTU safe drinking limit); Residual free chlorine depleted to 0.04 mg/L (<0.20 mg/L minimum disinfection requirement). Potential biological risk.",
+    "created_ts": "2026-10-04T16:30:00Z",
+    "status": "active"
+  },
+  {
+    "alert_id": "ALT-20261004-LEAK-01",
+    "type": "leakage",
+    "severity": "medium",
+    "scope": {
+      "gp": "245123",
+      "branch": "Ward_2_Central"
+    },
+    "reason": "Night Minimum Flow (MNF) baseline exceeded: 35.0 LPM ongoing background leakage detected in Branch 2 joint.",
+    "created_ts": "2026-10-04T03:15:00Z",
+    "status": "active"
+  }
+]
