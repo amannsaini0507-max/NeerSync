@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, lang, o
         </div>
         <div>
           <h1 style={{ fontSize: '18px', fontWeight: 800, color: '#0369a1', lineHeight: '1.2' }}>
-            JalSetu (जल सेतु)
+            NeerSync (नीर सिंक)
           </h1>
           <p style={{ fontSize: '11px', color: '#64748b' }}>Jal Jeevan Mission • FHTC Platform</p>
         </div>

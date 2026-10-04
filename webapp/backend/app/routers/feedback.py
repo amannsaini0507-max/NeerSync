@@ -163,7 +163,7 @@ async def whatsapp_bot_webhook(
     }
     await feedback_service.submit_feedback(db, payload)
     return {
-        "reply": "नमस्ते! आपकी शिकायत JalSetu पर दर्ज कर ली गई है। टिकट संख्या: " + fb_id,
+        "reply": "नमस्ते! आपकी शिकायत NeerSync पर दर्ज कर ली गई है। टिकट संख्या: " + fb_id,
         "ticket_id": fb_id
     }
 

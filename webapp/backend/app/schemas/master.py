@@ -20,7 +20,7 @@ class SchemeMasterResponse(BaseModel):
 
 
 class NodeMasterResponse(BaseModel):
-    node_id: str = Field(..., example="JS-UP-245123-N001")
+    node_id: str = Field(..., example="NS-UP-245123-N001")
     lgd_gp_code: str
     scheme_id: str
     type: str = Field(..., example="pressure")

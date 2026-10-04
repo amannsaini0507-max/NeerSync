@@ -8,7 +8,7 @@ class FeedbackPayload(BaseModel):
     channel: Literal["app", "qr", "whatsapp", "ivr"]
     category: Literal["no_water", "low_pressure", "dirty_water", "leakage", "other"]
     text: Optional[str] = Field(None, max_length=1000, example="पानी नहीं आ रहा है दो दिन से")
-    photo_url: Optional[str] = Field(None, example="https://storage.jalsetu.gov.in/evidence/fb-0012.jpg")
+    photo_url: Optional[str] = Field(None, example="https://storage.neersync.gov.in/evidence/fb-0012.jpg")
     lat: Optional[float] = Field(None, ge=-90.0, le=90.0, example=28.9845)
     lon: Optional[float] = Field(None, ge=-180.0, le=180.0, example=77.7064)
     lang: str = Field("hi", pattern=r"^[a-z]{2}(-[A-Z]{2})?$", example="hi")

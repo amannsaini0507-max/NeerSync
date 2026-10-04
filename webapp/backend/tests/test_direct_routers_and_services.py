@@ -44,11 +44,11 @@ async def test_direct_master_router(db_session):
         await get_scheme_master("SCH-INVALID", db=db_session)
 
     # Node Master
-    node = await get_node_details("JS-UP-245123-N001", db=db_session)
-    assert node.node_id == "JS-UP-245123-N001"
+    node = await get_node_details("NS-UP-245123-N001", db=db_session)
+    assert node.node_id == "NS-UP-245123-N001"
 
     with pytest.raises(HTTPException):
-        await get_node_details("JS-UP-INVALID", db=db_session)
+        await get_node_details("NS-UP-INVALID", db=db_session)
 
     # FHTC Master
     fhtc = await get_fhtc_details("FHTC-UP-245123-0042", db=db_session)

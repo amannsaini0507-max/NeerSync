@@ -28,7 +28,7 @@ async def predict_water_supply(
     """
     # Sample input for ML prediction
     dummy_telemetry = {
-        "node_id": f"JS-UP-{lgd_gp_code}-N001",
+        "node_id": f"NS-UP-{lgd_gp_code}-N001",
         "lgd_gp_code": lgd_gp_code,
         "type": "flow",
         "values": {"flow_lpm": 25.0}
@@ -70,7 +70,7 @@ async def get_detected_anomalies(
         items.append(
             AnomalyItem(
                 anomaly_id=a.alert_id,
-                node_id=f"JS-UP-{lgd_gp_code}-N001",
+                node_id=f"NS-UP-{lgd_gp_code}-N001",
                 type=a.type,
                 severity=a.severity,
                 confidence=0.95,

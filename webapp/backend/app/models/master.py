@@ -109,7 +109,7 @@ class FHTC(Base):
 class Node(Base):
     __tablename__ = "nodes"
 
-    node_id = Column(String(50), primary_key=True)  # JS-UP-245123-N001
+    node_id = Column(String(50), primary_key=True)  # NS-UP-245123-N001
     lgd_gp_code = Column(String(8), ForeignKey("gram_panchayats.lgd_gp_code"), nullable=False)
     scheme_id = Column(String(50), ForeignKey("schemes.scheme_id"), nullable=False)
     type = Column(String(30), nullable=False)  # pump | esr_level | flow | pressure | quality

@@ -74,7 +74,7 @@ export const CitizenGrievancePage: React.FC<Props> = ({ lang, translations }) =>
         fhtc_id: fhtcId,
         channel: 'app',
         category: category,
-        text: description || `${category.replace('_', ' ')} reported via JalSetu Citizen App`,
+        text: description || `${category.replace('_', ' ')} reported via NeerSync Citizen App`,
         lang: lang,
         ts: new Date().toISOString()
       };
@@ -83,7 +83,7 @@ export const CitizenGrievancePage: React.FC<Props> = ({ lang, translations }) =>
         payload.lon = coords.lon;
       }
       if (photoPreview) {
-        payload.photo_url = 'https://storage.jalsetu.gov.in/photos/grievance_' + Date.now() + '.jpg';
+        payload.photo_url = 'https://storage.neersync.gov.in/photos/grievance_' + Date.now() + '.jpg';
       }
 
       await submitCitizenFeedback(payload);

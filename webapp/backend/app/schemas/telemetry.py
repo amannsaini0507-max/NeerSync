@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 class TelemetryPayload(BaseModel):
     schema_version: Literal["1.0"] = Field("1.0", description="Contract schema version. Must be '1.0'")
-    node_id: str = Field(..., pattern=r"^JS-[A-Z]{2}-[0-9]+-N[0-9]{3}$", json_schema_extra={"example": "JS-UP-245123-N001"})
+    node_id: str = Field(..., pattern=r"^NS-[A-Z]{2}-[0-9]+-N[0-9]{3}$", json_schema_extra={"example": "NS-UP-245123-N001"})
     lgd_gp_code: str = Field(..., json_schema_extra={"example": "245123"})
     scheme_id: str = Field(..., pattern=r"^SCH-[A-Z]{2}-[0-9A-Z_]+$", json_schema_extra={"example": "SCH-UP-245123"})
     ts: str = Field(..., json_schema_extra={"example": "2026-10-04T12:00:00Z"})
@@ -18,7 +18,7 @@ class TelemetryPayload(BaseModel):
 
 
 class StatusPayload(BaseModel):
-    node_id: str = Field(..., pattern=r"^JS-[A-Z]{2}-[0-9]+-N[0-9]{3}$", json_schema_extra={"example": "JS-UP-245123-N001"})
+    node_id: str = Field(..., pattern=r"^NS-[A-Z]{2}-[0-9]+-N[0-9]{3}$", json_schema_extra={"example": "NS-UP-245123-N001"})
     lgd_gp_code: str = Field(..., json_schema_extra={"example": "245123"})
     scheme_id: str = Field(..., pattern=r"^SCH-[A-Z]{2}-[0-9A-Z_]+$", json_schema_extra={"example": "SCH-UP-245123"})
     status: Literal["online", "offline", "degraded"]

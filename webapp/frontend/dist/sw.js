@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jalsetu-v1.0';
+const CACHE_NAME = 'neersync-v1.0';
 const URLS_TO_CACHE = [
   '/',
   '/assets/style.css',

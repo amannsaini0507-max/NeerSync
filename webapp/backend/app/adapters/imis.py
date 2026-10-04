@@ -70,7 +70,7 @@ class IMISSyncAdapter:
 
         headers = {
             "Authorization": f"Bearer {self.api_key}",
-            "X-JJM-Agency": "JalSetu-Core-Ingestion",
+            "X-JJM-Agency": "NeerSync-Core-Ingestion",
             "Content-Type": "application/json"
         }
 

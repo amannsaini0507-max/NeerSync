@@ -1,4 +1,4 @@
-// JalSetu REST API Client Service
+// NeerSync REST API Client Service
 
 export interface GPMaster {
   lgd_gp_code: string;

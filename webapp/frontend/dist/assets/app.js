@@ -1,4 +1,4 @@
-// JalSetu Platform Client Bundle (Jal Jeevan Mission Har Ghar Jal)
+// NeerSync Platform Client Bundle (Jal Jeevan Mission Har Ghar Jal)
 (function () {
   'use strict';
 
@@ -66,7 +66,7 @@
     }
   };
 
-  let currentLang = localStorage.getItem('jalsetu_lang') || 'en';
+  let currentLang = localStorage.getItem('neersync_lang') || 'en';
   let currentPage = 'dashboard';
   let mapInstance = null;
 
@@ -77,14 +77,14 @@
   // --- OFFLINE OUTBOX SYSTEM ---
   function getOutbox() {
     try {
-      return JSON.parse(localStorage.getItem('jalsetu_outbox') || '[]');
+      return JSON.parse(localStorage.getItem('neersync_outbox') || '[]');
     } catch (e) {
       return [];
     }
   }
 
   function saveOutbox(items) {
-    localStorage.setItem('jalsetu_outbox', JSON.stringify(items));
+    localStorage.setItem('neersync_outbox', JSON.stringify(items));
     updateOfflineStatus();
   }
 
@@ -344,7 +344,7 @@
         }
         mapInstance = L.map('gis-map-container').setView([28.9845, 77.7080], 15);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap contributors | JalSetu GIS'
+          attribution: '© OpenStreetMap contributors | NeerSync GIS'
         }).addTo(mapInstance);
 
         // ESR Tank
@@ -561,7 +561,7 @@
     try {
       await apiCall(`/api/v1/alerts/${alertId}`, 'PATCH', {
         status: 'pending_citizen_confirmation',
-        technician_photo_url: 'https://storage.jalsetu.gov.in/repairs/valve_fixed.jpg',
+        technician_photo_url: 'https://storage.neersync.gov.in/repairs/valve_fixed.jpg',
         resolution_notes: 'Technician replaced leaking joint. Awaiting citizen tap test.'
       });
       showNotification('Repair proof submitted! Alert moved to citizen confirmation loop.', 'success');
@@ -959,7 +959,7 @@
       langPicker.value = currentLang;
       langPicker.onchange = (e) => {
         currentLang = e.target.value;
-        localStorage.setItem('jalsetu_lang', currentLang);
+        localStorage.setItem('neersync_lang', currentLang);
         updateOfflineStatus();
         navigateTo(currentPage);
       };
