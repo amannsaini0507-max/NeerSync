@@ -59,7 +59,7 @@ async def inject_simulation_scenario(
         packets = [
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N001",
+                "node_id": f"NS-UP-{gp}-N001",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -72,7 +72,7 @@ async def inject_simulation_scenario(
             },
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N002",
+                "node_id": f"NS-UP-{gp}-N002",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -85,7 +85,7 @@ async def inject_simulation_scenario(
             },
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N002",
+                "node_id": f"NS-UP-{gp}-N002",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -98,7 +98,7 @@ async def inject_simulation_scenario(
             },
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N003",
+                "node_id": f"NS-UP-{gp}-N003",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -116,7 +116,7 @@ async def inject_simulation_scenario(
         packets = [
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N002",
+                "node_id": f"NS-UP-{gp}-N002",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -129,7 +129,7 @@ async def inject_simulation_scenario(
             },
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N003",
+                "node_id": f"NS-UP-{gp}-N003",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -147,7 +147,7 @@ async def inject_simulation_scenario(
         packets = [
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N002",
+                "node_id": f"NS-UP-{gp}-N002",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -160,7 +160,7 @@ async def inject_simulation_scenario(
             },
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N003",
+                "node_id": f"NS-UP-{gp}-N003",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -178,7 +178,7 @@ async def inject_simulation_scenario(
         packets = [
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N004",
+                "node_id": f"NS-UP-{gp}-N004",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -199,7 +199,7 @@ async def inject_simulation_scenario(
         packets = [
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N001",
+                "node_id": f"NS-UP-{gp}-N001",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -212,7 +212,7 @@ async def inject_simulation_scenario(
             },
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N002",
+                "node_id": f"NS-UP-{gp}-N002",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -230,7 +230,7 @@ async def inject_simulation_scenario(
         packets = [
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N001",
+                "node_id": f"NS-UP-{gp}-N001",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -243,7 +243,7 @@ async def inject_simulation_scenario(
             },
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N002",
+                "node_id": f"NS-UP-{gp}-N002",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -256,7 +256,7 @@ async def inject_simulation_scenario(
             },
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N002",
+                "node_id": f"NS-UP-{gp}-N002",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -269,7 +269,7 @@ async def inject_simulation_scenario(
             },
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N003",
+                "node_id": f"NS-UP-{gp}-N003",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
@@ -282,7 +282,7 @@ async def inject_simulation_scenario(
             },
             {
                 "schema_version": "1.0",
-                "node_id": f"JS-UP-{gp}-N004",
+                "node_id": f"NS-UP-{gp}-N004",
                 "lgd_gp_code": gp,
                 "scheme_id": scheme,
                 "ts": now_iso,
