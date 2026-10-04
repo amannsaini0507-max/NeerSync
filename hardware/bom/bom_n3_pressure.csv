@@ -1,0 +1,19 @@
+Item #,Component Description,Part Number / MPN,Supplier-Neutral Specification,Quantity,Indian Distributor Source,Unit Price (INR),Total Price (INR)
+1,Microcontroller Core,ESP32-WROOM-32D,240MHz Dual-Core MCU 4MB Flash Wi-Fi/BLE,1,Robu.in / Tanotis,380.00,380.00
+2,Water Pressure Transducer,PT-0-10BAR-0.5-4.5V,0-10 Bar (1000 kPa) G1/4" Stainless Steel Transducer,1,Robu.in / Tanotis,1250.00,1250.00
+3,Cellular 4G LTE Cat-1 Modem,A7672S / SIM7600,4G LTE Cat-1 + 2G GSM Multi-band UART Module,1,Robu.in / Tanotis,1650.00,1650.00
+4,LoRa Transceiver Module,SX1276 / RFM95W,865-867 MHz IN865 SPI Transceiver Module,1,Robu.in / Tanotis,620.00,620.00
+5,Solar Photovoltaic Panel,SP-10W-18V,10W 18V Monocrystalline Panel with Aluminium Frame,1,ElectronicsComp / Loom Solar,850.00,850.00
+6,Solar MPPT Charger Module,CN3791-1S,Solar MPPT Lithium Battery Charging Board 1A,1,Robu.in / Amazon.in,180.00,180.00
+7,Lithium-Ion Battery Pack,18650-2P-5200,2x 18650 2600mAh 3.7V in Parallel with DW01A BMS,1,Robu.in / Tanotis,640.00,640.00
+8,5V Step-Up Booster,MT3608-MINI,2A DC-DC Step-Up Converter (3.7V to 5V Sensor Rail),1,Robu.in / ElectronicsComp,45.00,45.00
+9,Step-Down Buck Regulator,MP2307 / Mini-360,Synchronous DC-DC Buck 3A 3.8V Output for GSM,1,Robu.in / ElectronicsComp,65.00,65.00
+10,Low-Dropout 3.3V Regulator,AP2112K-3.3,3.3V 600mA Low-Dropout CMOS Regulator (SOT-23-5),1,Mouser India / Tanotis,25.00,25.00
+11,GSM Bulk Reservoir Capacitor,ESR-1000uF-10V,1000uF 10V Low-ESR Solid Electrolytic Capacitor,1,Robu.in / ElectronicsComp,18.00,18.00
+12,Precision Divider & TVS Kit,PASSIVE-PREC-N3,20k/33k 0.1% metal film SMBJ6.0CA TVS 100nF filter,1,Mouser India / Local,95.00,95.00
+13,Weatherproof Enclosure,IP65-ABS-160X110,IP65 Outdoor Polycarbonate Box with Rubber Gasket,1,Robu.in / SmartPlast,420.00,420.00
+14,Plumbing Tee & Adapters,TEE-1/2-1/4-BRASS,Brass 1/2" Male x 1/2" Female x 1/4" NPT Thread Tee,1,Local Plumbing Store,140.00,140.00
+15,Cable Glands & Connectors,PG7-PG9-BRASS,Waterproof Nylon Cable Glands (PG7 + PG9) and Terminal,1,Local Hardware,80.00,80.00
+16,External Omni Antenna,ANT-LTE-LORA-SMA,3dBi Omni Outdoor Antenna with IPEX to SMA Pigtail,1,Robu.in / Tanotis,280.00,280.00
+17,Double-sided Prototype PCB,JALSETU-N3-PCB,FR4 Double Sided 1.6mm HASL Prototype Board,1,JLCPCB / LionCircuits,150.00,150.00
+,,,,,,TOTAL N3 NODE COST (INR),6888.00

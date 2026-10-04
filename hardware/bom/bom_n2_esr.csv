@@ -1,0 +1,18 @@
+Item #,Component Description,Part Number / MPN,Supplier-Neutral Specification,Quantity,Indian Distributor Source,Unit Price (INR),Total Price (INR)
+1,Microcontroller Core,ESP32-WROOM-32D,240MHz Dual-Core MCU 4MB Flash Wi-Fi/BLE,1,Robu.in / Tanotis,380.00,380.00
+2,Waterproof Ultrasonic Sensor,A02YYUW / JSN-SR04T,IP67 Waterproof Ultrasonic Distance Sensor (3-450cm),1,Robu.in / Tanotis,1150.00,1150.00
+3,Bulk Outlet Flow Meter,YF-DN15 / YF-B6,G1/2" Brass/Nylon Hall Effect Flow Sensor (1-30 L/min),1,Robu.in / ElectronicsComp,580.00,580.00
+4,Cellular 4G LTE Cat-1 Modem,A7672S / SIM7600,4G LTE Cat-1 + 2G GSM Multi-band UART Module,1,Robu.in / Tanotis,1650.00,1650.00
+5,LoRa Transceiver Module,SX1276 / RFM95W,865-867 MHz IN865 SPI Transceiver Module,1,Robu.in / Tanotis,620.00,620.00
+6,Solar Photovoltaic Panel,SP-10W-18V,10W 18V Monocrystalline Panel with Aluminium Frame,1,ElectronicsComp / Loom Solar,850.00,850.00
+7,Solar MPPT Charger Module,CN3791-1S,Solar MPPT Lithium Battery Charging Board 1A,1,Robu.in / Amazon.in,180.00,180.00
+8,Lithium-Ion Battery Pack,18650-2P-5200,2x 18650 2600mAh 3.7V in Parallel with DW01A BMS,1,Robu.in / Tanotis,640.00,640.00
+9,Step-Down Buck Regulator,MP2307 / Mini-360,Synchronous DC-DC Buck 3A 3.8V Output for GSM,1,Robu.in / ElectronicsComp,65.00,65.00
+10,Low-Dropout 3.3V Regulator,AP2112K-3.3,3.3V 600mA Low-Dropout CMOS Regulator (SOT-23-5),1,Mouser India / Tanotis,25.00,25.00
+11,GSM Bulk Reservoir Capacitor,ESR-1000uF-10V,1000uF 10V Low-ESR Solid Electrolytic Capacitor,1,Robu.in / ElectronicsComp,18.00,18.00
+12,Passives & Protection Kit,PASSIVE-PROT-N2,BAT54S Clamp Resistor Dividers 1.5A PTC TVS Diodes,1,Local / ElectronicsComp,85.00,85.00
+13,Weatherproof Enclosure,IP65-ABS-160X110,IP65 Outdoor Polycarbonate Box with Rubber Gasket,1,Robu.in / SmartPlast,420.00,420.00
+14,Cable Glands & Connectors,PG7-PG9-BRASS,Waterproof Nylon Cable Glands (PG7 + PG9) and Terminal,1,Local Hardware,80.00,80.00
+15,External Omni Antenna,ANT-LTE-LORA-SMA,3dBi Omni Outdoor Antenna with IPEX to SMA Pigtail,1,Robu.in / Tanotis,280.00,280.00
+16,Double-sided Prototype PCB,JALSETU-N2-PCB,FR4 Double Sided 1.6mm HASL Prototype Board,1,JLCPCB / LionCircuits,150.00,150.00
+,,,,,,TOTAL N2 NODE COST (INR),7173.00
