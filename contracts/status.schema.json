@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jalsetu.gov.in/contracts/v1/status.schema.json",
+  "title": "JalSetuNodeStatusV1",
+  "description": "Authoritative contract for IoT node availability, heartbeat, and LWT offline status.",
+  "type": "object",
+  "required": [
+    "node_id",
+    "lgd_gp_code",
+    "scheme_id",
+    "status",
+    "uptime_s",
+    "battery_v",
+    "rssi_dbm",
+    "fw",
+    "last_seen_ts"
+  ],
+  "properties": {
+    "node_id": {
+      "type": "string",
+      "pattern": "^JS-[A-Z]{2}-[0-9]+-N[0-9]{3}$",
+      "description": "Standard node identifier format: JS-<STATE2>-<LGD>-N<3 digits>."
+    },
+    "lgd_gp_code": {
+      "oneOf": [
+        { "type": "string", "pattern": "^[0-9]{4,8}$" },
+        { "type": "integer", "minimum": 1000, "maximum": 99999999 }
+      ],
+      "description": "Local Government Directory Gram Panchayat code."
+    },
+    "scheme_id": {
+      "type": "string",
+      "pattern": "^SCH-[A-Z]{2}-[0-9A-Z_]+$",
+      "description": "IMIS-style Water Supply Scheme identifier."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["online", "offline", "degraded"],
+      "description": "Current node availability state."
+    },
+    "uptime_s": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Node operational uptime in seconds since last boot."
+    },
+    "battery_v": {
+      "type": "number",
+      "minimum": 2.0,
+      "maximum": 16.0,
+      "description": "Node battery/power supply level in volts."
+    },
+    "rssi_dbm": {
+      "type": "integer",
+      "minimum": -140,
+      "maximum": 0,
+      "description": "Received signal strength indicator in dBm."
+    },
+    "fw": {
+      "type": "string",
+      "pattern": "^v?[0-9]+\\.[0-9]+\\.[0-9]+(-[a-zA-Z0-9.]+)?$",
+      "description": "Firmware SemVer version."
+    },
+    "last_seen_ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp of status dispatch."
+    },
+    "reason": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Optional status transition cause, e.g. LWT disconnect or reboot reason."
+    }
+  },
+  "additionalProperties": false
+}

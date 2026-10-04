@@ -1,0 +1,12 @@
+{
+  "node_id": "JS-UP-245123-N004",
+  "lgd_gp_code": "245123",
+  "scheme_id": "SCH-UP-245123",
+  "status": "degraded",
+  "uptime_s": 450,
+  "battery_v": 4.1,
+  "rssi_dbm": -70,
+  "fw": "1.0.0",
+  "last_seen_ts": "2026-10-04T12:00:00Z",
+  "reason": "FIELD_TECHNICIAN_CALIBRATION"
+}

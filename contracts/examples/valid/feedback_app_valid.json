@@ -1,0 +1,12 @@
+{
+  "feedback_id": "FB-20261004-001",
+  "fhtc_id": "FHTC-UP-245123-0001",
+  "channel": "app",
+  "category": "no_water",
+  "text": "No water supplied this morning",
+  "photo_url": "https://storage.jalsetu.gov.in/evidence/dry_tap.jpg",
+  "lat": 28.9845,
+  "lon": 77.7064,
+  "lang": "en",
+  "ts": "2026-10-04T09:00:00Z"
+}

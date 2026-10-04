@@ -1,136 +1,168 @@
 # JalSetu MQTT Topics Specification (`mqtt_topics.md`)
 
-This document defines the MQTT topic taxonomy, Quality of Service (QoS), Retain policy, and payload conventions for communication between JalSetu edge devices, gateways, simulators, and backend services.
+**Version**: `1.0`  
+**Governing Standard**: Jal Jeevan Mission (JJM) FHTC Monitoring Architecture
 
 ---
 
 ## 1. Topic Hierarchy Design
 
-All topics follow the canonical URI schema:
+All communication between edge nodes (ESP32 / LoRaWAN gateways), the MQTT Broker (Eclipse Mosquitto / EMQX), and the ingestion backend adheres strictly to the canonical hierarchy:
 
 ```
-jalsetu/v1/{zone_id}/{node_id}/{channel}
+jalsetu/v1/{lgd_gp_code}/{node_id}/{channel}
 ```
 
-- **Protocol Version**: `v1` (enables backwards compatibility for future major protocol revisions).
-- **Wildcards Allowed for Subscribers**:
-  - `jalsetu/v1/#` : Monitor all system traffic (Backend Ingestion Engine).
-  - `jalsetu/v1/{zone_id}/#` : Monitor a specific zone.
-  - `jalsetu/v1/+/{node_id}/telemetry` : Aggregate all telemetry across zones.
+### Hierarchy Parameters:
+- **`jalsetu/v1`**: Fixed protocol prefix and major API version.
+- **`{lgd_gp_code}`**: Local Government Directory Gram Panchayat code (e.g. `245123`).
+- **`{node_id}`**: Standard node identifier matching `JS-<STATE2>-<LGD>-N<3 digits>` (e.g. `JS-UP-245123-N001`).
+- **`{channel}`**: One of `telemetry`, `status`, or `cmd`.
 
 ---
 
-## 2. Topic Taxonomy & Quality of Service (QoS)
+## 2. Channels, QoS, and Retain Policy
 
-| Topic Pattern | Direction | QoS | Retain | Payload Contract | Description |
+| Channel Topic Pattern | Direction | QoS | Retain Policy | Payload Schema | Description |
 |---|---|---|---|---|---|
-| `jalsetu/v1/{zone_id}/{node_id}/telemetry` | Node -> Cloud | 1 | False | [`telemetry.schema.json`](./telemetry.schema.json) | Periodic sensor telemetry readings |
-| `jalsetu/v1/{zone_id}/{node_id}/heartbeat` | Node -> Cloud | 1 | True | [`heartbeat.schema.json`](./heartbeat.schema.json) | Keep-alive heartbeat & LWT offline notification |
-| `jalsetu/v1/{zone_id}/{node_id}/cmd` | Cloud -> Node | 1 | False | [`command.schema.json`](./command.schema.json) | Control actuation commands (e.g., pump start, valve open) |
-| `jalsetu/v1/{zone_id}/{node_id}/ack` | Node -> Cloud | 1 | False | [`ack.schema.json`](./ack.schema.json) | Acknowledgment & execution status of commands |
-| `jalsetu/v1/{zone_id}/{node_id}/alerts` | Node -> Cloud | 2 | True | [`alert.schema.json`](./alert.schema.json) | Critical edge alarms (overflow, leak, contamination) |
-| `jalsetu/v1/{zone_id}/{node_id}/config` | Cloud -> Node | 1 | True | [`config.schema.json`](./config.schema.json) | Remote configuration update (thresholds, reporting intervals) |
+| `jalsetu/v1/{lgd_gp_code}/{node_id}/telemetry` | Node -> Cloud | **1** | **False** (Never retain) | [`telemetry.schema.json`](./telemetry.schema.json) | High-frequency telemetry (pump, ESR level, flow, pressure, quality). |
+| `jalsetu/v1/{lgd_gp_code}/{node_id}/status` | Node -> Cloud | **1** | **True** (Retained) | [`status.schema.json`](./status.schema.json) | Node connection state, heartbeat, and MQTT Last Will & Testament (LWT). |
+| `jalsetu/v1/{lgd_gp_code}/{node_id}/cmd` | Cloud -> Node | **1** | **False** (Never retain) | JSON actuation command | Remote control commands (valve actuation, sampling rate adjustment, node reboot). |
 
 ---
 
-## 3. Last Will and Testament (LWT) Configuration
+## 3. Payload Size Limits & Bandwidth Optimization
 
-Edge nodes MUST configure their MQTT client connection with an LWT message to detect hardware power failure or network loss:
+To guarantee reliable transmission across rural Indian telecom networks (2G/GPRS fallback, intermittent 4G, and LoRaWAN backhauls):
 
-- **LWT Topic**: `jalsetu/v1/{zone_id}/{node_id}/heartbeat`
+- **Target Payload Size**: **< 512 bytes** for all telemetry packets.
+- **Hard Maximum Payload Limit**: **1024 bytes** (1 KB). The ingestion broker MUST reject and drop any packet exceeding 1024 bytes.
+- **Rules for Edge Nodes**:
+  - Do not send redundant diagnostic text in telemetry packets.
+  - Round floating-point values to standard precision:
+    - Pressure: 1 decimal place (`pressure_kpa: 142.5`)
+    - Flow: 1 decimal place (`flow_lpm: 24.8`)
+    - Level: 1 decimal place (`level_cm: 285.0`)
+    - Water quality: 2 decimal places (`chlorine_mgl: 0.45`, `turbidity_ntu: 1.20`)
+    - Battery voltage: 2 decimal places (`battery_v: 3.82`)
+  - Use UTC ISO-8601 timestamps formatted to seconds (`YYYY-MM-DDTHH:MM:SSZ`).
+
+---
+
+## 4. Last Will and Testament (LWT) Configuration
+
+Edge nodes MUST configure their MQTT client connection with an LWT message upon initiating the MQTT session:
+
+- **LWT Topic**: `jalsetu/v1/{lgd_gp_code}/{node_id}/status`
 - **LWT QoS**: `1`
 - **LWT Retain**: `true`
 - **LWT Payload**:
 ```json
 {
-  "node_id": "JS-DL-Z01-OHT-01",
-  "zone_id": "JS-DL-Z01",
-  "status": "OFFLINE",
-  "reason": "CONNECTION_LOST_LWT",
-  "timestamp": "2026-10-04T12:00:00Z"
+  "node_id": "JS-UP-245123-N001",
+  "lgd_gp_code": "245123",
+  "scheme_id": "SCH-UP-245123",
+  "status": "offline",
+  "uptime_s": 0,
+  "battery_v": 3.70,
+  "rssi_dbm": -95,
+  "fw": "1.0.0",
+  "last_seen_ts": "2026-10-04T12:00:00Z",
+  "reason": "CONNECTION_LOST_LWT"
 }
 ```
 
-When connecting successfully, nodes immediately publish an online status to the same topic with `status: "ONLINE"`.
+When connecting successfully, nodes immediately publish a message with `status: "online"` and `reason: "BOOT_CONNECT"` to the same retained topic.
 
 ---
 
-## 4. Message Channels & Example Payloads
+## 5. Concrete Publish Examples
 
-### 4.1 Telemetry (`.../telemetry`)
-Published periodically (e.g., every 10–30 seconds, or upon significant delta):
+### 5.1 CLI Publish using `mosquitto_pub`
 
-```json
-{
-  "message_id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
-  "timestamp": "2026-10-04T13:45:00.000Z",
-  "zone_id": "JS-DL-Z01",
-  "node_id": "JS-DL-Z01-OHT-01",
-  "metrics": {
-    "water_level_m": 4.82,
-    "water_level_pct": 78.5,
-    "inlet_flow_lpm": 250.0,
-    "outlet_flow_lpm": 180.2,
-    "line_pressure_bar": 2.45,
-    "ph": 7.35,
-    "turbidity_ntu": 1.8,
-    "tds_ppm": 240.0,
-    "water_temp_c": 24.5
-  },
-  "diagnostics": {
-    "battery_pct": 98,
+```bash
+# Publish tail-end pressure telemetry
+mosquitto_pub -h mqtt.jalsetu.gov.in -p 8883 -s \
+  -t "jalsetu/v1/245123/JS-UP-245123-N004/telemetry" -q 1 \
+  -m '{
+    "schema_version": "1.0",
+    "node_id": "JS-UP-245123-N004",
+    "lgd_gp_code": "245123",
+    "scheme_id": "SCH-UP-245123",
+    "ts": "2026-10-04T13:45:00Z",
+    "seq": 1042,
+    "type": "pressure",
+    "values": {
+      "pressure_kpa": 128.5
+    },
+    "battery_v": 3.95,
+    "rssi_dbm": -72,
+    "fw": "1.0.0"
+  }'
+```
+
+### 5.2 Python Publish using `paho-mqtt`
+
+```python
+import json
+import paho.mqtt.client as mqtt
+
+client = mqtt.Client(client_id="JS-UP-245123-N002")
+
+# Set LWT before connecting
+lwt_payload = json.dumps({
+    "node_id": "JS-UP-245123-N002",
+    "lgd_gp_code": "245123",
+    "scheme_id": "SCH-UP-245123",
+    "status": "offline",
+    "uptime_s": 0,
+    "battery_v": 3.80,
+    "rssi_dbm": -85,
+    "fw": "1.0.0",
+    "last_seen_ts": "2026-10-04T13:45:00Z",
+    "reason": "DISCONNECT_LWT"
+})
+client.will_set("jalsetu/v1/245123/JS-UP-245123-N002/status", lwt_payload, qos=1, retain=True)
+
+client.connect("mqtt.jalsetu.gov.in", 8883, 60)
+
+# Publish ESR level telemetry
+telemetry_payload = json.dumps({
+    "schema_version": "1.0",
+    "node_id": "JS-UP-245123-N002",
+    "lgd_gp_code": "245123",
+    "scheme_id": "SCH-UP-245123",
+    "ts": "2026-10-04T13:45:10Z",
+    "seq": 45,
+    "type": "esr_level",
+    "values": {
+        "level_cm": 340.5,
+        "level_pct": 82.5
+    },
+    "battery_v": 4.10,
     "rssi_dbm": -68,
-    "uptime_seconds": 86400
-  }
-}
+    "fw": "1.0.0"
+})
+client.publish("jalsetu/v1/245123/JS-UP-245123-N002/telemetry", telemetry_payload, qos=1, retain=False)
 ```
 
-### 4.2 Actuation Commands (`.../cmd`)
-Published by the backend or dashboard to trigger actions:
+### 5.3 ESP32 C++ Snippet (`PubSubClient`)
 
-```json
-{
-  "command_id": "cmd-88291a92-4112",
-  "timestamp": "2026-10-04T13:45:10.000Z",
-  "target_node": "JS-DL-Z01-OHT-01",
-  "target_actuator": "PMP_01",
-  "action": "START",
-  "parameters": {
-    "auto_cutoff_level_m": 5.80,
-    "max_runtime_minutes": 45
-  },
-  "issued_by": "operator_admin_01"
-}
-```
+```cpp
+#include <PubSubClient.h>
 
-### 4.3 Command Acknowledgment (`.../ack`)
-Published by node upon receiving and applying a command:
+const char* topic_telemetry = "jalsetu/v1/245123/JS-UP-245123-N003/telemetry";
 
-```json
-{
-  "command_id": "cmd-88291a92-4112",
-  "node_id": "JS-DL-Z01-OHT-01",
-  "target_actuator": "PMP_01",
-  "status": "SUCCESS",
-  "executed_at": "2026-10-04T13:45:10.450Z",
-  "message": "Pump contactor engaged successfully. Current draw: 12.4A."
-}
-```
-
-### 4.4 Alarms & Alerts (`.../alerts`)
-Published immediately when threshold limits are breached:
-
-```json
-{
-  "alert_id": "alt-5590-1284",
-  "timestamp": "2026-10-04T13:46:00.000Z",
-  "zone_id": "JS-DL-Z01",
-  "node_id": "JS-DL-Z01-OHT-01",
-  "alert_code": "ERR_OVERFLOW",
-  "severity": "CRITICAL",
-  "metric_name": "water_level_m",
-  "measured_value": 5.95,
-  "threshold_value": 5.80,
-  "description": "Overhead tank level exceeded safe limit (5.80m). Automated cutoff triggered."
+void sendFlowTelemetry(float flow_lpm, float totalizer_l, float batt_v, int rssi) {
+  char payload[300];
+  snprintf(payload, sizeof(payload),
+    "{\"schema_version\":\"1.0\",\"node_id\":\"JS-UP-245123-N003\","
+    "\"lgd_gp_code\":\"245123\",\"scheme_id\":\"SCH-UP-245123\","
+    "\"ts\":\"2026-10-04T13:45:20Z\",\"seq\":%lu,\"type\":\"flow\","
+    "\"values\":{\"flow_lpm\":%.1f,\"totalizer_l\":%.1f},"
+    "\"battery_v\":%.2f,\"rssi_dbm\":%d,\"fw\":\"1.0.0\"}",
+    packet_seq++, flow_lpm, totalizer_l, batt_v, rssi
+  );
+  mqttClient.publish(topic_telemetry, payload, false);
 }
 ```

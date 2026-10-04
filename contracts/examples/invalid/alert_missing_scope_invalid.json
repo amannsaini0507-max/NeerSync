@@ -1,0 +1,8 @@
+{
+  "alert_id": "ALT-20261004-001",
+  "type": "no_supply",
+  "severity": "high",
+  "reason": "Zero flow detected",
+  "created_ts": "2026-10-04T08:00:00Z",
+  "status": "active"
+}

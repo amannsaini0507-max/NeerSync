@@ -1,67 +1,81 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://jalsetu.gov.in/schemas/v1/alert.schema.json",
-  "title": "JalSetuAlertPayload",
-  "description": "Validation schema for real-time edge alarms and safety events.",
+  "$id": "https://jalsetu.gov.in/contracts/v1/alert.schema.json",
+  "title": "JalSetuAlertV1",
+  "description": "Authoritative contract for system anomalies, outages, and quality alarms.",
   "type": "object",
-  "required": ["alert_id", "timestamp", "zone_id", "node_id", "alert_code", "severity", "description"],
+  "required": [
+    "alert_id",
+    "type",
+    "severity",
+    "scope",
+    "reason",
+    "created_ts",
+    "status"
+  ],
   "properties": {
     "alert_id": {
       "type": "string",
-      "description": "Unique UUID for the alert occurrence."
+      "pattern": "^ALT-[A-Za-z0-9_-]+$",
+      "description": "Unique alert identifier (e.g. ALT-20261004-001 or UUID)."
     },
-    "timestamp": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Timestamp when the abnormal condition was detected."
-    },
-    "zone_id": {
-      "type": "string",
-      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+$",
-      "description": "Canonical zone identifier."
-    },
-    "node_id": {
-      "type": "string",
-      "pattern": "^JS-[A-Z]{2}-[A-Z0-9]+-[A-Z]+-[0-9]+$",
-      "description": "Canonical node identifier."
-    },
-    "alert_code": {
+    "type": {
       "type": "string",
       "enum": [
-        "ERR_DRY_RUN",
-        "ERR_OVERFLOW",
-        "ERR_LEAK_BURST",
-        "ERR_CONTAMINATION_PH",
-        "ERR_CONTAMINATION_TURB",
-        "ERR_HIGH_TDS",
-        "ERR_LOW_PRESSURE",
-        "ERR_POWER_PHASE_LOSS",
-        "ERR_SENSOR_FAULT",
-        "ERR_VALVE_TIMEOUT",
-        "ERR_TAMPER_DETECTED"
+        "no_supply",
+        "low_pressure",
+        "leakage",
+        "quality",
+        "node_offline",
+        "chronic_nonfunctional"
       ],
-      "description": "Standardized alert category code."
+      "description": "Standardized alert classification."
     },
     "severity": {
       "type": "string",
-      "enum": ["INFO", "WARNING", "CRITICAL", "EMERGENCY"],
-      "description": "Severity level."
+      "enum": ["low", "medium", "high"],
+      "description": "Alert severity level."
     },
-    "metric_name": {
+    "scope": {
+      "type": "object",
+      "required": ["gp", "branch"],
+      "properties": {
+        "gp": {
+          "oneOf": [
+            { "type": "string", "pattern": "^[0-9]{4,8}$" },
+            { "type": "integer", "minimum": 1000, "maximum": 99999999 }
+          ],
+          "description": "LGD Gram Panchayat code."
+        },
+        "branch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "Distribution network branch or DMA tag."
+        },
+        "fhtc_id": {
+          "type": "string",
+          "pattern": "^FHTC-[A-Z]{2}-[0-9]+-[0-9]{4,}$",
+          "description": "Optional specific household tap connection affected."
+        }
+      },
+      "additionalProperties": false
+    },
+    "reason": {
       "type": "string",
-      "description": "Sensor metric that triggered the alarm (if applicable)."
+      "minLength": 3,
+      "maxLength": 500,
+      "description": "Human-readable diagnostic root cause or trigger condition."
     },
-    "measured_value": {
-      "type": "number",
-      "description": "Measured value that triggered the threshold."
-    },
-    "threshold_value": {
-      "type": "number",
-      "description": "Threshold configured on device or cloud."
-    },
-    "description": {
+    "created_ts": {
       "type": "string",
-      "description": "Detailed explanation of the event."
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp of alert occurrence."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "acknowledged", "resolved"],
+      "description": "Operational lifecycle state."
     }
   },
   "additionalProperties": false

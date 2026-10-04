@@ -1,115 +1,68 @@
-# JalSetu System Identifiers Specification (`ids.md`)
+# JalSetu System Identifiers & Mapping Specification (`ids.md`)
 
-This document defines the canonical identifier scheme and naming standards across the JalSetu ecosystem (IoT edge nodes, firmware, MQTT broker, backend microservices, time-series storage, and frontend webapp).
+**Version**: `1.0`  
+**Governing Standard**: Jal Jeevan Mission (JJM) / Ministry of Jal Shakti National Database Architecture
 
 ---
 
-## 1. Hierarchy Overview
+## 1. Canonical Identifier Taxonomy
 
-All telemetry, state, and command topics are organized under a strict geographic and functional hierarchy:
+All assets, physical IoT nodes, administrative units, and telemetry data in JalSetu utilize strict standardized identifiers. Every identifier format is enforced by regular expressions across firmware, APIs, and database constraints.
 
+| Entity | ID Format Name | Canonical Format String | Regular Expression Pattern | Concrete Example |
+|---|---|---|---|---|
+| **IoT Node** | `node_id` | `JS-<STATE2>-<LGD>-N<3 digits>` | `^JS-[A-Z]{2}-[0-9]+-N[0-9]{3}$` | `JS-UP-245123-N001` |
+| **Gram Panchayat** | `lgd_gp_code` | 6-digit numeric LGD code | `^[0-9]{6}$` | `245123` |
+| **Water Scheme** | `scheme_id` | `SCH-<STATE2>-<IDENTIFIER>` | `^SCH-[A-Z]{2}-[0-9A-Z_]+$` | `SCH-UP-245123` |
+| **Habitation** | `habitation_id` | `HAB-<LGD>-<3 digits>` | `^HAB-[0-9]+-[0-9]{3}$` | `HAB-245123-001` |
+| **Household Tap** | `fhtc_id` | `FHTC-<STATE2>-<LGD>-<4+ digits>` | `^FHTC-[A-Z]{2}-[0-9]+-[0-9]{4,}$` | `FHTC-UP-245123-0042` |
+| **Alert Incident** | `alert_id` | `ALT-<TIMESTAMP>-<INDEX>` | `^ALT-[A-Za-z0-9_-]+$` | `ALT-20261004-001` |
+| **Citizen Grievance** | `feedback_id` | `FB-<TIMESTAMP>-<INDEX>` | `^FB-[A-Za-z0-9_-]+$` | `FB-20261004-0012` |
+
+---
+
+## 2. Fixed Engineering Units
+
+In accordance with the JalSetu Shared Contract, all engineering metrics use fixed, non-negotiable unit names and data types. No conversions or alternative units are permitted within raw contracts.
+
+| Metric Key | Physical Quantity | Fixed Unit | Allowed Range | Precision |
+|---|---|---|---|---|
+| `pressure_kpa` | Pipeline water pressure | Kilopascals (`kPa`) | 0.0 – 2500.0 kPa | 1 decimal (e.g. 140.2) |
+| `flow_lpm` | Instantaneous water flow rate | Liters per minute (`L/min`) | 0.0 – 20000.0 L/min | 1 decimal (e.g. 45.6) |
+| `level_cm` | Elevated Reservoir water height | Centimeters (`cm`) | 0.0 – 3000.0 cm | 1 decimal (e.g. 275.0) |
+| `turbidity_ntu` | Water cloudiness / turbidity | Nephelometric Turbidity Units (`NTU`) | 0.0 – 200.0 NTU | 2 decimals (e.g. 1.25) |
+| `chlorine_mgl` | Residual free disinfectant chlorine | Milligrams per liter (`mg/L`) | 0.0 – 15.0 mg/L | 2 decimals (e.g. 0.40) |
+| `current_a` | Motor pump running current | Amperes (`A`) | 0.0 – 200.0 A | 1 decimal (e.g. 14.5) |
+| `voltage_v` | Pump power supply voltage | Volts (`V`) | 0.0 – 600.0 V | 1 decimal (e.g. 415.0) |
+| `battery_v` | Node operating battery voltage | Volts (`V`) | 2.0 – 16.0 V | 2 decimals (e.g. 3.85) |
+| `rssi_dbm` | Signal power level | Decibel-milliwatts (`dBm`) | -140 to 0 dBm | Integer (e.g. -78) |
+| `ts` / `created_ts` | System timestamp | UTC ISO-8601 | RFC 3339 string | e.g. `2026-10-04T12:00:00Z` |
+
+---
+
+## 3. LGD and IMIS Hierarchy & Mapping Rules
+
+### 3.1 Administrative Hierarchy (Local Government Directory - LGD)
+India's Ministry of Panchayati Raj maintains unique persistent codes for administrative tiers:
 ```
-[System] -> [Region/State] -> [Zone/District] -> [Node/Station] -> [Subsystem/Device]
+State (e.g., 09 - Uttar Pradesh)
+  └─ District (e.g., 142 - Meerut)
+      └─ Sub-district / Block (e.g., 00812 - Daurala)
+          └─ Gram Panchayat (LGD GP Code, e.g., 245123 - Badepur)
+              └─ Village / Habitation (Census/Habitation Code, e.g., HAB-245123-001)
+                  └─ FHTC (Household tap connection, e.g., FHTC-UP-245123-0042)
 ```
 
-- **Prefix**: `JS` (JalSetu)
-- **Format**: All IDs use alphanumeric characters with hyphens `-` or underscores `_`. No spaces or special characters are permitted.
+### 3.2 JJM Scheme Mapping (IMIS)
+Under Jal Jeevan Mission, drinking water infrastructure is organized into Schemes tracked in the national Integrated Management Information System (IMIS):
+- **Single Village Schemes (SVS)**: Serve one Gram Panchayat. The `scheme_id` directly correlates 1:1 with the `lgd_gp_code` (e.g., `SCH-UP-245123`).
+- **Multi-Village Schemes (MVS)**: A centralized water treatment plant or surface intake supplies multiple Gram Panchayats. In an MVS, multiple `lgd_gp_code` values reference the same parent `scheme_id`.
+- **Node to Asset Mapping**:
+  - `N001`: Source / Tube-well / Pump motor monitoring node (`type: pump`).
+  - `N002`: Elevated Storage Reservoir (ESR / OHT) level sensor node (`type: esr_level`).
+  - `N003`: Distribution feeder main bulk flow meter node (`type: flow`).
+  - `N004`: Tail-end pressure monitoring node installed at the farthest household cluster (`type: pressure`).
+  - `N005`: In-line water quality testing node (`type: quality`).
 
----
-
-## 2. Zone Identifiers (`zone_id`)
-
-Format: `JS-<REGION>-<ZONE_CODE>`
-
-| Field | Description | Example |
-|---|---|---|
-| System Prefix | Always `JS` | `JS` |
-| Region Code | 2-letter geographical or state code | `DL` (Delhi), `UP` (Uttar Pradesh), `MH` (Maharashtra), `NZ` (North Zone) |
-| Zone Code | `Z` followed by 2-3 digits representing ward, sector, or administrative block | `Z01`, `Z02`, `SECT15` |
-
-**Examples:**
-- `JS-DL-Z01` : JalSetu, Delhi, Zone 1
-- `JS-UP-Z04` : JalSetu, Uttar Pradesh, Zone 4
-
----
-
-## 3. Node Identifiers (`node_id`)
-
-Format: `JS-<REGION>-<ZONE>-<NODE_TYPE>-<INDEX>`
-
-### Standard Node Types:
-
-| Node Type Code | Type Name | Description | Key Sensors / Actuators |
-|---|---|---|---|
-| `OHT` | Overhead Water Tank | High-elevation distribution reservoir | Level sensor, inlet valve, outlet flow meter |
-| `BW` | Borewell Station | Groundwater extraction node | Pump motor relay, depth sensor, energy meter |
-| `SUMP` | Sump / Ground Reservoir | Primary intake and buffer storage | Level sensor, transfer pumps, intake flow meter |
-| `DIST` | Distribution / DMA Node | District Metered Area monitoring | Pressure sensor, bi-directional flow, throttle valve |
-| `WQ` | Water Quality Station | In-line or sampling water health station | pH, Turbidity, TDS, Temp, Dissolved Oxygen |
-| `WTP` | Water Treatment Plant | Filtration and chemical dosing node | Chlorination dosing pump, multi-parameter probes |
-| `GW` | IoT Edge Gateway | LoRaWAN / Cellular aggregation gateway | System health, battery, backhaul metrics |
-
-**Examples:**
-- `JS-DL-Z01-OHT-01` : Overhead Tank #1 in Zone 1, Delhi
-- `JS-DL-Z01-BW-02` : Borewell Station #2 in Zone 1, Delhi
-- `JS-DL-Z01-DIST-03` : Distribution DMA node #3 in Zone 1, Delhi
-- `JS-DL-Z01-WQ-01` : Water Quality Monitoring Station #1 in Zone 1, Delhi
-
----
-
-## 4. Sensor Identifiers (`sensor_id`)
-
-Sensors report measurements under a node using standardized sensor tag names:
-
-| Tag Code | Physical Measurement | Standard Unit | Typical Range |
-|---|---|---|---|
-| `LVL_01` | Water Level (Ultrasonic / Hydrostatic) | `meters` (`m`) or `%` | 0.0 - 25.0 m / 0 - 100% |
-| `FLW_RATE_01` | Instantaneous Flow Rate | `L/min` or `m3/h` | 0.0 - 5000.0 L/min |
-| `FLW_TOT_01` | Cumulative Totalizer Flow | `liters` (`L`) or `m3` | Monotonically increasing |
-| `PRS_01` | Water Line Pressure | `bar` | 0.0 - 16.0 bar |
-| `PH_01` | Water Acidity / Alkalinity (pH) | `pH` | 0.0 - 14.0 pH (Ideal: 6.5 - 8.5) |
-| `TDS_01` | Total Dissolved Solids | `ppm` (mg/L) | 0 - 2000 ppm (Ideal: < 500 ppm) |
-| `TRB_01` | Turbidity | `NTU` | 0.0 - 100.0 NTU (Ideal: < 5 NTU) |
-| `TMP_01` | Water Temperature | `celsius` (`°C`) | 0.0 - 60.0 °C |
-| `CL_01` | Residual Chlorine | `mg/L` | 0.0 - 5.0 mg/L (Ideal: 0.2 - 0.5 mg/L) |
-| `PWR_V` | Motor AC Voltage | `volts` (`V`) | 0 - 500 V |
-| `PWR_I` | Motor AC Current | `amperes` (`A`) | 0 - 100 A |
-| `PWR_KW` | Active Motor Power | `kilowatts` (`kW`) | 0 - 50 kW |
-
----
-
-## 5. Actuator Identifiers (`actuator_id`)
-
-Control commands address specific actuators using standardized IDs:
-
-| Tag Code | Description | Control States |
-|---|---|---|
-| `PMP_01` | Primary Pump Contactor / Relay | `START`, `STOP` |
-| `PMP_02` | Auxiliary / Backup Pump | `START`, `STOP` |
-| `VLV_INLET` | Inlet Motorized Sluice / Solenoid Valve | `OPEN`, `CLOSE`, `SET_PERCENT` (0-100%) |
-| `VLV_OUTLET` | Outlet Distribution Valve | `OPEN`, `CLOSE`, `SET_PERCENT` (0-100%) |
-| `VLV_BYPASS` | Emergency Bypass Pressure Relief Valve | `OPEN`, `CLOSE` |
-| `DOSE_CHL` | Chlorination Chemical Dosing Pump | `START`, `STOP`, `SET_RATE` (mL/min) |
-
----
-
-## 6. Alert & Status Codes
-
-### Severity Levels:
-- `INFO` : Informational notifications (e.g., scheduled pump started).
-- `WARNING` : Pre-threshold alerts (e.g., low reservoir level < 25%).
-- `CRITICAL` : Action required (e.g., pump dry-run risk, contamination detected).
-- `EMERGENCY` : Immediate hazard / shutdown triggered (e.g., pipe burst, toxic chemical spike).
-
-### Standard Alert Codes:
-| Alert Code | Meaning |
-|---|---|
-| `ERR_DRY_RUN` | Borewell or pump running without water intake detected |
-| `ERR_OVERFLOW` | Tank water level exceeding upper critical threshold |
-| `ERR_LEAK_BURST` | Sudden abnormal pressure drop or flow imbalance (DMA leak) |
-| `ERR_CONTAMINATION_PH` | Water pH outside safe drinking guidelines (<6.5 or >8.5) |
-| `ERR_CONTAMINATION_TURB` | Water turbidity exceeds safe limit (>5 NTU) |
-| `ERR_HIGH_TDS` | High total dissolved solids |
-| `ERR_POWER_PHASE_LOSS` | Three-phase power failure on pump station |
-| `ERR_SENSOR_FAULT` | Open circuit, short circuit, or erratic sensor readings |
-| `ERR_VALVE_TIMEOUT` | Valve failed to reach requested position within timeout |
+### 3.3 FHTC Service Health Correlation
+Every citizen household tap connection (`fhtc_id`) belongs to a specific `habitation_id` and pipeline branch. When a tail-end pressure sensor (`type: pressure`) reports `pressure_kpa < 70.0 kPa` (below JJM benchmark of 7m head pressure) or an ESR level drops to 0, all downstream FHTCs are automatically marked with risk of non-functionality.

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "node_id": "JS-UP-245123-N002",
+  "lgd_gp_code": 245123,
+  "scheme_id": "SCH-UP-245123",
+  "ts": "2026-10-04T12:00:05Z",
+  "seq": 2,
+  "type": "esr_level",
+  "values": {
+    "level_cm": 320.5,
+    "level_pct": 75.0
+  },
+  "battery_v": 4.1,
+  "rssi_dbm": -68,
+  "fw": "1.0.0"
+}
