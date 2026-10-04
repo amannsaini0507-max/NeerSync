@@ -12,7 +12,8 @@ htmlcov/
 *.sqlite
 *.sqlite3
 *.log
-app/data/imis_fallback/*.csv
+backend/app/data/
+
 
 # Node dependencies
 node_modules/
