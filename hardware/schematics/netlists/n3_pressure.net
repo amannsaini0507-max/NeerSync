@@ -1,0 +1,761 @@
+(export 
+  (version "D")
+  (design
+    (source "n3_pressure.py")
+    (date "10/04/2026 03:20 PM")
+    (tool "SKiDL (2.3.0)")
+    (sheet
+      (number 1)
+      (name "/")
+      (tstamps "/")
+      (title_block
+        (title)
+        (company)
+        (rev)
+        (date)
+        (source "..\..\..\n3_pressure.py")
+        (comment
+          (number "1")
+          (value ""))
+        (comment
+          (number "2")
+          (value ""))
+        (comment
+          (number "3")
+          (value ""))
+        (comment
+          (number "4")
+          (value ""))
+        (comment
+          (number "5")
+          (value ""))
+        (comment
+          (number "6")
+          (value ""))
+        (comment
+          (number "7")
+          (value ""))
+        (comment
+          (number "8")
+          (value ""))
+        (comment
+          (number "9")
+          (value "")))))
+  (components
+    (comp
+      (ref "C_BULK1")
+      (value "1000uF/10V")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "mcvPtO2kec")
+        (field
+          (name "SKiDL Line") "common_parts.py:20"))
+      (libsource
+        (lib "NO_LIB")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "16444040-fcb2-563c-9d08-2b6073162ada"))
+    (comp
+      (ref "C_P_FILTER")
+      (value "100nF")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "OT_O4lynvN")
+        (field
+          (name "SKiDL Line") "common_parts.py:20"))
+      (libsource
+        (lib "NO_LIB")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "1cb9ba5c-de4e-563c-9c30-fd25a3aed670"))
+    (comp
+      (ref "D_LED")
+      (value "YELLOW_LED")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "o43jrWfyE5")
+        (field
+          (name "SKiDL Line") "common_parts.py:28"))
+      (libsource
+        (lib "NO_LIB")
+        (part "D"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "b8af59a1-9f23-5938-8ea9-a1fc40b31c90"))
+    (comp
+      (ref "PT1")
+      (value "PRESSURE_0_10BAR_0.5_4.5V")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "XS8_eTsk60")
+        (field
+          (name "SKiDL Line") "n3_pressure.py:73"))
+      (libsource
+        (lib "NO_LIB")
+        (part "PRESSURE_TRANSDUCER"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "3808517e-d79e-5f23-9812-e288ecaa5323"))
+    (comp
+      (ref "Q1")
+      (value "SI2301")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "Ay0vCYcbNG")
+        (field
+          (name "SKiDL Line") "common_parts.py:44"))
+      (libsource
+        (lib "NO_LIB")
+        (part "Q_PMOS"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "8eedc18b-a504-5441-bf90-6f2baf51d2cc"))
+    (comp
+      (ref "R_BAT1")
+      (value "100k")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "yjnBcT1MLh")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "14b528a1-94e4-5f6c-812d-25fced9db26a"))
+    (comp
+      (ref "R_BAT2")
+      (value "100k")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "mzgfl2yAPA")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "dedf36ad-7f7d-5578-a54d-ccc3f833fb82"))
+    (comp
+      (ref "R_LED")
+      (value "1k")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "NReoVufK3T")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "093c9764-9ce6-5692-9013-5375032b3a3c"))
+    (comp
+      (ref "R_P1")
+      (value "20k_0.1%")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "3nAiwj4d8L")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "18195a31-3d48-5af5-b50d-de0469f6e0d1"))
+    (comp
+      (ref "R_P2")
+      (value "33k_0.1%")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "5fxtgLsQhN")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "6770e1bd-6449-5c1a-838b-6e25a3495c2e"))
+    (comp
+      (ref "R_TF1")
+      (value "10k")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "9R_RvcJN0j")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "06e89a94-9110-55b5-8534-c654ca1d157f"))
+    (comp
+      (ref "R_TF2")
+      (value "20k")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "hzAGQw7e_h")
+        (field
+          (name "SKiDL Line") "common_parts.py:12"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "dbc6a91f-93e1-5297-92ce-ada08d8176ac"))
+    (comp
+      (ref "TVS_P")
+      (value "SMBJ6.0CA")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "xIgPa3LsI_")
+        (field
+          (name "SKiDL Line") "common_parts.py:36"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TVS"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "aba0bb21-1876-5922-9463-beed1090c9d1"))
+    (comp
+      (ref "U1")
+      (value "ESP32-WROOM-32D")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "jqyMYoMvnY")
+        (field
+          (name "SKiDL Line") "common_parts.py:68"))
+      (libsource
+        (lib "NO_LIB")
+        (part "ESP32-WROOM-32D"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "61205d88-3b9a-519b-b3f4-2312118edde3"))
+    (comp
+      (ref "U2")
+      (value "SX1276-IN865")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "POLISgOtLU")
+        (field
+          (name "SKiDL Line") "common_parts.py:83"))
+      (libsource
+        (lib "NO_LIB")
+        (part "SX1276_RFM95W"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "e392ad8f-0bc0-52b2-b761-18de56aa5133"))
+    (comp
+      (ref "U3")
+      (value "A7672S-LTE-CAT1")
+      (description "")
+      (footprint "")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint"))
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "sw1CswieUp")
+        (field
+          (name "SKiDL Line") "common_parts.py:97"))
+      (libsource
+        (lib "NO_LIB")
+        (part "A7672S_GSM"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "5f8394d1-acd3-5f96-af7a-f4d368fde5b1")))
+  (nets
+    (net
+      (code 1)
+      (name "3V3")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "2")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 2)
+      (name "5V_SENS")
+      (class "Default")
+      (node
+        (ref "PT1")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "Q1")
+        (pin "3")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 3)
+      (name "BATT_SENSE")
+      (class "Default")
+      (node
+        (ref "R_BAT1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_BAT2")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "4")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 4)
+      (name "GND")
+      (class "Default")
+      (node
+        (ref "C_BULK1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "C_P_FILTER")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "D_LED")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "PT1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_BAT2")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_P2")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_TF2")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "TVS_P")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "14")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "32")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "38")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "3")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "4")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 5)
+      (name "GSM_RXD")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "27")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "5")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 6)
+      (name "GSM_TXD")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "28")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "6")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 7)
+      (name "LED_STATUS")
+      (class "Default")
+      (node
+        (ref "R_LED")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "24")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 8)
+      (name "LORA_CS")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "29")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "10")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 9)
+      (name "LORA_DIO0")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "7")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "4")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 10)
+      (name "LORA_MISO")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "31")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "8")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 11)
+      (name "LORA_MOSI")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "37")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "9")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 12)
+      (name "LORA_RST")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "12")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "3")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 13)
+      (name "LORA_SCK")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "30")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U2")
+        (pin "7")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 14)
+      (name "MODEM_PWRKEY")
+      (class "Default")
+      (node
+        (ref "U1")
+        (pin "26")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "7")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 15)
+      (name "N$1")
+      (class "Default")
+      (node
+        (ref "R_TF1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_TF2")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "6")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 16)
+      (name "N$2")
+      (class "Default")
+      (node
+        (ref "D_LED")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_LED")
+        (pin "2")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 17)
+      (name "PRESSURE_IN")
+      (class "Default")
+      (node
+        (ref "C_P_FILTER")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_P1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_P2")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "3")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 18)
+      (name "PRESSURE_RAW")
+      (class "Default")
+      (node
+        (ref "PT1")
+        (pin "3")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_P1")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "TVS_P")
+        (pin "1")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 19)
+      (name "PWR_SENS_EN")
+      (class "Default")
+      (node
+        (ref "Q1")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U1")
+        (pin "9")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 20)
+      (name "TAP_FLOW_PULSE")
+      (class "Default")
+      (node
+        (ref "R_TF1")
+        (pin "1")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 21)
+      (name "VBAT")
+      (class "Default")
+      (node
+        (ref "Q1")
+        (pin "2")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "R_BAT1")
+        (pin "1")
+        (pintype "UNSPECIFIED")))
+    (net
+      (code 22)
+      (name "VBAT_GSM")
+      (class "Default")
+      (node
+        (ref "C_BULK1")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "1")
+        (pintype "UNSPECIFIED"))
+      (node
+        (ref "U3")
+        (pin "2")
+        (pintype "UNSPECIFIED")))))

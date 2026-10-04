@@ -1,0 +1,8 @@
+Package Item #,Subsystem Description,Node Reference,Quantity Per GP,Unit Cost (INR),Extended Cost (INR),Deployment Location in Village
+1,Tube-well / Pump Monitoring Node,JS-<STATE>-<LGD>-N001,1,6003.00,6003.00,Village Main Tube-well / Pump Starter House
+2,Overhead Storage Reservoir (ESR) Node,JS-<STATE>-<LGD>-N002,1,7173.00,7173.00,Elevated Reservoir (OHT) Staging & Feeder
+3,Tail-End Household Pressure Node (Habitation 1),JS-<STATE>-<LGD>-N003,1,6888.00,6888.00,Farthest Household Tap Cluster - Branch A
+4,Tail-End Household Pressure Node (Habitation 2),JS-<STATE>-<LGD>-N004,1,6888.00,6888.00,Farthest Household Tap Cluster - Branch B
+5,Central Panchayat LoRaWAN Gateway (Optional Hub),GW-IN865-SX1302,1,8500.00,8500.00,Gram Panchayat Bhawan Rooftop (12m Mast)
+6,Mounting Brackets & Grounding Rod Kit,JALSETU-MOUNT-KIT,4,375.00,1500.00,Pole mounting clamps stainless straps & earth pit wire
+,,,,TOTAL GP PACKAGE COST (INR),36952.00,Meets Target INR 25k - 45k per Gram Panchayat

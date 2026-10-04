@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "node_id": "JS-UP-245123-N001",
+  "lgd_gp_code": "245123",
+  "scheme_id": "SCH-UP-245123",
+  "ts": "2026-10-04T12:00:00Z",
+  "seq": 101,
+  "type": "pump",
+  "values": {
+    "current_a": 14.8,
+    "voltage_v": 230.5
+  },
+  "battery_v": 4.12,
+  "rssi_dbm": -68,
+  "fw": "1.0.0"
+}
