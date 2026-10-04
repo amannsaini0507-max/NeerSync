@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Citizen Grievance Simulation
+ * NeerSync 3D Village Digital Twin - Citizen Grievance Simulation
  * Generates citizen reports complying 100% with /contracts/feedback.schema.json.
  */
 

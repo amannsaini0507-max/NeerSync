@@ -1,5 +1,5 @@
 """
-JalSetu Isolation Forest Multivariate Anomaly Detector
+NeerSync Isolation Forest Multivariate Anomaly Detector
 Detects subtle non-linear multivariate drifts in pressure, flow, and pump current.
 """
 

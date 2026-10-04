@@ -1,5 +1,5 @@
 """
-JalSetu AI/ML Model Serving API (FastAPI)
+NeerSync AI/ML Model Serving API (FastAPI)
 Exposes inference endpoints so Webapp Backend (Member B) can call the AI/ML models.
 Follows the /predict specification in contracts/openapi.yaml.
 
@@ -28,7 +28,7 @@ from simulation.analytics import (
 )
 
 app = FastAPI(
-    title="JalSetu AI/ML Simulation & Prediction Service",
+    title="NeerSync AI/ML Simulation & Prediction Service",
     description="Microservice exposing household functionality inference, anomaly detection, and maintenance priority scoring.",
     version="1.0.0"
 )
@@ -90,7 +90,7 @@ class PredictResponse(BaseModel):
 def health_check():
     return {
         "status": "healthy",
-        "service": "JalSetu_Simulation_Inference_v1.0",
+        "service": "NeerSync_Simulation_Inference_v1.0",
         "timestamp": datetime.now(timezone.utc).isoformat()
     }
 

@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Fault Declarations & Presets
+ * NeerSync 3D Village Digital Twin - Fault Declarations & Presets
  */
 
 export const FAULT_DEFINITIONS = [

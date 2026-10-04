@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - IoT Sensor Node Telemetry Emulation
+ * NeerSync 3D Village Digital Twin - IoT Sensor Node Telemetry Emulation
  * Emits telemetry strictly conforming to /contracts/telemetry.schema.json.
  */
 

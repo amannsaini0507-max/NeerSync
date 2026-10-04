@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Left Control Panel
+ * NeerSync 3D Village Digital Twin - Left Control Panel
  * Renders fault toggles, scenario presets, time controls, house legend, and x-ray cutaway.
  */
 

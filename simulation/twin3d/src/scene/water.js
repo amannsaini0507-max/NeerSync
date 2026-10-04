@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Dynamic Fluid Dynamics & Visual Effects
+ * NeerSync 3D Village Digital Twin - Dynamic Fluid Dynamics & Visual Effects
  * Simulates pipe internal flow particles, tap water discharge/dribbles,
  * catastrophic burst fountains, and terrain-spreading puddles.
  */

@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Buildings & Infrastructure
+ * NeerSync 3D Village Digital Twin - Buildings & Infrastructure
  * Builds 15 village houses (mud, brick, tin roof, terraced RCC with rooftop tanks),
  * tap standposts, pump house with borewell casing & control panel, and the 15m ESR.
  */

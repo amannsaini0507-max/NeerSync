@@ -1,5 +1,5 @@
 """
-JalSetu Fault Injection Module
+NeerSync Fault Injection Module
 Applies declarative fault scenarios to hydraulic results and sensor readings.
 """
 

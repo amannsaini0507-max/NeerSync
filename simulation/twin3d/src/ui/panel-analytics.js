@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Analytics Panel & JJM Service Index
+ * NeerSync 3D Village Digital Twin - Analytics Panel & JJM Service Index
  * Renders real-time SVG sparklines, Before/After inspection comparison,
  * and the JJM FHTC Service Index (Regularity, Adequacy, Quality, Pressure, Grievance).
  */
@@ -177,7 +177,7 @@ export class PanelAnalytics {
       modal.innerHTML = `
         <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; max-width:680px; width:90%; padding:24px; box-shadow:var(--shadow-lg);">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-            <h2 style="margin:0; font-size:18px;">⚖️ Before vs After: JalSetu Impact</h2>
+            <h2 style="margin:0; font-size:18px;">⚖️ Before vs After: NeerSync Impact</h2>
             <button id="btn-close-modal" style="padding:4px 8px;">✕</button>
           </div>
           <table style="width:100%; border-collapse:collapse; font-size:13px;">
@@ -185,7 +185,7 @@ export class PanelAnalytics {
               <tr style="border-bottom:2px solid var(--line); text-align:left;">
                 <th style="padding:8px;">Metric</th>
                 <th style="padding:8px; color:var(--bad);">Monthly Manual Inspection</th>
-                <th style="padding:8px; color:var(--ok);">JalSetu Digital Twin</th>
+                <th style="padding:8px; color:var(--ok);">NeerSync Digital Twin</th>
               </tr>
             </thead>
             <tbody>

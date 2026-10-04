@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Alert Rules & Escalation Unit Tests
+ * NeerSync 3D Village Digital Twin - Alert Rules & Escalation Unit Tests
  */
 
 import { describe, it, expect } from 'vitest';

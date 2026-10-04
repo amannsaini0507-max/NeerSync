@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - WebGL Renderer & Quality Controller
+ * NeerSync 3D Village Digital Twin - WebGL Renderer & Quality Controller
  * Supports Low/Medium/High quality profiles, soft shadows, tone mapping, and resize handling.
  */
 

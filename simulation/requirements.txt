@@ -1,4 +1,4 @@
-# Pinned dependencies for JalSetu Virtual Village Simulation & AI/ML
+# Pinned dependencies for NeerSync Virtual Village Simulation & AI/ML
 wntr==1.5.0
 scikit-learn==1.6.1
 pandas==3.0.2

@@ -1,1 +1,1 @@
-"""JalSetu Simulation Package"""
+"""NeerSync Simulation Package"""

@@ -1,6 +1,6 @@
-# JalSetu 3D Village Digital Twin (`/simulation/twin3d`)
+# NeerSync 3D Village Digital Twin (`/simulation/twin3d`)
 
-**Project**: JalSetu (जल सेतु) — IoT & AI/ML Platform for Jal Jeevan Mission (JJM)  
+**Project**: NeerSync (नीर सिंक) — IoT & AI/ML Platform for Jal Jeevan Mission (JJM)  
 **Target Unit**: Gram Panchayat Badepur (LGD: `245123`, Scheme: `SCH-UP-245123`)  
 **Technology Stack**: Three.js (`0.174.0`), `epanet-js` (`0.9.0`), Web Workers, Vite, Vitest, Playwright  
 

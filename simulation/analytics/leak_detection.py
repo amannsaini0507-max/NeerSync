@@ -1,5 +1,5 @@
 """
-JalSetu Physical Leak & Burst Detection Engine
+NeerSync Physical Leak & Burst Detection Engine
 Combines Night-Minimum Flow (MNF) analysis and hydraulic mass balance.
 """
 

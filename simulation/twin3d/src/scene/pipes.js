@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Pipes, Valves, & Pressure Shaders
+ * NeerSync 3D Village Digital Twin - Pipes, Valves, & Pressure Shaders
  * Builds subterranean PVC and HDPE piping with physical diameter scaling,
  * fittings, gate valves, and pressure-colour gradients.
  */

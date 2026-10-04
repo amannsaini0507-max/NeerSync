@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Hazen-Williams Hydraulic Engine
+ * NeerSync 3D Village Digital Twin - Hazen-Williams Hydraulic Engine
  * Rigorous tree solver incorporating physical elevation heads, C=130 roughness,
  * pressure-dependent demands, emitter leaks, tank mass balance, and water quality decay.
  */

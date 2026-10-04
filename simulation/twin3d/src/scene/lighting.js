@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Dynamic Lighting & Day-Night Cycle
+ * NeerSync 3D Village Digital Twin - Dynamic Lighting & Day-Night Cycle
  * Syncs sun azimuth, elevation, color temperature, ambient lighting, and shadows
  * to the simulation clock (00:00 to 24:00).
  */

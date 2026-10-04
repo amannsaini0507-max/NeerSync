@@ -1,5 +1,5 @@
 /**
- * JalSetu 3D Village Digital Twin - Unified Hydraulic Solver Interface
+ * NeerSync 3D Village Digital Twin - Unified Hydraulic Solver Interface
  * Presents a single unified API: solve(state, dt) -> results.
  * Manages the epanet-js Web Worker while keeping the analytical Hazen-Williams
  * tree solver instantly responsive as primary/fallback so rendering never drops frames.

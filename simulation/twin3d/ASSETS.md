@@ -1,6 +1,6 @@
 # Asset Registry & Licensing (`ASSETS.md`)
 
-This document records the provenance, licensing, and attribution for all graphical, 3D, and auditory assets used in the **JalSetu 3D Village Digital Twin** (`/simulation/twin3d`).
+This document records the provenance, licensing, and attribution for all graphical, 3D, and auditory assets used in the **NeerSync 3D Village Digital Twin** (`/simulation/twin3d`).
 
 ---
 
