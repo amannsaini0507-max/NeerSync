@@ -1,0 +1,23 @@
+{
+  "short_name": "JalSetu",
+  "name": "JalSetu - Smart FHTC Water Management",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#0284c7",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "hi-IN",
+  "description": "Smart rural water management and citizen grievance portal for Jal Jeevan Mission"
+}

@@ -1,0 +1,5 @@
+state_code,state_name,district_code,district_name,block_code,block_name,lgd_gp_code,gp_name,village_id,village_name,habitation_id,habitation_name,fhtc_id,consumer_name,phone,branch,lat,lon,status
+UP,Uttar Pradesh,DIST-MEERUT,Meerut,BLK-DAURALA,Daurala,245123,Badepur,VIL-245123,Badepur Khas,HAB-245123-001,Badepur Main Ward 1,FHTC-UP-245123-0101,Suresh Sharma,9876543101,Main_Branch,28.9841,77.7052,functional
+UP,Uttar Pradesh,DIST-MEERUT,Meerut,BLK-DAURALA,Daurala,245123,Badepur,VIL-245123,Badepur Khas,HAB-245123-002,Harijan Basti Ward 2,FHTC-UP-245123-0102,Meena Devi,9876543102,Branch_South_Ward3,28.9849,77.7061,functional
+UP,Uttar Pradesh,DIST-MEERUT,Meerut,BLK-DAURALA,Daurala,245123,Badepur,VIL-245123,Badepur Khas,HAB-245123-003,Kisan Mohalla Ward 3,FHTC-UP-245123-0103,Brijesh Yadav,9876543103,Main_Branch,28.9855,77.7072,intermittent
+UP,Uttar Pradesh,DIST-MEERUT,Meerut,BLK-DAURALA,Daurala,245123,Badepur,VIL-245123,Badepur Khas,HAB-245123-004,Panchayat Ghar Ward 4,FHTC-UP-245123-0104,Mohan Singh,9876543104,Branch_South_Ward3,28.9862,77.7081,non_functional
