@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "node_id": "JS-UP-245123-N003",
+  "lgd_gp_code": "245123",
+  "scheme_id": "SCH-UP-245123",
+  "ts": "2026-10-04T12:00:00Z",
+  "seq": 312,
+  "type": "pressure",
+  "values": {
+    "pressure_kpa": 142.5
+  },
+  "battery_v": 3.85,
+  "rssi_dbm": -81,
+  "fw": "1.0.0"
+}

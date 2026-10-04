@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "node_id": "JS-UP-245123-N004",
+  "lgd_gp_code": "245123",
+  "scheme_id": "SCH-UP-245123",
+  "ts": "2026-10-04T12:00:00Z",
+  "seq": 418,
+  "type": "quality",
+  "values": {
+    "turbidity_ntu": 1.25,
+    "chlorine_mgl": 0.45
+  },
+  "battery_v": 4.05,
+  "rssi_dbm": -74,
+  "fw": "1.0.0"
+}
