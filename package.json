@@ -1,0 +1,11 @@
+{
+  "name": "neersync",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NeerSync Smart Water Supply Management Platform - Jal Jeevan Mission",
+  "scripts": {
+    "install": "cd webapp/frontend && npm install",
+    "build": "cd webapp/frontend && npm run build",
+    "preview": "cd webapp/frontend && npm run preview"
+  }
+}

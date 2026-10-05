@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "cd webapp/frontend && npm install",
+  "buildCommand": "cd webapp/frontend && npm run build",
+  "outputDirectory": "webapp/frontend/dist",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/twin3d/(.*)",
+      "destination": "/twin3d/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
